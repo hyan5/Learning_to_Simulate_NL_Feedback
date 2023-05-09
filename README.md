@@ -1,1 +1,1 @@
-# Learning_to_Simulate_Feedback
+# Learning to Simulate Natural Language Feedback for Interactive Semantic Parsing
