@@ -9,6 +9,7 @@ Interactive semantic parsing based on natural language (NL) feedback, where user
 
 ## 2. Setup
 The model is tested in python 3.8.6.
+
 First, clone the repository and set up the `${ISP_HOME}` environment:
 ```
 git clone git@github.com:hyan5/Learning_to_Simulate_NL_Feedback.git
