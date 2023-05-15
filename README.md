@@ -26,7 +26,7 @@ source ispenv/bin/activate
 pip install -r requirements.txt
 ```
 
-## Part 1. Preparing SPLASH 
+## 2.1 Preparing SPLASH 
 The first part of the project will prepare the SPLASH training/dev/test data, including removing structural errors and generating the template-based feedback for each instance. The generation of template-based explanation is skipped since the explanation has been provided by the original SPLASH datasets.
 
 First, download the SPLASH data from [its official repository](https://github.com/MSR-LIT/Splash), and save them under `data/splash/`:
