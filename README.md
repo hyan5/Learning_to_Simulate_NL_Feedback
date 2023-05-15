@@ -7,6 +7,11 @@ This repository provides code implementation for our paper [Learning to Simulate
 </p>
 Interactive semantic parsing based on natural language (NL) feedback, where users provide feedback to correct the parser mistakes, has emerged as a more practical scenario than the traditional one-shot semantic parsing. However, prior work has heavily relied on human-annotated feedback data to train the interactive semantic parser, which is prohibitively expensive and not scalable. In this work, we propose a new task of simulating NL feedback for interactive semantic parsing. We accompany the task with a novel feedback evaluator. The evaluator is specifically designed to assess the quality of the simulated feedback, based on which we decide the best feedback simulator from our proposed variants. On a text-to-SQL dataset, we show that our feedback simulator can generate high-quality NL feedback to boost the error correction ability of a specific parser. In low-data settings, our feedback simulator can help achieve comparable error correction performance as trained using the costly, full set of human annotations.
 
+### 1.1 Simulating feedback to a specific semantic parse
+We investigate whether our feedback simulator trained on the [SPLASH](https://aclanthology.org/2020.acl-main.187.pdf) dataset can simulate feedback for an unseen semantic parser. We first follow a similar procedure of SPLASH to create mistakes made by [EditSQL](https://arxiv.org/abs/1909.00786) on the Spider training set, and then apply our feedback simulator to simulate NL feedback. This results in around 2,400 simulated training examples. This data is then used to augment the original SPLASH training set for training an error correction model. We evaluate the error correction model on both the SPLASH test set and the EditSQL test set (which similarly contains human-annotated feedback to EditSQL’s mistakes on the Spider dev set and was additionally provided by [NL-Edit](https://arxiv.org/pdf/2103.14540.pdf).
+
+### 1.2 Simulating feedback in low-data settings
+One important motivation of our research is to reduce the need for human annotations. Therefore, we also experiment with a “low data” setting, where only *K%* of the SPLASH training set will be used to construct our feedback simulator and evaluator. For the remaining *(100−K)%* of training examples, we will instead apply our feedback simulator to simulate NL feedback. In experiments, we consider *K=20, 10, and 5*,, consuming 1639, 836, and 268 training examples, respectively.
 ## 2. Setup
 This project is tested in python 3.8.6.
 
@@ -48,3 +53,9 @@ python generate_template_feedback.py -i ../data/splash/test.json -o ../data/spla
 For details about options of `generate_template_feedback.py`, please refer to [the utility function README](utils/).
 
 Now, you should have three files -- `train_w_template_feedback.json`, `dev_w_template_feedback.json`, and `test_w_template_feedback.json` -- under the `data/splash/` folder, all with template-based feedback. We will use these datasets to train a user feedback simulator.
+
+## 2.2 Training a User Feedback Evaluator
+
+## 2.3 Training a User Feedback Simulator
+
+## 2.4 Training an Error Correction Model
