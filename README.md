@@ -1,1 +1,2 @@
 # Learning to Simulate Natural Language Feedback for Interactive Semantic Parsing
+This repository provides code implementation for our paper [Learning to Simulate Natural Language Feedback for Interactive Semantic Parsing](https://github.com/hyan5/Learning_to_Simulate_NL_Feedback.git)
