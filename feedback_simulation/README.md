@@ -2,20 +2,11 @@
 
 ### Set up the virtual environment
 
-1. Follow all instructions on the homepage to set up the python virtual environment and install all dependencies.
+1. Follow all instructions on the [project homepage](main) to set up the python virtual environment and install all dependencies.
 
 2. Download all necessary datasets and put them into the "$ISP_HOME/data" folder.
 
-### Generate the template feedback for SPLASH data and remove structural errors
-
-1. Run the following commands to generate the template feedback and it will remove all structural errors
-
-```
-cd $ISP_HOME/utils
-python generate_template_feedback.py -i ../data/splash/train.json -o ../data/splash/train_w_template_feedback.json --no_underscore --no_quote --connect_foreign_key_group
-python generate_template_feedback.py -i ../data/splash/dev.json -o ../data/splash/dev_w_template_feedback.json --no_underscore --no_quote --connect_foreign_key_group
-python generate_template_feedback.py -i ../data/splash/test.json -o ../data/splash/test_w_template_feedback.json --no_underscore --no_quote --connect_foreign_key_group
-```
+3. Generate the template feedback for SPLASH data and remove structural errors
 
 ### Experiment Setting 1 train an error correction model using SPLASH + feedback of EditSQL simulated by our feedback generator
 
