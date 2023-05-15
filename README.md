@@ -19,9 +19,32 @@ export PYTHONPATH=$ISP_HOME:$ISP_HOME/utils:$PYTHONPATH
 
 Then download the Spider data from [its official website](https://yale-lily.github.io/spider) and save it under the `data/spider/` folder. The data paths have been added to the global config file `config.py`.
 
-Create a virtual environment:
+Create a virtual environment and install all dependencies:
 ```
 python -m venv ispenv 
 source ispenv/bin/activate
 pip install -r requirements.txt
 ```
+
+## Part 1. Preparing SPLASH 
+The first part of the project will prepare the SPLASH training/dev/test data, including removing structural errors and generating the template-based feedback for each instance. The generation of template-based explanation is skipped since the explanation has been provided by the original SPLASH datasets.
+
+First, download the SPLASH data from [its official repository](https://github.com/MSR-LIT/Splash), and save them under `data/splash/`:
+```
+mkdir -p data/splash/
+cd data/splash
+wget https://raw.githubusercontent.com/MSR-LIT/Splash/master/data/train.json
+wget https://raw.githubusercontent.com/MSR-LIT/Splash/master/data/dev.json
+wget https://raw.githubusercontent.com/MSR-LIT/Splash/master/data/test.json
+```
+
+Then, run the following commands to process the SPLASH training data:
+```
+cd utils
+python generate_template_feedback.py -i ../data/splash/train.json -o ../data/splash/train_w_template_feedback.json --no_underscore --no_quote --connect_foreign_key_group
+python generate_template_feedback.py -i ../data/splash/dev.json -o ../data/splash/dev_w_template_feedback.json --no_underscore --no_quote --connect_foreign_key_group
+python generate_template_feedback.py -i ../data/splash/test.json -o ../data/splash/test_w_template_feedback.json --no_underscore --no_quote --connect_foreign_key_group
+```
+For details about options of `generate_template_feedback.py`, please refer to [the utility function README](utils/).
+
+Now, you should have three files -- `train_w_template_feedback.json`, `dev_w_template_feedback.json`, and `test_w_template_feedback.json` -- under the `data/splash/` folder, all with template-based feedback. We will use these datasets to train a user feedback simulator.
