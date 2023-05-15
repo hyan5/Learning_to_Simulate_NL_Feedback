@@ -20,6 +20,7 @@ Templates are flexible, there are several options to select while generating fee
 * `--connect_foreign_key_group` When comparing two column names, not only consider the column name itself. Because "airport.id" and "flight.id" are different things although they have identical clumn name "id". But we can't consider both the table name and column name, because "list.lastname" and "teacher.lastname" could be the same thing. Thus, we should consider the foreign key relationship between two columns. If they are foreign keys of each other, they are considered as the same thing. In addition, if A is B's foreign key, C is B's foreign key, C should also be equal to A. If this option is specified, the foreign key relationship is considered, otherwise we will compare both the table name and column name.
 * `--only_column_name` If this option is specified, we compare the column name solely when judging the equivelance between two columns.
 * `--no_nltk_tokenizer` If this option is specified, the feedback will not use NLTK tokenizer to tokenize them. Thus, the punctuations are not separated with the previous workd by a space, like **"This is a sentence."**. By default, punctuations are separated like **"This is a sentence ."**.
+* `--use_modified_schema` Use modified schema names instead of their exact name in database.
 
 Note: If neither the `--connect_foreign_key_group` and `--only_column_name` are specified, both of the column name and table name will be compared while judging the equivelent between two column names.
 
@@ -33,7 +34,7 @@ The another one is `output_struct_err.json` which stores all samples with mistak
 3. Empty string represents that the parser deem the predicted parse and the golden parse are the same so there is no feedback.
 
 ### Method 2: Use the function `util.template.feedback`
- 
+
 ``` python
 from util.template import feedback
 import config
