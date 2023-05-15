@@ -1,0 +1,810 @@
+From step 2 , I want title and stars rating of director having minimum stars rating .
+you should use room count instead of bathroom count .
+No need to find faculty 's year equals 1996 find campuses equals CSU instead of that .
+Calculate the total of rows that correspond to each value of product quantity .
+Just find average monthly rental , no need to find for each value of student id .
+Find room count instead of bathroom count and find building short name equals Columbus Square instead of apartment number .
+You should find the bedroom counts of all apartments in step 1 .
+Ensure that you search for faculty 's faculty rather than rows count of faculty table .
+You should use City 's address instead of email address .
+Find campus fee whose csu fees year equals 1996 and campuses equals San Jose State University .
+In step 1 , You have to use customers .
+i want the date of rating for director james cameron 's film from rating table .
+Replace date order placed with invoice date , also need to find order details .
+I want transacted amount .
+For step 2 , you need to determine campus , you should use the results of step 1 ordered in descending order of faculty 's campus .
+Use average ratings stars instead of lowest value of rating stars and also determine the title of movie table .
+You should use faculty of faculty and campus of campuses instead of number of rows of faculty and year respectively .
+Substitute product with max page size for both steps .
+Make sure Lessons 's lesson status code equals Completed for that customer .
+Remove faculty 's year part in step 2 .
+Make sure first name equals Janessa and last name equals Sawayn .
+I want the id of transaction .
+In step 1 , there should be customer payments table instead of customers table
+In step 2 Find name whose rating stars are valued null for particular date .
+You have to ensure that table of body builder contains Id of people .
+In step 2 , determine the aggregate of bedroom count where building short name is Columbus Square .
+You need to use account id , date account opened , other account details , accounts in lieu of order Id , date the order was placed , order details and orders respectively . you should also search the account 's name .
+Here , you only require to search of descending order of city area .
+Discover the number of each corresponding rows of different order id of order items .
+Also need to find room count .
+I want the guests who are having booking for Apartment .
+Supersede notes id with text of notes in step 2 .
+No need to find average in step 2 , change both discipline enrollments table with degrees in step 2 and 3 .
+Confirm that whose people id present in body builder table .
+i want bedroom count instead of bathroom count .
+You need to use campuses instead of 1st county and delete faculty 's year that are greater than 2002 .
+You need to find the total of each value of product quantity .
+You need to use behavior incident table and incident start date in place of notes table and date of notes respectively .
+You need to use campus in place of ID .
+csu fees 's campuses should be use in place of discipline enrollments 's year .
+Supersede faculty 's year with campuses 's year and csu fees 's year with campuses 's year in step 2
+Substitute snatch in place of clean jerk .
+In step 1 , count total number of Bathroom for all the Buildings of apartments , and in step 2 , supplant building description with building address .
+What is the room count .
+Their is no need to do summation , Exchange name with birth date in step 2 .
+There should be csu fees 's rather than undergraduate and campuses rather than csu fees 's year .
+Replace apartment bookings with view unit status for both , apartment booking id with facility code .
+Find campus fee , ensure campuses ' campuses equals San Jose State University and csu fees ' year equals 1996 instep 2 .
+You need to identify the hardware model 's name and replace `` contains `` with `` equals `` .
+In step 1 , it should be a city in which a customer from customers table lives in
+In place of starts , you must use reviewer id .
+Use company name as Nokia Corporation in place of company type .
+in step 1 you should have bedroom count and apartments table .
+You should use Invoice number of Invoices and invoice date
+Also , find rating stars of rating table and order sequence should be reviewer name , title and rating stars .
+I want notes of assessment and notes of date .
+Need to use size of product and not the color of product .
+financial transactions table should be use in place of accounts table .
+Remove 1st total .
+In step 1 calculate number of rows of staff table .
+You should look for name of account .
+Also need to find title of movie for each director related to lowest rating stars .
+rating stars value 2 in rating stars table confirms that there are 2 different rows and also note that rating stars date is different from rating stars table .
+In step 1 , only find bathroom count of apartments table .
+Find address id in both step 1 and 2 . Find value of Addresses 's line 1 corresponding to step 1 and 2 result .
+In step 2 Switch bathroom count with bedroom count , building description with building short name and Remove building short name equals Normandie Court `` .
+It should be body builder 's name .
+Replace apartment number with bedroom count in step 1 .
+You have to delete csu fees year as 1996 and also make sure that should be CSU .
+You have to swap the total with snatch .
+Change enrollments year with csu fees year and ensure that campuses equals San Jose State University .
+Provide the csu fees and campuses in place of undergraduate and year of csu fees respectively .
+Make sure that the name is Mike in step 2 .
+In step 2 , substitute accreditation type with company name .
+You should use lessons table instead of customers table and also eliminate last name should be Bernhard
+Supersede faculty with discipline enrollments , campus with year and year with corresponding campus .
+Replace apartment number with beds in step 1 .
+There should be csu fees year and campuses campuses instead of graduate and discipline enrollments year respectively .
+Ensure movie 's year is greater than largest value of year for director equals Steven Spielberg .
+Need to get campuses 's csu fees for the year 1996 .
+You need to look for the campus fee having csu fee year equivalent to 1996 and campuses equivalent with San Jose State University .
+Need to count total stores for every city .
+you should remove bathroom count and use room count instead .
+Remove `` and faculty 's campuses equals 1 `` from step 2 .
+Need to Replace `` and type equals Nokia Corporation `` with `` or company name equals Nokia Corporation `` .
+You just need to swap name with date of birth in step 2 and forget summation .
+Take lessons table in place of customers table and Erase `` and last name equals Bernhard `` .
+Find title and rating stars for each director for which rating stars is least in step 2 .
+Replace dimensions with product in step 1 .
+We need to put snatch in body builder table in lieu of height in people table .
+Replace building short name with building full name .
+In step 2 , you need to determine the value of degrees of campuses from the result of step 1 .
+In step 2 , you should delete faculty 's year part .
+Step 1 ensure csu fees table is corresponding . Step 2 Swap fte ay with campus fee , Remove faculty equals 357 . 1 ``
+Need to find the total discipline enrollments with year of corresponding campus .
+You should remove cell mobile phone number and use phone number in its place .
+Provide the degree by changing year with campus and vice-versa .
+Looking for the name of store mentioned in store table .
+In step 2 Remove csu fees 's year equals 1996 And Assure that campuses equals CSU ( California State University ) .
+Need to confirm that csu fees 's year equals 2005 and campuses equals CSU .
+In step 2 , Use hardware model name , `` or `` and company name in place of company name , `` and `` and accreditation type respectively .
+You need to determine the number of rows of detention id from detention table in step 1 and in step 2 , you need to find the smallest value from step 1 for detention type code and description .
+You need to use accreditation type in place of type .
+Replace bluetooth with hardware model name .
+You need to supersede hardware model name , company name as Nokia Corporation and 'or with company name , type equals Nokia Corporation and 'and ' respectively .
+In step 2 , you should list campuses and delete the phrase `` and faculty 's year greater than 2002 `` .
+Find incident type code of behavior incident table instead of reference incident type table in step 1 .
+Replace building short name with building manager .
+Show campuses ' campuses whose county equals Los Angeles and campuses ' year greater than 1950 .
+I want csu fees year and campuses .
+Trade clean jerk with snatch .
+Replace company name with hardware model name of phone table .
+I want numbers of bedrooms .
+I want building short name in place of apartment number .
+Replace first maximum with minimum bathroom count .
+Need to supplant dpi with pages per minute color and dpi less than with max page size equals A 4 .
+Find year of degrees table whose value of degrees is largest .
+You need to find whether the corresponding value in step 2 is greater than 3 or not .
+Use hardware model name from phone table in place of model name from chip model table .
+Discard `` and year equals 1996 `` phrase .
+You need to find year of csu fee of CSU campus and delete the phrase `` csu fees 's year equals 1996 `` .
+Need to confirm that company name equals Nokia Corporation or type equals Graphics .
+You should use degrees in place of discipline enrollments in step 2 and 3 . Also , do not look for average in step 2 .
+In step 3 Make sure to find corresponding value in step 2 is greater than 3 .
+Replace order id with account id , date order placed with date account opened , order details with other account details , orders with accounts , find account name .
+Replace screen mode in phone table with rom mib in chip model table .
+Need to replace customers table with accounts table .
+Use pages per minute color and max page size is correlate to A 4 .
+I want the apartment buildings table with their building managers .
+In ratings table , find the number of rows of having rating date 3 or more .
+In step 2 no need to find average value of degrees .
+Need to replace email address with Addresses 's city .
+Make sure Staff table is used in place of address table .
+Change bathroom count with bedroom count , remove `` building address equals Columbus Square `` , ensure that building short name equals Columbus Square .
+Change faculty 's with csu fees ' , remove `` and faculty equals 357 . 1 `` .
+In step 2 , Ignore the phrase `` and faculty 's year equals 2002 ``
+In step 1 instead of Guest table use apartment buildings table , exchange building full name with available yes or no in step 2
+Use headquartered city instead of city population and store name instead of district name
+You need to place table of vehicles as table of address is not correct .
+You must use orders table in place of customers table in step 1 .
+You need to make sure the table of csu fees is similar . In step 2 , Utilize the fee of campus , delete condition faculty equivalent with 357.1 .
+In step 1 , it should calculate number of rows of staff address id in staff table .
+Remove `` and discipline enrollments 's campuses equals 1 `` from step 2 .
+Put apartment number in place of bedroom count and bedroom count in place of bathroom count .
+Eliminate `` and enrollments 's year greater than 1956 `` from step 2 .
+Remove bathroom count and use bedroom count in its place .
+You need to use `` do not show `` rather than `` only show the first `` .
+Summation of graduate , county and faculty 's year should be replaced by degrees , campus and degrees ' year .
+I want to delete the last part and should search for the rows count of chip model .
+You should use year of csu fees instead of faculty and remove year of faculty is 2002 .
+You need to use table of staff not the lessons table .
+You should use bedroom in place of bathroom count and short name of building instead of building description contains .
+Be sure that guests have booking for Apartment .
+Replace bathroom count with bedroom count in step 2 .
+Dismiss the value of faculty which is 357.1 and also , use csu fees instead of faculty .
+In apartments table , check out the total number of rooms .
+It is require to substitute campus in place of county .
+Verify that 2005 is the year of campuses fee .
+You should change pages per minute color of product table for ranking of store table .
+You should order the bikes based on their duration in step 2
+Remove `` and faculty 's year equals 2002 `` in step 2 .
+Substitute reference incident type with assessment notes and incident type description with date of notes .
+You should find campus fee of San Jose State University for year 1996 .
+you should use room count instead of bathroom count .
+Replace hardware colours , char cells and company name with chip model , screen mode and hardware model name .
+2 ratings means 2 corresponding rows in Ratings table not the same as rating stars
+In step 2 , you should delete the year of faculty which is higher than 2002 .
+You have to be sure that Gone is reviewed by them along with the Wind Movie .
+I do n't want the average value of degrees in step 2 .
+Need to make sure Campuses 's campus equals San Jose State University and not year .
+Replace name of reviewer with director of movie table , make sure director had 1 movie .
+Use bedroom count instead of bathroom count and make sure building short name is Columbus Square . Ignore `` building address equals Columbus Square `` .
+you need to label reviewer table instead of movie table .
+Show campuses ' campuses whose county equals Los Angeles and year greater than 1950 .
+Replace chip model with model name , phone with chip model , hardware colours with ram mib , screen mode with chip model .
+Ensure to correlate it with degree table in step 1 and in step 2 , use degrees in place of graduate .
+In step 1 and 2 , I want staff and last name instead of customers and state province county respectively . Also , then search state province county .
+Supersede bathroom count with room count ' in step 2 .
+From the rating table , I need to count the all the rows with Movie ID .
+There should be accreditation type , not type .
+Find campuses equals San Jose State University instead of faculty year , ensure csu fees year equals 1996 .
+The 'Customers table ' should be rename to 'lessons table ' .Meanwhile consider removal of `` and last name equals Bernhard `` from it .
+In addition to middle name and last name , also show first name .
+Delete faculty 's year which says 1996 and determine the campuses whose value is CSU along with csu fee 's year .
+There should be store 's store name instead of district name of district table .
+In step 2 , order the bikes by their duration .
+Replace bedroom count with apartment number .
+In step 1 find number of rows of detention id in detention table , in step 2 find detention type code , detention type description of reference address types with smallest value in step 1 's results .
+Remove faculty table and use campuses table instead , also the word `` equals or `` must be deleted .
+Confirm that not even a single lessons is conveyed by the staff given in the list .
+csu fees campuses should be use in place of discipline enrollments year .
+Use csu fees and campuses in place of undergraduate and csu fees year respectively .
+Looking for the campus fee of San Jose University for year 1996 .
+Supersede bathroom count with bedroom count , building full name with building short name , remove `` and building short name contains Normandie Court `` from step 2 .
+Remove `` and faculty year equals 2002 `` .
+There should be csu fees ' year and campuses ' campuses instead of graduate and discipline enrollments 's year respectively .
+in place of name , i want you to look for name .
+substitute minimum for first maximum bathroom count .
+the building full name should be implanted in place of building full name .
+Replace director with reviewer id .
+In step 2 , you should use campuses of campuses in place of year of faculty .
+Put degrees table , degrees and degrees ' year instead of faculty table , graduate and faculty 's year respectively .
+I required campus from the campuses table .
+In step 1 , it should search apartments ' bedroom count for each apartment id .
+Looking for the campuses that are having higher than average fee .
+There should be bedroom count instead of apartment id .
+Change enrollments 's year with csu fees 's year and ensure that campuses equals San Jose State University .
+The `` City Area equals or `` condition part is wrong . There should be city population is `` instead .
+You have to use the name of body builder .
+Replace model name with hardware model name .
+You need to identify the middle name .
+You need to verify that the nickname for `` staff `` should contain the letter `` s `` .
+Replace reviewer id with rating stars .
+Display total degrees allocated for year equals 2001 and campuses equals `` San Francisco State University `` .
+Delete `` and faculty 's year equals 2002 `` and replace faculty 's year with csu fees ' year .
+you need to use rating stars of rating table .
+List the campuses where county is Los Angeles and its year is greater than 1950 .
+In both step 1 and 2 you need to search ID of address and also you need to look for the value of Addresses 's line 1 similar to step 1 and 2 reports .
+There should be campus of campuses table instead of csu fees 's year .
+Replace account id with transaction id .
+Make sure fte ay equals 1956 , totalenrollment ay greater than 400 and Need to find campus .
+Also need to find number of rooms .
+Take `` Lowest value of rating stars instead of `` average rating stars , also find title of movie table .
+Supersede bedroom and bathroom count with apartment number and bedroom count respectively .
+In step 2 only find Customer 's last name , in step 3 only find Staff 's last name .
+Will have to put date incident end in place of one of the date incident start .
+reviewer id should be use in place of rating stars .
+There should be building manager instead of building short name .
+Replace account id with transaction id .
+I want chip model , screen mode and model name of hardware .
+I want year of csu fee of San Jose State University .
+Replace 1 with 2001 and make sure faculty has least degrees from degree table .
+Verify that letter 's ' must be nickname .
+Find degree instead of graduate and replace year with campus and campus with year .
+Minimum one account should be there with every single consumers .
+In step 2 , you need to find names whose star rating is more than 0 for specific date .
+You need to make sure that the campus is of San Francisco State University only .
+Replace cell mobile phone number with phone number .
+Find the number of corresponding rows to order items .
+You need to find directors having minimum start ratings along with the titles .
+There should be csu fees rather than undergraduate and campuses rather than csu fees year .
+Use campus instead of id .
+I am looking for campus which is equivalent to CSU in Campuses table .
+Delete the phrase `` and year equals 1996 `` .
+In step 2 find each value of degrees for degrees 's campuses in step 1 's results .
+You should search for campuses which is equivalent to CSU .
+You need to use date of birth .
+Exchange faculty table with degrees table , use campus of degrees instead of faculty of faculty table .
+I want release year of movie in descending order whose rating is 4 or 5 .
+Find type in place of chip model and company name in place of type .
+Make sure to replace director with rating stars of rating table .
+remove `` and year as 1996 `` .
+The director 's name should be James Cameron .
+There should be building phone in apartments instead of guest first name in apartment bookings table .
+Use customers in step 1 .
+You should use type and company name by swapping them with accreditation type and type respectively in step 2 .
+You have to find the equivalent number of rows of each account id of financial transaction table .
+Make sure the number of rows is equivalent to each value of movie id of rating table .
+i want room count from apartments rather than number of apartment .
+Make sure to find faculty 's faculty not number of rows of faculty table .
+I want campuses details of Los Angeles since 1950 .
+Ensure that campus of campuses 's table should be same as San Jose State University .
+In step 2 , use text of notes instead of id of notes .
+You have to use order id of invoice table .
+Eliminate and year of the faculty is 2002 .
+Replace bathroom count with room count .
+I want you to drop step 1 and use degrees table along with higest specified degrees .
+Make sure to find in descending order of city area instead of city population .
+I want student id , address id and date address from of student addresses table .
+room count would take the place of bathroom count .
+Find total rows of staff table in step 1 .
+include reviewer table and use name in place of rating for step 1 .
+Supplant reviewer table in replacement of movie table .
+Replace graduate with year in csu fee table . Also , use campuses of campuse table and not the year of discipline enrollment table .
+In step 2 , You need to eliminate discipline enrollments 's campuses equivalent to 1 .
+You just need to rename 'cell mobile phone number ' phrase with only 'phone number ' .
+In step 1 you need to replace behavior incident with notes of assessment , alter date incident start with date of notes in step 2 .
+Delete the phrase `` and building short name equals Normandie Court `` and use building short name instead of building full name .
+Remove `` and faculty 's year equals 2002 `` phrase from step 2 .
+You have to add `` city population is `` instead of `` City Area equals or `` .
+Give me the product 's name and number of order placed by customer .
+Change detention table with assessment notes table in step 1 and detention summary with text of notes in step 2 .
+you need to make sure that name of movie 's should be equivalent to reviewer 's name and also rating stars should be used in place of name in step 2 .
+Replace customers table with invoices table .
+I want table of vehicles rather than table of addresses .
+make sure to use larger than condition in place of less than and reviewer name instead of director of movie table .
+Delete condition , specify that max page size equals `` A 4 `` and pages per minute color is less than 5 .
+There should be title instead of starts .
+I want birth place and total number of people from that place .
+I want birth date instead of birth place .
+Change 1st county with campuses , remove faculty 's year greater than 2002 `` .
+Change movie table with reviewer table .
+Look for faculties in San Francisco State University and year equals 2004 .
+Replace accreditation type , `` greater than `` and `` and `` with hardware model name , `` equals `` and `` or `` respectively .
+You need to supplant pages per minute color smaller than and max page size equals in place of dpi greater than and dpi less than serially .
+In step 2 , you should remove the phrase `` and enrollments 's year equals 1956 `` .
+Show year whose rating 's rating stars equals 4 or rating stars equals 5 ordered descending by year .
+Exchange both the total with snatch .
+I want table of lessons instead of table of addresses and also ensure that status code of lesson should be equivalent to Cancelled .
+You have to count total rows of rating date more than 3 from rating table .
+There should be campus instead of id .
+Erase the condition and make sure that max page size should be A4 and page per minute color is lower than 5 .
+You need to use the accounts with customer 's Id in place of customer table
+Need to find date joined staff instead of date left staff .
+Ensure to find distinct value of city in step 1 .
+We need to substitute born date in place of date left staff .
+There should be degrees table instead of discipline enrollments with largest given degrees and omit step 1 .
+In step 1 , find bathroom count for each building id in apartments and in step 2 change building description to building address .
+Also find account name .
+The customer payments table is needed in step 1 , not customers table .
+Confirm that least number of degrees are given by them and also year should be 2001 .
+It should find bathroom count for each building id of apartments in step 1 , replace building description with building address .
+You should use csu fees year in place of faculty 's year and in step 2 , you should delete the phrase `` and faculty 's campuses equals 1 `` .
+Make sure the rating stars rating should be of director James Cameron 's film .
+List the title and the lowest value of star ratings for director .
+In step 2 Remove csu fees year equals 1996 And Assure that campuses equals CSU ( California State University ) .
+Use table of Invoices rather than customers table .
+you should arrange the items starting with name and it should end with stars .
+Need to use transaction id .
+Calculate summation of bedroom count in apartments table , not the number of rows in apartment buildings table .
+Replace building description in apartment buildings table with apartment number in apartments . also find booking status code in apartment buildings .
+You should verify that page per minute color is lower than 5 or max page size is A4 .
+you should use rating stars which equals null .
+Omit the condition and make sure that max page size is A4 and page per minute color is smaller than 5 .
+Replace customers table with staff table .
+Store name should be used in place city population .
+There must be summation of corresponding rows of stores in the city .
+You should use bathroom count in apartments and also check the building address in Apartment buildings .
+Exchange county with campuses ' campuses in step 2 .
+Replace bathroom count with room count .
+Swap faculty 's year with campuses 's campuses in step 2 .
+Change store name with type in both step 2 and step 3 .
+You need to remove the phrase `` and faculty 's year greater than 2002 `` and also make sure that campuses year is more than 1950 .
+Replace staff table with lessons table
+You need to utilize financial transactions tale .
+Change bathroom count with bedroom count and remove building short name equals Normandie Court `` .
+Replace rating stars not equals 2 with rating stars equals NULL .
+Need to find room count instead of bathroom count .
+Ensure that the status code of lesson is completed for the customer mentioned in lesson 's table .
+You should find CSU and discard Faculty equivalent to 357.1 .
+Swap apartments table `` with apartments 's room count and apartment number with apartment buildings 's building short name
+In step 1 , you should use bathroom count and apartments table in place of building 's short name and apartment buildings table respectively . In step 2 , you should replace building short name with building address .
+There should be campus equals San Francisco State University .
+You should search name in 2nd step for which value of rating star should be null for specific date .
+Need to confirm that csu fees year equals 2005 and campuses equals CSU .
+In step 2 , remove detention type description and replace it with text of notes .
+Use snatch in place or clean jerk .
+Make sure those customer have at least one account .
+Use discipline enrollments undergraduate instead of campuses table and campus instead of county .
+From product table display the product for which max page size is A 4 and pages per minute color is lesser than 5 .
+In step 2 , you need to use bedroom count and building short name in place of bathroom count and building full name respectively . Also remove the buildings short name that has Normandie Court .
+In step 1 replace headquartered city with corresponding store 's type .
+I want order items of product quantity instead of vat rating .
+Delete `` and enrollments 's year equals 1956 `` phrase from step 2 .
+In apartment bookings table , you have to omit the apartment booking id of guest and add bedroom count of building .
+Do not find the average value of degrees in step 2 .
+You have to look for campus , ensure 1956 should be fte ay and totalenrollment ay is greater than 400 .
+It should search summation of product quantity for each product id in order items table .
+Make sure number of the corresponding rows to order items 's product id .
+You have to put headquartered city and store name , omit city population and district name .
+Replace district name with store name of store table .
+Look for bedroom count and building short name instead of bathroom count and building description respectively . Also , ensure that building short name should not be Normandie Court .
+i want director instead of name and also make sure that director should be equivalent to zero and in addition it should made only one film .
+In step 1 Find only bathroom count of apartments table , Step 2 Exchange building short name with building address .
+Ensure that each director has reviewed the movie .
+You need to use Id of customer in table of orders .
+Need to replace guest first name with building manager .
+It should be bedroom count in place of bathroom count .
+Delete the year which has 1996 .
+Shift bedroom count instead of bathroom count .
+I want the type code of detention from detention table .
+Need to use district name in place of headquartered city .
+I want first name along with middle and last name .
+I want total number of bedroom count in apartment table .
+Make sure that company name should be Nokia Corporation and screen mode type should be Graphics .
+In step 2 take off `` faculty 's campuses equals 1 `` .
+Use chip model in place of screen mode table .
+Use minimum bathroom count instead of first maximum bathroom count .
+In step 2 , you need to delete `` and faculty 's year equals 2002 `` .
+Also correspond movie table in step 1 , Exchange name with title in step 2 .
+You have to use order item id of order items table in place of product name of products table .
+find wifi instead of graphics mode , and replace model name with hardware model name .
+Find the CSU fees for the year 2005 .
+Replace product id with different order id of order items , find number of the corresponding rows of each product id .
+Replace phone with chip model , replace screen mode with wifi .
+apartment buildings table is wrong . It has to be apartment bookings table .
+In step 1 , I want store table .
+In order items , you need to provide number of each different order id .
+You have to use rom mib of chip model table in place of screen mode of phone table .
+Find the summation of bedroom count whose building short name equals Columbus Square in step 2 .
+Change faculty table with campuses table .
+Confirm that need to find starts for each reviewer id not name .
+In step 2 , use room count instead of bathroom count .
+find number of the corresponding rows to each distinct value of order id in order items .
+Make sure that the faculty of campus is equivalent to San Francisco State University and year is 2004 .
+Replace building manager with apartment number .
+Make sure to find number of customers of order id in orders table .
+You should use hardware model name , equals and or in place of accreditation type , greater than and and respectively .
+I want staff joined date .
+You should only use 1996 as the CSU fees year .
+Replace name with director , replace director with title .
+Remove faculty equals 357 . 1 and ensure that campuses equals CSU .
+Count total bedroom of apartment table and use building short name in place of apartment number .
+in step 1 use bedroom count instead of apartment number .
+I want birth date .
+Replace birth date with birth place , should correspond rows to each value of people from that place .
+Replace order id in orders table with order id in invoices table .
+It should be company name , not accreditation type in step 2 .
+Find the summation of the corresponding rows to each value of product quantity .
+Be Certain to find student id , address id and date address from of student addresses Table too .
+Replace headquartered city with city population . and make sure city population between 200000 and 2000000 .
+You need to find apartment number and count of bedroom .
+Ensure that campuses 's year greater than 1950 and Erase `` and faculty 's year greater than 2002 `` .
+In step 2 replace director with rating stars , and ensure Reviewer 's name equals Movie 's director .
+Replace amount outstanding with amount payment .
+Replace products table with order items table in step 1 .
+You need to determine the different product names and the total quantity of each product Id from ordered items .
+In the phone table , you should only use hardware 's model name .
+for both context , please change apartment booking with the view unit status and booking status code with available yes or no .
+Substitute apartment number with building short name .
+Use assessment notes in place of behavior incident table in step 1 , change date incident start with date of notes in step 2 .
+Replace total with height .
+Step 1 Make sure to correspond with degrees table . Step 2 Switch graduate with degrees .
+In step 3 , you should remove faculty 's campuses and replace it with campuses .
+There should be reviewer table instead of movie table .
+Need to find ratings also .
+Find campuses 's campuses whose county equals Los Angeles and campuses 's year greater than 1950 .
+You have to count the total number of transactions .
+Need to replace title with Rating 's star .
+Need to Change customers table with financial transactions table .
+You need to search in orders table for number of customers of order id .
+in step 1 , you should use beds in place of apartment number .
+Need to replace ranking in store table with pages per minute color of product table .
+Find each value of account id in financial transactions table along with the number of corresponding rows .
+You need to just check last name of customers in step 2 and last name of staff 's in step 3 .
+You need to use csu fees year and campuses .
+I want the total of degrees , campus and year .
+Provide campuses details located in Los Angeles since 1950 .
+Replace discipline enrollment ' year with csu fees for campuses .
+you need to use rating 's star instead of title .
+In step 2 , delete the condition `` and faculty 's campuses equals 1 `` .
+In step 2 find number of rows of each value of movie id of rating table .
+You need to delete 1st total .
+You should calculate ratings .
+In step 1 need to count the number of stores of stores using store district instead also make sure store 's type equals Flagship
+You should only determine the date of birth .
+Remove `` and faculty 's year greater than 2002 `` .
+also use staff table In step 1 , Add less than or equals 4 In step 2 .
+Search for total rows of all the value of vehicle id from lessons table in step 1 .
+Need to replace addresses table with staff table .
+From step 2 , I want year and campus of campuses .
+you need to just search for the bathroom count from apartments table in step 1 .
+Need to search name of hardware model and equals instead of First accreditation type and contains respectively .
+Need to replace `` only show the first `` with `` do not show ``
+You should use csu fees 's year and campuses in place of 1st faculty 's year and 2nd faculty 's year respectively .
+I want table of financial transactions .
+Replace building short name with building full name .
+In step 2 , replace average with summation of degrees . In step 3 , change faculty 's campuses to campuses ' campuses .
+Use date joined staff instead of date left staff
+Find campuses equals CSU and remove `` Faculty equals 357 . 1 `` .
+You have to use snatch instead of total .
+Use wifi and chip model rather than replace screen and phone respectively .
+I want invoices table .
+Find total bedroom count of apartments table , not number of rows . Replace apartment number with building short name .
+In rows look for the total number of faculty .
+Make sure to use assessment notes and date of notes in place of reference incident type incident type description respectively .
+Accounts table is wrongly placed here which needs to be substituted by financial transactions table .
+Need to find the population of city which should be larger than 100000 .
+In step 2 , use bedroom count and building ' short name in place of bathroom count and building description also remove the Normandie Court as building 's short name .
+Required campus fee of CSU fees for which San Jose State University is campuses and 1996 is the CSU fees year .
+Replace graduate with degrees , faculty with degrees , faculty 's year with Campuses 's campus
+Not name equals James Cameron but director equals James Cameron instead .
+Replace people table with body builder table and 1st height with snatch .
+I want discipline enrollments table , year and campus in place of faculty table , campus and year respectively.Also , provide me the number of undergraduates .
+In step 2 Remove faculty 's year greater than 2002 `` .
+List the products from product table whose max page size is A4 and color pages per minute is less than 5 .
+Need to summation of transactions .
+I want the name of model , chip model , ram mib .
+Replace one of the email address with date of birth .
+Have to remove `` faculty 's year equals 2002 `` .
+Put assessment notes table instead of behavior incident table and date of notes instead of date incident start .
+you have to use the director of movie table instead of name of reviewer table .
+you need to use customers table instead of address table .
+Replace customers table with accounts table in step 1 , in step 2 also find customer middle initial .
+Make sure that company name should be Nokia Corporation or its type should be Graphics .
+In step 1 , I require the table for customer payments only .
+Also include account name in step 2 .
+Should find the corresponding rows of order items for each order id .
+Replace addresses table with lessons table and make sure lesson status code equals Cancelled .
+In step 1 , Instead of students table use teachers table .
+List out movie id 's in ascending order having 4 or 5 star ratings .
+step 1 , replace type of screen mode table with accreditation type of phone table .
+In step 1 find apartment id of apartment facilities table instead of apartment bookings table .
+I want phone 's accreditation type from step 1 .
+Need to determine how many faculty in those rows .
+Supplant room count with bathroom count .
+Drop campuses of faculty is 1 . Also , in step 2 , replace year of faculty with year of csu fees .
+you have to delete bathroom count and add the id of building .
+Display the year which has rating stars 4 or 5 and arranged in descending order .
+I want the total quantity for each product id of order items table .
+Replace addresses table with customers table
+You need to search for the product having maximum page size A 4 and pages per minute color should be low than 5 .
+I want the total number of rows of assessment notes table .
+The total number of correlated rows should order product id of items .
+I want campuses county as Los Angeles and year higher than 1950 .
+customers table should be use in place of addresses table .
+First accreditation type is wrong , find hardware model name in place of that . change `` contains `` with `` equals `` .
+Change bathroom count with bedroom count , remove building short name contains Normandie `` .
+Make sure no lessons are delivered by listed staff .
+Also find middle name .
+Replace building short name , apartment buildings table with bathroom count , apartments table in step 1 , Use building address instead of building short name in step 2 .
+In step 1 , you need to use accounts table in place of customers table and in step 2 you need to identify customer 's middle initials .
+financial transactions table should be used , not accounts table .
+Should find the number of corresponding rows of product id in order items table .
+You need to remove faculty equals 357 . 1 from step 2 .
+Find number of rows in rating table whose rating date is greater than 3 .
+Use behavior incident table instead of students table in step 1 ,
+Confirm that the type should be Flagship , and in step 1 calculate the stores number that are using store district .
+Find the campuses 's campuses whose have greater than average campus fee .
+In step 1 , you need to replace student 's table with behavior incident table .
+Replace faculty 's year with csu fees 's year . Instead of csu fees 's year find campus of campuses table .
+Find title and lowest value of rating stars for each value of director .
+Remove last year equals 1996 part .
+Find manager of building instead of short name .
+addresses table is wrong . Put vehicles table in place of it .
+I want table of staff and make sure that its first and last name should be Janessa Sawayn .
+In step 2 , you need to find campus fee in place of fte ay , ignore value of faculty which is 357.1 . Also , in step 1 , make sure that all rows of csu fee table is equivalent .
+Find campuses equals San Jose State University instead of faculty 's year , ensure csu fees 's year equals 1996 .
+Swap `` number of rows in faculty with faculty 's faculty Swap 2nd `` Year `` with campuses 's campus
+Find phone 's hardware model name whose corresponding chip model 's launch year equals 2002 and chip model 's ram mib is topmost .
+You need to compute rows count for staff address from staff table .
+from step 1 , i want the average rating stars of movies whose director is james cameron .
+You have to use cell mobile phone number .
+you should use room count instead of bathroom count .
+You need to use apartments 's room count and apartment buildings 's short name instead of apartments table and apartment number respectively .
+Find out the graduate of discipline enrollment of San Francisco State University of 2004 batch .
+Show year of movie whose rating stars equals 4 or equals 5 , ordered descending by year .
+Change customers table with staff table , Ensure that Staff 's first name equals Janessa , last name equals Sawayn .
+Take bedroom count and apartments table in place of apartment id and apartment bookings table In Step 1 .
+It should be teachers table in step 1 , not students table .
+You should replace faculty table , graduate and year of faculty with degrees table , degrees and year of degrees respectively .
+You should delete Id and use campus only .
+In step 2 Remove faculty 's campuses equals 1 `` .
+instead of rating stars , you should use the reviewer id .
+Replace first `` bathroom count `` with apartment number and second `` bathroom count `` with room count
+You need to search for campuses of San Jose State University and verify that CSU fees year is 1996 .
+In step 2 , Delete the phrase `` and enrollment 's year greater than 1956 `` .
+In step 2 and 3 , use type in place of store name .
+Delete Faculty which is equivalent to 357 . 1 part .
+Eliminate full name of building which includes Normandie Court condition . Also , use count of bedroom and short name of building instead of bathroom and apartment number respectively .
+Look for those campuses who have higher than average campus fee .
+should be correspond number of rows of order items .
+Find product whose max page size equals A 4 or pages per minute color less than 5 .
+Need to determine how many faculty in those rows .
+Replace apartment buildings table with apartment bookings . and also find summation of all rows of table .
+use store table step 1 .
+You should search for the number of correlated rows for product id in order items table .
+The address type code of reference incident type table `` needs to be replaced by detention type code of detention table .
+Could you please rectify the 'name ' with 'director ' .
+Find different product name and should find total product quantity for each product id of order items .
+You should exchange bathroom count and apartment number with bedroom and short name of building . Also , eliminate short name of building which includes Normandie Court .
+You need to use year of csu fees and make sure San State university belongs to campuses .
+In rows look for the total number of faculty .
+Additionally , display first name along with middle and last name .
+Find the total undergraduate whose campuses equals San Jose State .
+You should make sure that year equivalent with 2005 .
+Find the number of rows of chip model table instead screen mode and omit the last part .
+Replace total with snatch in .
+It should be lessons table instead of staff table .
+Replace bathroom count with room count of apartments .
+In step 2 Supersede screen mode with `` Type `` and `` Type `` with company name
+In step 2 , I want year from campuses table in place faculty and csu fees table .
+You need to verify that all the consumers have their accounts .
+I want max page size in place of product in both steps .
+In step 2 , delete csu fees 's year equals 1996 and make sure that campus is California State University .
+Replace financial transactions invoice number , date order placed with Invoices 's invoice number , invoice date .
+Look for joined date of a staff and not the left date of a staff .
+You need to replace teachers table with assessment notes table in step 1 .
+Here need to find number of rows in assessment notes table .
+Replace customers table with lessons table and remove `` last name equals Bernhard `` .
+Omit the phrase `` building short name equals Normandie Court `` and use bedroom count instead of bathroom count .
+cell mobile phone number is the right parameter , not phone number .
+Also specify that nickname contains letter 's ' .
+make sure max page size is equals to A 4 or pages per minute color is less than 5
+In step 2 , attach either smaller or equals to 4 , additionally in step 1 look for staff table .
+Need to make sure Lessons 's lesson status code equals completed .
+You should drop the year of faculty table which is equivalent to 2002 .
+Substitute city population with store name .
+Use campuses table , not faculty table . Discard `` equals or `` words .
+Use phone number rather than cell mobile phone number .
+Should find date of birth instead of date left staff .
+It should find name , title , rating stars , rating date , and order ( ascending ) it by name , title and stars ( lastly ) .
+Find distinct product name , should corresponding rows to each value of product ordered by customer .
+Find assessment notes table , text of notes instead of detention table and detention summary in step 1 and 2 respectively .
+Replace customer id in customers table with customer id in accounts .
+There should be chip model instead of screen mode table .
+In step 1 , it should search apartments bedroom count for each apartment id .
+As there is no facilities , you need to form something .
+Make sure last name equals Sawayn .
+Look for hardware model name instead of model name .
+Take out rating stars equals 2 `` .
+Change 1st faculty 's year with csu fees 's year and 2nd faculty 's year with campuses .
+In body builder table we have to bring snatch .
+In step 2 , make sure that campus should be CSU , ignore faculty year given as 2002 .
+Replace bathroom count with bedroom count .
+It should be room count instead of bathroom count .
+Find the total of faculties from faculty table where their year is 2002 .
+Swap model name of chip model table with hardware model name of phone table .
+Calculate campuses equal to CSU and use it in place of discipline equals 4 .
+Ensure to find campuses 's campuses not rows in step 2 , remove `` and faculty 's year greater than 2002 `` .
+Confirm that last name is Sawayn .
+Find the campuses campuses whose have greater than average campus fee .
+There should be city population greater than 100000 instead of headquartered city equals Attock City .
+Need to replace date became customer with date of birth .
+Swap company name with hardware model name , `` and `` with `` or `` , accreditation type with company name in step 2 .
+Replace bathroom count and apartment number with bedroom count and building short name respectively . Remove building full name contains Normandie Court condition .
+In step 2 , find Campuses 's campus corresponding to faculty 's campus for step 1 's results ordered descending by faculty .
+Need to make there are no facilities .
+I want the campuses table instead of faculty .
+Replace birth place with birth date .
+You should use degrees , degrees and campus of Campuses instead of graduate , faculty and year of faculty respectively .
+Should corresponds rows to total number of stores in the city .
+Use csu fees ' year instead of faculty 's year in step 2 , remove `` and faculty 's campuses equals 1 `` .
+There should be campus instead of id .
+In step 2 bedroom count will take the place of bathroom count .
+Replace customer id in customers table with customer id in orders table .
+I want campuses instead of county .
+Drop the accounts table and use customers table .
+Delete the faculty 's campuses whose value is 1 from second step .
+Show product from product table whose max page size equals A 4 and pages per minute color less than 5 .
+Use bedroom count and building short name equals Columbus Square in place of bathroom count and building full name contains Columbus Square respectively .
+should find the summation of faculty in those rows
+You need to use line 1 in addresses rather than average monthly rental .
+Step 2 should only find Customers 's last name and step 3 only should find Staff 's last name .
+birth date must be replaced by birth place .
+Remove customers table and put staff table .
+In order item table you need to look for the addition of product quantity for each Id of product .
+In step 2 Delete faculty 's year equals 2002 `` .
+Instead of faculty 's year , use csu fees year . Remove `` and faculty 's campuses equals 1 `` in step 2 .
+Replace name with director , director not equals to null and created only one movie .
+Make sure year equals 2001 , make sure least number of degrees were given by them
+In step 2 Exchange date order placed with invoice date .
+In step 1 it should find average rating stars for movie 's director equals James Cameron .
+Replace company name with hardware model name , type equals Nokia Corporation with company name equals Nokia Corporation , and with or
+In step 2 Swap undergraduate with `` Year `` and discipline enrollments year with campus of campuses
+You have to ensure than code of Lesson 's lesson status is equivalent to completed .
+Find the campuses 's campuses whose county equals Los Angeles and campuses 's year greater than 1950 .
+should find the summation of faculty in those rows
+I want the apartment bookings table not apartment buildings table .
+Ensure company name equals Nokia Corporation or screen mode 's type equals Graphics .
+In step 2 Swap bathroom count with bedroom count , apartment number with building short name . Remove building short name contains Normandie Court `` .
+Replace product name of products table with order item id of order items .
+In step 2 exchange accreditation type with type and type with company name .
+In step 1 , confirm that the value of city is clear .
+In step 2 find summation of bedroom count in step 1 's results whose building short name equals Columbus Square .
+There should be customer payments table instead of lessons table .
+city population should be larger then 100000
+Instead of faculty 's year equals 2002 `` , Use and ensure campuses equals CSU in step 2 .
+You need to use phone number .
+List the product that has max page size of A4 or pages per minute is less than 5 .
+Find the summation of undergraduate from San Jose State .
+Determine type instead of chip model and company name .
+I want full name as Janessa Sawayn .
+Use campuses ' campuses in place of faculty 's campuses in step 3 .
+I want last name of consumer 's and last name of staff 's in step 2 and 3 respectively .
+You need to use degrees table and utilize campus degrees .
+Make sure that campus should be CSU and delete `` faculty equals 357.1 `` .
+I want the total number of degrees allocated for 2001 at San Francisco State University .
+I want campuses in place of county .
+Remove faculty 's year equals 1996 `` , need to find campuses equals CSU along with csu fees 's year .
+You need to use date of invoice instead of order placed date in step 2 .
+Campuses table should be replaced by faculty table .
+There should be text of notes instead of detention type description in step 2 .
+Use csu fees 's year in place of faculty 's year , ensure that campuses equals CSU , remove `` csu fees 's year equals 1996 `` .
+Make sure customers have accounts .
+Delete the phrase `` and faculty 's year greater than 2002 `` .
+You have to use relative type of store instead of headquartered city in step 1 .
+Replace greater than with less than and name of reviewer with director of movie table .
+In step 2 Erase faculty equals 357 . 1 `` .
+Headquartered city have to be replaced by district name .
+Omit the phrase `` faculty year equals 2002 from step 2 .
+I want the accounts table in place of customer table .
+I want hardware model name .
+You should delete Id and use campus only .
+You need to find the year of degrees having greatest value from degrees table .
+In step 2 , skip the last part .
+You should use order items , order id and product quantity instead of product categories , parent product id and vat rating respectively .
+Use body builder and snatch instead of people table and 1st height respectively .
+I want table of customers instead of table of addresses .
+I want the height instead of total .
+Put invoices table in place of customers table .
+In step 1 Also add reviewer table and Change rating stars with name .
+Use corresponding apartment buildings 's short name in place of apartment number .
+Change 1st faculty year with csu fees year and 2nd faculty year with campuses .
+Substitute building full name with building short name . Omit `` and building short name equals Normandie Court `` .
+Looking for the details of order and also , date of invoice instead of date of order placed .
+step 2 should order by summation of faculty also it should find campus not faculty in step 2
+In step 1 instead of customers table , use orders table .
+Replace second title with director , make sure to order by director name then movie title
+I want name of store 's store .
+Make sure to find number of bedroom in apartments for all apartment id .
+Replace product categories with order items , parent product id with order id , vat rating with product quantity .
+Find csu fees campus fee whose campuses equals San Jose State University and csu fees year equals 1996 .
+Drop the customers table and use accounts table .
+You need to delete the star ratings that equal 2 .
+In step 2 , use `` Type `` instead of screen mode and company name in place of `` Type `` .
+In step 1 , looking for the count of bathroom in apartments 's . Also , swap short name of building with address in step 2 .
+You should replace staff table with lessons table .
+Replace customers table with accounts table .
+For every order id , you need to search adjacent rows of order items .
+Replace clean jerk with snatch .
+I want table of customer payments in step 1 .
+Here in step 2 it should ensure director equals % Mike % .
+Be sure that campuses ' year is greater than 1950 . Remove both faculty 's year conditions .
+Need to replace county with campus .
+You should look for staff table and not the addresses table .
+You should use campuses in place of faculty table and also ensure the year is between 1935 and 1939 .
+You only need to use the date on which the incident ended .
+You should eliminate the short name of building which includes Normandie . Also , use bedroom count in place of bathroom .
+Switch apartment number with `` Corresponding apartment buildings 's building short name
+Make sure nickname contains letter `` s `` for that staff .
+Change bathroom count with bedroom count and building full name contains Columbus Square `` with building short name equals Columbus Square `` .
+I want product size in place of product color .
+csu fees ' year equals 1996 , not campuses 's year and replace csu fees 's year with campuses ' campuses .
+Exchange county with campuses .
+Supplant count of bathroom with bedroom .
+Replace district name of district table and headquartered city with store name of store table and district name respectively .
+You need to use campus in place of ID .
+Remove `` Faculty equals 357 . 1 `` part .
+Find campus fee whose csu fees 's year equals 1996 and campuses equals San Jose State University .
+Remove discipline equals 4 , find campuses equals CSU in place of that .
+There should be director of movie table instead of name .
+Find summation of faculty of faculty table whose year equals 2002 .
+Replace product color with product size .
+In step 2 No need to find average value of degrees .
+You should supplant customer payments table in replacement of lessons table .
+Also ensure year equals 2005 .
+Find summation of room count of apartments where building short name equals Columbus Square .
+Count total rows of table and use apartment bookings in place of apartment buildings .
+You have to calculate the number of stores for every city .
+You should also add account name in Step 2 .
+Replace id with campus .
+Ensure ( for ) faculty 's faculty whose Campuses 's campus equals San Francisco State University and year equals 2004 .
+Find snatch by swapping it with clean jerk .
+You need to delete faculty 's campuses equals 1 from step 2 .
+Only need to find movie id with 4 or 5 star rating , also arrange it in ascending order
+Count the number of rows of rating table whose rating date equals or greater than 3 .
+You should use csu fees 's year instead of faculty 's year and search campus of campuses table .
+I want total of bedroom count of Columbus Square from step 2 .
+Make sure that city 's population should be greater than 100000 .
+In step 1 , calculate the total room count , also count total bedroom count in step 2 .
+Need to use transaction id .
+Switch first average monthly rental with line 1 in addresses .
+You should use campuses of campuses instead of campuses of faculty in step 3 and in step 2 , use summation of degrees instead of average .
+We also need to determine number of rooms .
+Arrange step 2 by number of faculty and search for campus .
+In step 1 , you need to use product in place of measurements .
+I want store name of store table and district name .
+supplant product color with product size .
+In step 2 find summation of bedroom count whose building short name equals Columbus Square .
+You need to drop the conditions of year in faculty table and also make sure that year is higher than 1950 .
+Need to make sure that they have reviewed Gone with the Wind movie .
+You need to search address of building instead of description and count of bathroom for all apartments of building id in step 1 .
+I want the fees of csu campuses .
+Add movie table In step 1 , Be sure to find rating stars for title equals Gone with the Wind .
+In step 1 use assessment notes table instead of teachers table .
+Find undergraduate and replace faculty table , campus and year with discipline enrollments table , year and campus respectively
+respectively , you need to use id of apartment and room count on behalf of bathroom count .
+swap name with id of reviewer , additionally in step 1 correlate movie table .
+In step 2 , you should use campuses in place of county .
+Replace name of reviewer table with director of movie table .
+In step 1 find number of rows of each value of vehicle id in lessons table .
+csu fees 's year equals 1996 , not faculty 's year and change csu fees 's year to Campuses ' campus .
+You only need to calculate the average monthly rental .
+Need to find director and title of movie table
+the building full name should be implanted in place of building full name .
+Should find district name instead of headquartered city .
+instead of using apartment id , you should use bedroom count .
+Replace `` Faculty equals 357 . 1 `` with `` Campuses 's campus equals CSU `` .
+You need to find CSU campus and not faculty year equals 1996 .
+Find discipline enrollments graduate whose campuses campuses equals San Francisco State University and year equals 2004 .
+Replace addresses table with staff table .
+Need to find total rooms in apartments table instead of apartment facilities table .
+There should be vehicles table instead of addresses table .
+Should correspond number of rows to each value of movie id in rating table .
+total is wrong . Take snatch in place of it .
+Find each value of director along with rating stars and title whose lowest value in rating stars .
+In step 1 replace customers with staff , In step 2 replace state province county with last name , find state province county too .
+Replace bathroom count with room count .
+I want 2001 and ensure that from degree table every faculty has lowest degrees .
+I want model name of hardware on behalf of model name and need to search for wifi .
+Step 2 Supersede bathroom count and building description with bedroom count and building short name respectively , clear building short name contains Normandie Court `` .
+You need to search for the enrollments of discipline undergraduate and county .
+You have to look for a city where customer resides in step 1 .
+Replace `` dpi greater than `` with pages per minute color smaller than `` and `` dpi less than `` with max page size equals ``
+I want the id of transaction .
+Just give me the name of the district .
+You must use birth place instead of birth date .
+Verify that the csu fees year is 1996 for San Jose State University .
+Remove the last part of step 2 .
+Replace bathroom count and building description contains `` with bedroom count and building short name equals `` respectively .
+In step 2 , determine that the aggregate of bedroom count from step 1 where building short name is Columbus Square .
+You should use city population in place of headquartered city and also ensure it is between 200000 and 2000000 .
+Replace faculty table with campuses and need to find year between 1935 and 1939 .
+Look for the name of hardware model of phone which has launch year 2002 and ram mib is topmost .
+You should delete faculty equals 357.1 and verify that CSU should be the campus .
+Replace vat rating with product quantity of order items .
+In step 1 , you should substitute items with product .
+i want minimum bathroom count .
+Replace date left staff with date of birth .

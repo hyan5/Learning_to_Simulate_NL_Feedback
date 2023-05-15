@@ -1,0 +1,557 @@
+Change film market estimation table and low estimate with market table and number cities .
+I want you to use market table and number of cities and not the film market estimation table and low estimate .
+Use friend instead of name and name in place of friend .
+You need to edit the name section to friend section and vice versa .
+Here ensure studio contains Universal in place of title contains Universal .
+You have to verify that the studio contains Universal and not the title contains Universal .
+It should use room id in place of decor .
+Replace decor with room id .
+Ensure that person is friend of any person in step 1 .
+In step 1 , confirm that person should have a friend .
+Ensure here to find for person whose job equals student .
+I need data of student .
+It should be age of Person 's friend in step 2 .
+You have to find age from Person 's friend .
+Instead of adults , use max occupancy and bed Type should be replaced by decor .
+You should use max occupancy and decor in place of adults and bed type respectively .
+Also make sure gender equals to male .
+Check that gender should be male .
+Be sure that age greater than engineer 's age .
+You need to be certain that engineer 's age is greater .
+It should be rate , check in and check out instead of bed Type , room in step 2 .
+In step 2 , I want rate , check in , check out as a resplacement of bed Type and room .
+Supersede type with low estimate .
+You need to use low estimate and omit type .
+Count rows of room table whose bed type equals King . calculate rows of each identical value of decor .
+You have to find the number of rooms having king size bed and also ensure they have similar decor .
+Remove city and Use job in place of it .
+Make use of job and drop city .
+Here it should ensure that person 's friend lives in city equals new york city
+A friend of person must live in new york city .
+There should be rooms table and bed Type in place of reservations table and check in respectively .
+You need to replace the reservations table and check in with rooms table and bed type respectively .
+It should be name instead of second friend .
+Remove second friend and use name in its place .
+Here also satisfy one more condition that friend 's name equals Alice .
+Also check that the name of friend is Alice .
+Find friend of person friend table whose name equals Zach with largest value of year .
+I need the name of the person who is Zach 's friend having most number of year .
+Find age of person table whose PersonFriend 's friend equals Zach with greatest value of year .
+I want to find the age of Zach 's eldest friend .
+In step 1 and step 2 need to find studio instead of title .
+You have to search for the studio in-place of title in step 1 and 2 .
+Also Ensure that Person 's friend 's job equals doctor .
+You have to confirm that job of person 's friend 's should be doctor .
+Make sure gender equals male .
+Ensure that gender should be masculine .
+Supersede friend with name .
+I want name instead of friend .
+Supersede position with corresponding school 's location .
+I want location of corresponding school .
+Remove `` and age equals 25 `` .
+Age should be 25 and you can eliminate it .
+Use base price rather than decor .
+Make sure to use base price in place of decor .
+Need to mention that person should be Zach 's friend .
+You need to specify that person as Zach 's friend .
+There should be check in instead of room name and first name equals CONRAD , not last name . Remove `` summation `` .
+You have to delete summation and replace room name with check in . Note that CONRAD is the first name .
+Here it should be studio contains Universal instead of `` Title contains Universal ``
+I want Universal part of studio instead of 'Title contains Universal ' .
+Change name , person table , city with friend , person friend , name , Ensure that friend 's job equals doctor .
+Confirm that the job of a friend is equivalent to doctor and also use friend , person friend , name .
+Use denomination in place of school id .
+You need to find denomination instead of school id .
+Use denomination in place of school in step 3 .
+In step 3 , Make the use of denomination .
+It should find kids not the number of rows .
+Supplant number of rows with kids .
+Interchange 1890 and 1900 with each other .
+Swap 1890 and 1900 with each other .
+Be sure the rooms have been reserved more than 60 times .
+Confirm that the room are booked greater than 60 times .
+Also add friend equals Alice in step 2 .
+For 2nd step , you need to include Alice as value of friend .
+In step 2 Ensure friend equals Zach .
+In step 2 look for the friend whose name is Zach .
+Need to find school 's location for each player , not position .
+I want every player 's location of school .
+Ensure city corresponding to PersonFriend 's friend is not equals Austin .
+Required to be sure person do n't have friend in Austin city .
+Verify that job of person equals student .
+You need to ascertain that the job of the person should be student .
+just find the maximum acc percent
+Calculate the highest account percent .
+committee should be replaced by district .
+You need to use district instead of committee .
+Ensure to order by annual entry exit and annual interchanges instead of total passengers .
+Verify that the order is using annual entry exit and annual interchanges only .
+Switch `` greater than `` and `` less than `` with each other in steps .
+In steps , you need to replace more than and smaller than .
+Take delegate in place of committee and Be sure that population smaller than 100000 .
+You can use committee instead of delegate and also make sure that population should not exceed than 100000 .
+Shift county table with party table in step 1 . Use governor , district in place of comptroller , population in step 2 .
+In step 2 look for governor , district and in step 1 , switch between county and party table .
+It should be governor in place of comptroller , attorney general in both steps .
+You need to place of comptroller with governor in the attorney general 's table .
+It should be basketball match 's all games in place of enrollment .
+Remove enrollment and replace it with all games of basket ball matches .
+There should be governor , not party in step 1 .
+In step 1 , use governor in behalf of party .
+In step 1 party table is to be replaced with election table .
+You need to use table of election rather than table of party in step 1 .
+In step 2 , Only need to find comptroller not each value of comptroller .
+You should find comptroller in step 2 .
+Swap comptroller with election 's delegate .
+I want delegate of election table .
+In step 2 ensure corresponding value of is faculty id present under Student 's advisor .
+you need to ascertain in step 2 , that the corresponding value of the faculty id is there under student 's advisor .
+Find Student 's student id student id those are present in participates in table and age less than 20 .
+nickname of university table is wrong . It should be team name of basketball match table .
+You should use basketball team 's name from the match table .
+The comptroller should come in place of district in both steps .
+In both the steps use comptroller rather than district .
+Need to use rate instead of last name , also need to find check out .
+Replace last name with rate and also obtain the check out value .
+Make sure to find names of dependent with spouse employee relation .
+For spouse employee relation , please double check to find names of dependent from it .
+There should be check in date instead of room name and first name equals SELBIG .
+Verify that SELBIG is the first name and use check in date rather than room name .
+Replace last name with first name , also need to add last name equals SWEAZY with `` and `` .
+Use first name as well as attach last name is correlate to SWEAZY with and .
+There should be room id instead of decor .
+You have to use id of room .
+Make sure to find number of beds for which bed Type equals king .
+You have to search for number of beds for which king is Type of bed .
+Need to find highest number of reservations instead of decor .
+Need to look for greatest reservations number and not the decor .
+Replace decor with base price .
+I want the price of base .
+Make sure bed Type equals King .
+You should confirm that the bed Type is equivalent to King .
+Need to replace adults with kids .
+Use kids instead of adults .
+Make sure decor equals traditional .
+Be sure that decoration as customary .
+Find number of rows of summation of adults and kids whose max occupancy is maximum .
+Give me the total number of rows of adults and kids having maximum occupancy .
+There should be person table instead of person friend table .
+I want table of person .
+Replace name of persontable and job with friend of person friend and name of Persontable respectively .
+Need to find name of Person who is also present as a friend in person friend table .
+Replace job with PersonFriend 's friend .
+I want the friend from PersonFriend 's table .
+Replace city with job .
+You need to find position of employment rather than city .
+Replace reservations table with rooms table , check in with bed Type .
+You should use rooms table instead of reservation table and make sure to change the bed type with check in .
+Make sure to find the total number of people .
+You need to calculate the number of persons .
+Replace type with low estimate .
+Use low estimate instead of type .
+Make sure only to count number of engineers .
+You should only determine the number of engineers .
+Make sure friends are of all Alice 's friends .
+Verify that each friends are of Alice 's .
+Replace bed Type with decor , should be corresponding rows to each value of bed Type equals King .
+Count of corresponding rows of all the value of bed Type is equivalent to King and need to use decor .
+Should find only for male gender , replace gender with age .
+Look for the gender of male as well as use age in place of gender .
+There should be person friend table instead of person table .
+You need to use table of person 's friend .
+Replace person table with person friend in step 2 .
+In step 2 , You should use person friend rather than person table .
+The steps are completely unrelated to questions . Hence all the steps are defective .
+All the steps are flawed as they are not related to questions .
+Remove title equals ET the Extra Terrestrial part .
+You should delete title equivalent ET the Extra Terrestrial part .
+Make sure rate is greater than Rooms ' base price .
+You need to ensure that base price of Rooms must be more than rate .
+Should ask to make sure that the age of person in below 40 .
+To be ensure you have to ask person is below 40 years .
+Replace adults with max occupancy .
+I want the maximum occupancy .
+find the number of raws of rooms which are not reserved in this inn .
+List out the number of rooms available in this inn .
+Replace `` Rate greater than 0 `` with `` Rate greater than Room 's basePrice `` .
+You should use `` Rate greater than Room 's base Price `` instead of `` Rate greater than 0 `` .
+step 2 : find person name . step 2 and 3 : Need to find person 's friend age instead of person .
+Find name of people in step 2 . I want to calculate age of people 's friend in step 2 and 3 .
+Replace adults and bed Type with max occupancy of rooms table and decor respectively .
+You have to add table of max occupancy and decor instead of adults and bed type .
+Replace colors with school colors of school table .
+I want school colors from school table instead of colors .
+Replace smallest value of age with largest value of age .
+I want highest value of age .
+Replace greater than to less than and less than to greater than in step 1 and 2 .
+In step 1 and 2 , use smaller than and higher than .
+Replace location with school id , school with player in step 1 .
+In step 1 , use player and school id in place of location and school respectively .
+Replace job with friend for all steps .
+In all the steps you need to use friend instead of job .
+Replace title with studio in both .
+In the both the aspects tile should be change with studio .
+Replace location in school table with player in player table .
+Put player in player table in place of location in school table .
+Make sure friends of Alice 's friend .
+Could you validate friends of Alice 's friend .
+Replace person table with person friend . gender equals Female , make sure friends of Alice .
+Apply condition that gender is equivalent to Female and ensure Alice 's friends as well , use person friend .
+Only need to make sure these persons are friends with Alice for largest time .
+Just confirm that those persons were Alice best friends .
+Need to find distinct types of job .
+You should look for unique types of job .
+You should look for distinct types of job .
+Replace bed Type with decor for both .
+I want decor rather than bed type .
+Need to remove city .
+City should be omitted .
+Make sure to find those people who have no friends in Austin .
+I need people who do n't have friends in Austin .
+Need to find on basis of largest value of age of that person 's friend .
+You need to find the age of the person 's friend considering the greatest value of age .
+Make sure to replace title with studio .
+You need to use studio in place of title .
+Need to replace school id with denomination , and should find numbers of schools associated with it .
+I want grade rather than Id of school , and also need to check the total numbers of school affiliated with it .
+Replace descending order with ascending order .
+You need to use ascendant order .
+Only find for persons who are friends with Alice .
+You need to search for the persons having Alice as a friends .
+count reservations in reservations table .
+In table of reservation , you need to calculate bookings .
+Replace name with age .
+Age should be used in place of name .
+Make sure to find for each job .
+Search for every single job is required .
+Replace job with PersonFriend 's friend .
+I want the friend from PersonFriend 's table .
+Make sure for which job equals doctor and name equals Zach .
+Make sure that Zach has a doctor 's job .
+Replace name of person table with friend of person friend .
+I want friend of person friend .
+Make sure to find only for rooms that reached max occupancy , people should include adults and kids .
+You need to just search for maximum room occupied by the adults and kids .
+Replace name with age , and make sure name equals Zach .
+You should use name instead of age by ensuring that name match Zach .
+Make sure gender equals male .
+Ensure that gender should be masculine .
+Replace `` equals `` with `` contains `` in step 2 .
+In step 2 , use contains in place of equals .
+Replace comptroller with governor .
+I want the comptroller instead of governor .
+You should put governor in place of comptroller .
+You need use governor in-place of comptroller .
+Replace committee with delegate of election table .
+You need to use delegate of election table rather than committee .
+Replace governor with delegate , need to make sure delegates corresponds to party .
+You should use delegate and also ensure that representative should be similar to party .
+Replace committee with district for both and make sure they are associated delegates .
+Use district for both and verify they are correlated delegates .
+Replace committee with district .
+you need to change committee with district .
+Should corresponds to each value of delegates from that party .
+It should be consistent with every single value of delegates from that party .
+Should find the number of corresponding rows of delegate in election table for each county .
+You need to determine the number of rows relating to the delegate of each county from the election table .
+Replace county table with election table .
+You have to use election table and drop county table .
+You need to use election table instead of county table .
+Replace comptroller with governor .
+I want the comptroller instead of governor .
+You should put governor in place of comptroller .
+You need use governor in-place of comptroller .
+Replace comptroller with district , also need to find comptroller serving for those parties .
+Use district in place of comptroller and also search for the comptroller who is serving those parties .
+Need to find governor elected for highest times .
+You need to search elected governor for more times .
+In step 1 , replace comptroller with committee , interchange step1 and step 2 . In step 3 , replace `` step 2 `` word with step1 .
+In step 3 , `` step 2 `` is wrongly placed which should be corrected by using step 1 there.For step 1 , you need to use committee.Additionally , you have to swap step 1 and 2 with each other .
+Replace population greater than 100000 `` with population smaller than 100000 `` .
+I want `` Citizens not greater than 100000 `` .
+Should also find comptroller ahead of lieutenant governor , remove `` and comptroller equals Carl McCall `` part .
+Make sure to search for the comptroller along with lieutenant governor .
+Replace governor with lieutenant governor and also need to find comptroller .
+You need search for comptroller and lieutenant governor .
+Replace county name in county table with delegate of election table in step 1 .
+In step 1 , you should use delegate of election table in place of county name in country table .
+Replace committee with district .
+you need to change committee with district .
+Make sure to find delegates for each party .
+They need every party 's delegates .
+Replace comptroller with district and make sure they were served as governor .
+I want the district instead of comptroller by ensuring that they have perform duties as a governor .
+Replace committee with delegate .
+You need to use delegate in-place of committee .
+Makes sure counties have two or more delegates .
+You need to confirm that counties should have more or two delegates .
+Replace comptroller with governor .
+I want the comptroller instead of governor .
+You should put governor in place of comptroller .
+You need use governor in-place of comptroller .
+It should be corresponding rows to delegate of election table .
+In election table there must be rows which are equivalent to delegate .
+Replace county table with election table .
+You have to use election table and drop county table .
+You need to use election table instead of county table .
+in step 2 , order by total passengers
+You need to sort order by total passengers in step 2 .
+use train station table instead in step 1
+In step 1 , I want the table of train station .
+also find number of platforms .
+Count number of platforms .
+Need to find for the station with highest numbers of trains .
+I need to search for the station with respect to the trains prominent numbers as well .
+I need the station with highest number of trains .
+use train table instead of station table
+You need to replace station table with train table .
+Should count total number of trains per station and station 's name as well .
+I want to know the name of station and total number of trains per station .
+Make sure station 's location equals London .
+Be sure location of station 's should be equivalent to London .
+Instep 2 , there should be number of platforms instead of location .
+I want platforms in step 2 .
+ordered descending by all home instead of team name .
+You need to arrange all home in lower order .
+You need to arrange all home in lowering order
+Replace founded equals 1850 with founded less than 1850 , ( 2nd ) Founded with affiliation , and `` less than `` with `` equals `` .
+You should use founded must be smaller than 1850 and affiliation , also equals .
+Replace school with primary conference and largest value of enrollment with smallest value of founded .
+Use primary conference and smallest value of founded in place of school and largest value of enrollment .
+In step 2 need to make sure memory in g should be greater than 32 instead of num of stock .
+You have to ensure that memory in g should be more than 32 in step 2 .
+In step 2 need to find by descending order of num of stock and not by name .
+Calculate the number of stock in decline order in step 2 .
+Replace enrollment with acc percent .
+Supplant acc percent instead of enrollment .
+Make sure to change enrollment with acc percent of basketball match .
+Confirm to alter enrollment with ass percent of basketball match .
+Replace first founded in step 2 with acc regular season , and largest value with smallest value .
+In step 2 , I want acc regular season rather than first founded , and also least value instead of highest value .
+It should be basketball match 's team name instead of nickname of university table .
+You have to provide me the team name of basketball match .
+Remove one location and make sure to find school for which affiliation equals Public .
+Delete one location and ensure to search for the school having affiliation equivalent with public .
+There should be founded instead of enrollment . and make sure affiliation is nonpublic .
+I want founded and ensure that attaching is nonpublic .
+Make sure affiliation equals public .
+Confirm affilition is correlate to public .
+Instead `` equals `` make sure it is `` contains `` .
+Ensure that you have to use contains .
+Replace ordered descending by team name with ordered descending by all home .
+Set the descending order by all home and not by the team name .
+Replace affiliation with enrollment , find corresponding rows to each value of affiliation . make sure greater than 1850 .
+You should supplant affiliation with enrollment and search for the corresponding rows to value of affiliation whose value is more than 1850 .
+Replace `` Founded less than Public `` with affiliation equals Public ``
+Be certain to use `` affiliation equals Public `` in lieu of `` Founded less than Public `` .
+Replace school with acc regular season .
+You need to substitute acc regular season in place of school .
+And affiliation is not equal to public .
+You need to ascertain that affiliation should not be public .
+Replace name with memory in g .
+I want memory in g in place of name .
+Replace all games with enrollment .
+Need to use enrollment in place of all games .
+Find faculty id of faculty who is present in faculty participates in table and advisor of student table .
+i want the faculty 's faculty id who is present in faculty participates and also advisor of student table .
+There should be faculty participates in table to be used , not activity table .
+You should use faculty participates instead of activity table .
+List number of rows for sex equals M and for sex equals F for each rank .
+For each rank , list out the number of males and females .
+In step 2 Also find activity name equals Canoeing or activity name equals Kayaking for professors .
+Make sure you search for the Canoeing or Kayaking as a activity name for professor .
+Ensure that student are advised by Michael Goodrich .
+You need to take care if the pupils are counseled by Michael Goodrich .
+In step 2 `` Lname equals Mark `` is wrong , instead it should find for first name equals Mark .
+Take customer id in party services table instead of party phone in parties table .
+You need to use customer id in party service table and drop party phones in parties table .
+Search number of the corresponding rows to each value of faculty id .
+for each value of faculty id , count the number of equivalent rows .
+In step 2 line 1 number building should be used instead of `` individual first name `` .
+In place of first name of individual use number of building in line 1 .
+Exchange `` Sex equals Professor `` with `` Rank equals Professor `` .
+I want rank as profesor .
+It should find for largest value of date formed in place of `` smallest value of date formed `` .
+You have to search for highest instead of lowest value of date formed
+room of faculty table is wrong , it should be replaced by activity name of Activity table .
+Looking for the name of activity in activity table .
+Ensuring individuals also belongs in Labour party organizations from organizations table .
+From organization table make sure that individuals are also owned in organization of labour party .
+Remove condition , for which room equals 224
+You should delete this condition , room equivalent to 224 .
+Need to find number of rows correspond to faculty id from student table .
+Calculate the total numbers of student ID present in Student table .
+The services need to be utilized at least once in step 2 .
+you need to engage this service for at least once in the entire second step .
+find the number of rows in faculty participates in instead of student table and find name in faculty table .
+Need to search name from faculty table and participated faculty 's total rows .
+Be sure that faculty are instructors .
+You need to check that faculty are trainer .
+Change customer id with service id .
+I want Id of service instead of Id of customer .
+find all the values of building of faculty table .
+you have to search for the numbers of building from the faculty table .
+Individually count the number of rows where sex equals M and F .
+You should calculate the number of rows one by one where sex is equivalent to M and F .
+It should be NEB not Professor .
+You need to use NEB not professor .
+The students ' advisor should be a faculty whose rank equals Professor .
+advisor of pupils equals faculty whose rank should be head of faculty .
+Make sure that faculty has a highest student .
+Confirm that faculty has highest student value .
+In step 2 it should find faculty participates in student id and in step 3 it should apply condition which says corresponding activity name equals to Canoeing or Kayaking .
+Verify that comparable name of activity is equivalent to either Canoeing or Kayaking in step 3 and search for participating faculty in student id .
+Can not find result from Faculty table so exchange Faculty table with Faculty Participates in table and `` or `` with `` and `` .
+I want Faculty Participates and also use and in place of or .
+Can not find result from activity table so use Faculty Participates in table instead of Activity table .
+You only need to use Faculty 's participation in table .
+Be sure that those individual id has been listed in organization contact individuals .
+Remember that the individual id is exist in the list of organization contact of individual table .
+Change activity table with faculty table .
+You need to use faculty table in place of activity table .
+Exchange step 2 with find the activity name equals Canoeing or activity name equals Kayaking .
+In step 2 , the activity name should be either Canoeing or Kayaking .
+confirm that whose rank equals Instructor .
+You should verify the rank which is equivalent to instructor .
+Use services table in place of addresses table .
+I want table of services instead of table of addresses .
+In step 2 it should check for city code equals Mark and last name equals Giuliano .
+Need to confirm name should be Mark Giuliano in step 2 .
+It should be number of the corresponding rows to each value of student 's advisor .
+You should use number of equivalent rows to each value of student 's advisor .
+In step 2 we should find date formed of organizations table in the results of step 1 .
+As a result of step 1 , you need to search origin date from organization table .
+In step 1 use parties in place of forms , and in step 3 find form name instead party email .
+I want parties in step 1 and also search form name in step 3 .
+Need to figure out first name equals Michael and last name last name equals Goodrich of faculty who is advisor of those students .
+Use faculty participates in table in place of student table .
+You need to utilize faculty participates in table .
+In step 1 it should count number of rows of each value of form id in party forms table , and in step 2 it should find form name of forms table with largest value in step 1 's result .
+In step 1 , from party forms table you need to evaluate total form id's.Also for step 2 you need to provide the name of the form having highest value of result of step 1 .
+Make sure to find number of rows of student table for each faculty id in student table .
+i want the rows count for individual faculty id in student table .
+Double check that rank equals Professor .
+Confirm that rank is Professor .
+Not in activity table but in faculty table .
+It should be present in faculty table instead of activity table .
+Change Instructor to assistant professor , Ensure to count rows for both sex equals M and F .
+Find out the number of male and female assistant professor .
+In step 2 also ensure that organization contact individuals date contact from is smallest for that specific individuals .
+Verify that individuals ' from date of contact through organization should be lowest than any specific individuals .
+find number of the corresponding rows to each value of activity id of faculty participates in table .
+in the table , you should count the number of activity id of faculty participates .
+Confirm that those individual id should be present under organization contact individuals table .
+You need to ascertain that individual id should be there under organisation 's contact table .
+building should equal NEB and rank must be Professor .
+find each value of not only rank but also sex .
+You need to calculate the number of sex along with the rank .
+In step 2 find service name of services table whose corresponding service id is present in Party Services 's service id .
+In step 2 , you need to provide me the name of service having its service id in Party 's Service table .
+Substitute services table in place of addresses table .
+I want services table rather than addresses table .
+Change activity id to activity name for both .
+you should use activity name in place of activity id .
+Ensure that Faculty 's faculty id is not in Student 's advisor .
+student 's advisor does not have to contain faculty id of faculty .
+Find first name and last name last name for corresponding value of faculty participates in faculty id in the results of step 1 .
+Also confirm that largest value of date contact from of organization contact individuals table .
+For organization contact individuals table , please ensure me about the largest value of contact date .
+`` Rank greater than or equals Professor `` is wrong , it should be rank equals Professor and it should be 10 or more professors in it
+Make sure rank equivalent with professor and count of professor should be more than 10 .
+The college should be UCLA not the team name .
+Make sure UCLA is the college .
+Make sure that college name is UCLA not the team name .
+It should find number of corresponding rows in student table and replace rank with faculty id .
+Need to use faculty id and also search for the rows number which are similar in student table .
+Provide the rows corresponding to student table and use faculty id in place of rank .
+In step 2 delegate would fill in for committee .
+Make sure delegate should fill in for the committee .
+In step 2 , ensure that the representative will fill in for the committee .
+Search person 's name who is older than minimum 1 person of job engineer , sort by age .
+Arrange all persons by age and find name of person who is aged than even a single engineer .
+In step 1 replace boys or girls with denomination , 1890 with 1900 . In step 2 replace 1900 with 1890 .
+In steps 1 and 2 , you should use denomination , 1900 and 1890 in place of boys or girls , 1890 and 1900 respectively .
+Find person 's name whose age above person 's age whose job equals engineer , order ascending by age
+You have to search for name of person who is elder than each engineer and arrange them in ascending order by age .
+Take room id instead of decor , max occupancy greater than 2 `` instead of base price greater than 2 `` .
+You should replace decor , base price higher than 2 with id of room and max occupancy more than 2 respectively .
+For each value of delegate of election table , find corresponding party 's party .
+Need to find party of party table whose value is equivalent to each value of delegate of election table .
+Also ensure that affiliation equals non public .
+Non public should be value of affiliation .
+Instead of job use person friend 's friend in step 1 .
+In step 1 , supplant job with friend of person friend table .
+Ensure that faculty faculty id present under student advisor for student Linda Smith
+Need to confirm that faculty Id of the student advisor should be Linda Smith .
+Exchange comptroller with governor in step 1 , lieutenant governor with governor in step 2 .
+In step 1 , you need to use governor instead of comptroller and in step 2 governor should be used in place of lieutenant governor .
+Instead of all games percent , use all home .
+You need to utilize all home .
+Supersede all games present with all home .
+In step 1 swap school id with denomination , boys or girls with denomination in step 2 .
+In steps 1 and 2 , use denomination in place of school id and boys or girls .
+In step 2 , Ensure To find only for whose friend equals Alice .
+Only determine whose friend is Alice in step 2 .
+Substitute attorney general with delegate and ensure to find their corresponding party 's party .
+I want delegate with their equivalent party name .
+Use school id , player table in place of denomination , school table respectively in step 1 .
+In step 1 , replace denomination with id of school and rather than school table use player .
+friend should be use in place of job .
+You need to use friend .
+Need to supplant job with friend .
+Be certain first name Linda and last name Smith are taken from Corresponding student table .
+First name Linda and last name Smith should be there from correlated student table .
+Make sure student name should be Linda Smith .
+In step 2 Swap job with friend .
+Friend should be used in step 2 .
+You need to exchange job with friend in step 2 .
+Step 1 Replace county id in county table with counties represented in election table . Verify Tables are corresponding .
+Confirm that tables are correlated and in 1st step , you can substitute counties represented in election table rather than id of the country in the country table .
+Make sure tables are in correspondence to each other and also use countries represented of election table instead of country id of country table in step 1 .
+In step 2 Put nickname in lieu of school .
+You need to consider nickname in lieu of school .
+You should use nickname in place of school in step 2 .
+It should be name , not job in step 2 .
+In step 2 , supplant job with name .
+Rather than town city use line 1 number building .
+I want 1 line number building .
+You should search for number building of line 1 instead of city of town .
+Find the country of market table , number of corresponding value of film market estimation 's year for each market id .
+You should look for market 's country and film market estimation year for each market id .
+Rather than max occupancy , Take base price .
+Use base price instead of max occupancy .
+Eliminate `` for which acc road equals 8- 0 `` from step 1 .
+In step 1 , remove acc road equivalent to 8- 0 .
+Ensure that ordered descending by age .
+You should ascertain that age is arranged in descending order .
+Confirm that age is in descending order .
+In step 2 Swap one of the location with all games .
+Exchange all games with one of the location in step 2 .
+Should corresponds rows to each value of advisor of student table .
+There should be correlated rows of student table to every advisors ' value .
+Make sure all the rows are equivalent to value of advisor from student table .
+Find person 's name whose age is greater than any engineer 's age , sort them by age .
+Determine the engineers name whose age is the greatest and sort them by age .
+Also find comptroller along with lieutenant governor whose party equals Democratic .
+Determine the comptroller and lieutenant governor of Democratic party .
+Step 1 Find the faculty id of faculty participates in table . Step 3 show the rows that are in both .
+You should find faculty id of faculty participates in step 1 and also in step 3 display the rows that are common in both .
+You should search id of participates from faculty in step 1 and also make sure that all the rows will be displayed in step 3 .
+Swap school id with denomination in both steps 1 and 2 .
+In step 1 and 2 , interchange between school id and denomination .
+Take delegate instead of governor and ensure that delegate belongs to each county .
+You need to select delegate of all county in place of governor .
+Find person 's name whose age is greater than any engineer and ordered ascending by age .
+Determine the person 's name whose is greater than engineer arranged in ascending order of age .
+Supplant city with job .
+Use job in place of city .
+committee is wrong , use district in place of committee .
+I want district rather than committee .
+Find district instead of committee as it is not correct .
+There should be governor as an alternative to comptroller .
+You should use governor in place of comptroller .
+Remove comptroller and replace it with governor .
+Find person name and age of whose corresponding person friend friend equals Both Dan and Alice .
+Give me the person name and age whose friends are Dan and Alice .
+Find person 's name and age of whose corresponding person friend 's friend equals Both Dan and Alice .
+Look for name and age of person who is friend of Dan and Alice .
