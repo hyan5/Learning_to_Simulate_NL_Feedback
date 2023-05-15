@@ -2,7 +2,7 @@
 
 ### Set up the virtual environment
 
-1. Follow all instructions on the [project homepage](main) to set up the python virtual environment and install all dependencies.
+1. Follow all instructions on the [project homepage](https://github.com/hyan5/Learning_to_Simulate_NL_Feedback/tree/main) to set up the python virtual environment and install all dependencies.
 
 2. Download all necessary datasets and put them into the "$ISP_HOME/data" folder.
 
