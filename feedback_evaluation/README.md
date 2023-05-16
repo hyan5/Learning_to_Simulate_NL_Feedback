@@ -13,11 +13,11 @@ cd $ISP_HOME/feedback_evaluation
 python train.py --tables [spider table file] --train [train file] --dev [dev file]
 
 optional arguments:
-	--model				embedding model to fine-tune, currently support "roberta-large"
-	--lr					learning rate for fine-tuning
-	--margin			expected margin between positive and negative score
+	--model	embedding model to fine-tune, currently support "roberta-large"
+	--lr	learning rate for fine-tuning
+	--margin	expected margin between positive and negative score
 	--prior_loss	the strength of prior term in loss calculation
-	--epoch				the total number of epochs for training
+	--epoch	the total number of epochs for training
 	--batch_size	the number of examples in one batch
 	--negative_mode	how to generate negative examples, currently support "replace"
 	--negative_num	the maximum number of negative examples can be generated for each input
