@@ -45,10 +45,10 @@ wget https://raw.githubusercontent.com/MSR-LIT/Splash/master/data/test.json
 
 Then, run the following commands to process the SPLASH training data:
 ```
-cd utils
-python generate_template_feedback.py -i ../data/splash/train.json -o ../data/splash/train_w_template_feedback.json --no_underscore --no_quote --connect_foreign_key_group
-python generate_template_feedback.py -i ../data/splash/dev.json -o ../data/splash/dev_w_template_feedback.json --no_underscore --no_quote --connect_foreign_key_group
-python generate_template_feedback.py -i ../data/splash/test.json -o ../data/splash/test_w_template_feedback.json --no_underscore --no_quote --connect_foreign_key_group
+cd $ISP_HOME/utils
+python generate_template_feedback.py -i ../data/splash/train.json -o ../data/splash/train_w_template_feedback.json --no_underscore --no_quote --connect_foreign_key_group --use_modified_schema
+python generate_template_feedback.py -i ../data/splash/dev.json -o ../data/splash/dev_w_template_feedback.json --no_underscore --no_quote --connect_foreign_key_group --use_modified_schema
+python generate_template_feedback.py -i ../data/splash/test.json -o ../data/splash/test_w_template_feedback.json --no_underscore --no_quote --connect_foreign_key_group --use_modified_schema
 ```
 For details about options of `generate_template_feedback.py`, please refer to [the utility function README](utils/).
 

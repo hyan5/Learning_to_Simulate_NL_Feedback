@@ -1,0 +1,1010 @@
+[
+    {
+        "question": "What are the names of all directors who made one movie ?",
+        "db_id": "movie_1",
+        "gold_parse": "SELECT director FROM Movie GROUP BY director HAVING count(*)  =  1",
+        "predicted_parse_with_values": "select director from Movie"
+    },
+    {
+        "question": "Show the invoice number and the number of transactions for each invoice .",
+        "db_id": "customers_and_invoices",
+        "gold_parse": "SELECT invoice_number ,  count(*) FROM Financial_transactions GROUP BY invoice_number",
+        "predicted_parse_with_values": "select T2.invoice_number , count ( * ) from Invoices as T1 join Financial_Transactions as T2 on T1.invoice_number = T2.invoice_number group by T1.invoice_number"
+    },
+    {
+        "question": "In what years did a movie receive a 4 or 5 star rating , and list the years from oldest to most recently ?",
+        "db_id": "movie_1",
+        "gold_parse": "SELECT DISTINCT YEAR FROM Movie AS T1 JOIN Rating AS T2 ON T1.mID  =  T2.mID WHERE T2.stars  >=  4 ORDER BY T1.year",
+        "predicted_parse_with_values": "select T1.year from Movie as T1 join Rating as T2 on T1.mID = T2.mID where T2.stars = 2 or T2.ratingDate = \"2011-01-20\" order by T2.ratingDate desc"
+    },
+    {
+        "question": "Return all reviewer names and movie names together in a single list .",
+        "db_id": "movie_1",
+        "gold_parse": "SELECT name FROM Reviewer UNION SELECT title FROM Movie",
+        "predicted_parse_with_values": "select T1.name , T3.title from Reviewer as T1 join Rating as T2 on T1.rID = T2.rID join Movie as T3 on T2.mID = T3.mID"
+    },
+    {
+        "question": "When did the staff member Janessa Sawayn leave the company ?",
+        "db_id": "driving_school",
+        "gold_parse": "SELECT date_left_staff FROM Staff WHERE first_name = \"Janessa\" AND last_name = \"Sawayn\"",
+        "predicted_parse_with_values": "select date_of_birth from Staff where first_name = \"Lincoln\" and last_name = \"Mertz\""
+    },
+    {
+        "question": "How many employees have a first name of Ludie ?",
+        "db_id": "driving_school",
+        "gold_parse": "SELECT count(*) FROM Staff WHERE first_name = \"Ludie\"",
+        "predicted_parse_with_values": "select count ( * ) from Staff where first_name = \"Simeon\""
+    },
+    {
+        "question": "For each director , what is the title and score of their most poorly rated movie ?",
+        "db_id": "movie_1",
+        "gold_parse": "SELECT T2.title ,  T1.stars ,  T2.director ,  min(T1.stars) FROM Rating AS T1 JOIN Movie AS T2 ON T1.mID  =  T2.mID GROUP BY T2.director",
+        "predicted_parse_with_values": "select T1.director , max ( T2.stars ) , min ( T2.stars ) from Movie as T1 join Rating as T2 on T1.mID = T2.mID group by T1.director order by count ( * ) limit 1"
+    },
+    {
+        "question": "Show the account name , id and the number of transactions for each account .",
+        "db_id": "customers_and_invoices",
+        "gold_parse": "SELECT T2.account_name ,  T1.account_id ,  count(*) FROM Financial_transactions AS T1 JOIN Accounts AS T2 ON T1.account_id  =  T2.account_id GROUP BY T1.account_id",
+        "predicted_parse_with_values": "select account_name , account_id , count ( * ) from Accounts group by account_id"
+    },
+    {
+        "question": "Find all years that have a movie that received a rating of 4 or 5 , and sort them in increasing order of year .",
+        "db_id": "movie_1",
+        "gold_parse": "SELECT DISTINCT YEAR FROM Movie AS T1 JOIN Rating AS T2 ON T1.mID  =  T2.mID WHERE T2.stars  >=  4 ORDER BY T1.year",
+        "predicted_parse_with_values": "select T1.year from Movie as T1 join Rating as T2 on T1.mID = T2.mID where T2.ratingDate = \"2011-01-22\" or T2.ratingDate = \"2011-01-22\" order by T1.year desc"
+    },
+    {
+        "question": "What is the average rating for each movie that has never been reviewed by Brittany Harris ?",
+        "db_id": "movie_1",
+        "gold_parse": "SELECT mID ,  avg(stars) FROM Rating WHERE mID NOT IN (SELECT T1.mID FROM Rating AS T1 JOIN Reviewer AS T2 ON T1.rID  =  T2.rID WHERE T2.name  =  \"Brittany Harris\") GROUP BY mID",
+        "predicted_parse_with_values": "select avg ( title ) from Movie where mID not in ( select T3.mID from Reviewer as T1 join Rating as T2 on T1.rID = T2.rID join Movie as T3 on T2.mID = T3.mID where T1.name = \"Ashley White\" )"
+    },
+    {
+        "question": "What are the names of all movies that were made after 2000 or reviewed by Brittany Harris ?",
+        "db_id": "movie_1",
+        "gold_parse": "SELECT DISTINCT T2.title FROM Rating AS T1 JOIN Movie AS T2 ON T1.mID  =  T2.mID JOIN Reviewer AS T3 ON T1.rID  =  T3.rID WHERE T3.name  =  'Brittany Harris' OR T2.year  >  2000",
+        "predicted_parse_with_values": "select title from Movie where year > 2009 union select T3.title from Reviewer as T1 join Rating as T2 on T1.rID = T2.rID join Movie as T3 on T2.mID = T3.mID where T1.name = \"Daniel Lewis\" and T3.year = 1937"
+    },
+    {
+        "question": "How many customers are there of each gender ?",
+        "db_id": "customers_and_invoices",
+        "gold_parse": "SELECT gender ,  count(*) FROM Customers GROUP BY gender",
+        "predicted_parse_with_values": "select count ( * ) , gender from Customers group by gender"
+    },
+    {
+        "question": "What are the ids and names of accounts with 4 or more transactions ?",
+        "db_id": "customers_and_invoices",
+        "gold_parse": "SELECT T1.account_id ,  T2.account_name FROM Financial_transactions AS T1 JOIN Accounts AS T2 ON T1.account_id  =  T2.account_id GROUP BY T1.account_id HAVING count(*)  >=  4",
+        "predicted_parse_with_values": "select account_id , account_name from Accounts group by account_id having count ( * ) >= 1"
+    },
+    {
+        "question": "What are the names of directors who directed movies with 5 star rating ? Also return the title of these movies .",
+        "db_id": "movie_1",
+        "gold_parse": "SELECT T1.director ,  T1.title FROM Movie AS T1 JOIN Rating AS T2 ON T1.mID  =  T2.mID WHERE T2.stars  =  5",
+        "predicted_parse_with_values": "select T1.director , T1.director from Movie as T1 join Rating as T2 on T1.mID = T2.mID where T2.stars = 5"
+    },
+    {
+        "question": "Find the average rating star for each movie that received at least 2 ratings .",
+        "db_id": "movie_1",
+        "gold_parse": "SELECT mID ,  avg(stars) FROM Rating GROUP BY mID HAVING count(*)  >=  2",
+        "predicted_parse_with_values": "select avg ( T2.stars ) , T1.title from Movie as T1 join Rating as T2 on T1.mID = T2.mID group by T1.mID having avg ( T2.stars ) >= 1"
+    },
+    {
+        "question": "In what city does Janessa Sawayn live ?",
+        "db_id": "driving_school",
+        "gold_parse": "SELECT T1.city FROM Addresses AS T1 JOIN Staff AS T2 ON T1.address_id = T2.staff_address_id WHERE T2.first_name = \"Janessa\" AND T2.last_name = \"Sawayn\"",
+        "predicted_parse_with_values": "select T2.city from Customers as T1 join Addresses as T2 on T1.customer_address_id = T2.address_id where T1.first_name = \"Estelle\""
+    },
+    {
+        "question": "What is the nickname of the employee named Janessa Sawayn ?",
+        "db_id": "driving_school",
+        "gold_parse": "SELECT nickname FROM Staff WHERE first_name = \"Janessa\" AND last_name = \"Sawayn\"",
+        "predicted_parse_with_values": "select nickname from Staff where first_name = \"Queenie\""
+    },
+    {
+        "question": "What are the names of all directors who have made one movie except for the director named NULL ?",
+        "db_id": "movie_1",
+        "gold_parse": "SELECT director FROM Movie WHERE director != \"null\" GROUP BY director HAVING count(*)  =  1",
+        "predicted_parse_with_values": "select director from Movie except select director from Movie where title = \"E.T.\""
+    },
+    {
+        "question": "For directors who had more than one movie , return the titles and produced years of all movies directed by them .",
+        "db_id": "movie_1",
+        "gold_parse": "SELECT T1.title ,  T1.year FROM Movie AS T1 JOIN Movie AS T2 ON T1.director  =  T2.director WHERE T1.title != T2.title",
+        "predicted_parse_with_values": "select title , year from Movie group by director having count ( * ) > 1"
+    },
+    {
+        "question": "Show the account id and name with at least 4 transactions .",
+        "db_id": "customers_and_invoices",
+        "gold_parse": "SELECT T1.account_id ,  T2.account_name FROM Financial_transactions AS T1 JOIN Accounts AS T2 ON T1.account_id  =  T2.account_id GROUP BY T1.account_id HAVING count(*)  >=  4",
+        "predicted_parse_with_values": "select account_id , account_name from Accounts group by account_id having count ( * ) >= 1"
+    },
+    {
+        "question": "Show the account id with most number of transactions .",
+        "db_id": "customers_and_invoices",
+        "gold_parse": "SELECT account_id FROM Financial_transactions GROUP BY account_id ORDER BY count(*) DESC LIMIT 1",
+        "predicted_parse_with_values": "select account_id from Accounts group by account_id order by count ( * ) desc limit 1"
+    },
+    {
+        "question": "What are the titles of all movies that James Cameron directed after 2000 ?",
+        "db_id": "movie_1",
+        "gold_parse": "SELECT title FROM Movie WHERE director = 'James Cameron' AND YEAR  >  2000",
+        "predicted_parse_with_values": "select title from Movie where director > \"Victor Fleming\" and year > 1939"
+    },
+    {
+        "question": "What are names of the movies that are either made after 2000 or reviewed by Brittany Harris ?",
+        "db_id": "movie_1",
+        "gold_parse": "SELECT DISTINCT T2.title FROM Rating AS T1 JOIN Movie AS T2 ON T1.mID  =  T2.mID JOIN Reviewer AS T3 ON T1.rID  =  T3.rID WHERE T3.name  =  'Brittany Harris' OR T2.year  >  2000",
+        "predicted_parse_with_values": "select title from Movie where year > 1981 union select T3.title from Reviewer as T1 join Rating as T2 on T1.rID = T2.rID join Movie as T3 on T2.mID = T3.mID where T1.name = \"Ashley White\" and T3.year = 2009"
+    },
+    {
+        "question": "Find the names of all directors whose movies are rated by Sarah Martinez .",
+        "db_id": "movie_1",
+        "gold_parse": "SELECT DISTINCT T2.director FROM Rating AS T1 JOIN Movie AS T2 ON T1.mID  =  T2.mID JOIN Reviewer AS T3 ON T1.rID  =  T3.rID WHERE T3.name  =  'Sarah Martinez'",
+        "predicted_parse_with_values": "select T3.director from Reviewer as T1 join Rating as T2 on T1.rID = T2.rID join Movie as T3 on T2.mID = T3.mID where T1.name = \"Ashley White\""
+    },
+    {
+        "question": "Find the ids of reviewers who did n't only give 4 star .",
+        "db_id": "movie_1",
+        "gold_parse": "SELECT rID FROM Rating WHERE stars != 4",
+        "predicted_parse_with_values": "select rID from Reviewer except select rID from Rating where stars = 3"
+    },
+    {
+        "question": "In which country and state does Janessa Sawayn live ?",
+        "db_id": "driving_school",
+        "gold_parse": "SELECT T1.country ,  T1.state_province_county FROM Addresses AS T1 JOIN Staff AS T2 ON T1.address_id = T2.staff_address_id WHERE T2.first_name = \"Janessa\" AND T2.last_name = \"Sawayn\"",
+        "predicted_parse_with_values": "select T2.country , T2.state_province_county from Customers as T1 join Addresses as T2 on T1.customer_address_id = T2.address_id where T1.first_name = \"Omer\""
+    },
+    {
+        "question": "Find the average rating star for each movie that are not reviewed by Brittany Harris .",
+        "db_id": "movie_1",
+        "gold_parse": "SELECT mID ,  avg(stars) FROM Rating WHERE mID NOT IN (SELECT T1.mID FROM Rating AS T1 JOIN Reviewer AS T2 ON T1.rID  =  T2.rID WHERE T2.name  =  \"Brittany Harris\") GROUP BY mID",
+        "predicted_parse_with_values": "select avg ( T2.stars ) , avg ( T2.stars ) from Movie as T1 join Rating as T2 on T1.mID = T2.mID where T1.mID not in ( select T4.mID from Reviewer as T3 join Rating as T4 on T3.rID = T4.rID where T3.name = \"Sarah Martinez\" )"
+    },
+    {
+        "question": "What are the code and description of the least frequent detention type ?",
+        "db_id": "behavior_monitoring",
+        "gold_parse": "SELECT T1.detention_type_code ,  T2.detention_type_description FROM Detention AS T1 JOIN Ref_Detention_Type AS T2 ON T1.detention_type_code  =  T2.detention_type_code GROUP BY T1.detention_type_code ORDER BY count(*) ASC LIMIT 1",
+        "predicted_parse_with_values": "select detention_type_code , detention_type_description from Ref_Detention_Type group by detention_type_code order by count ( * ) asc limit 1"
+    },
+    {
+        "question": "What are the ids of the movies that are not reviewed by Brittany Harris .",
+        "db_id": "movie_1",
+        "gold_parse": "SELECT mID FROM Rating EXCEPT SELECT T1.mID FROM Rating AS T1 JOIN Reviewer AS T2 ON T1.rID  =  T2.rID WHERE T2.name  =  \"Brittany Harris\"",
+        "predicted_parse_with_values": "select mID from Movie except select T3.mID from Reviewer as T1 join Rating as T2 on T1.rID = T2.rID join Movie as T3 on T2.mID = T3.mID where T1.name = \"Daniel Lewis\""
+    },
+    {
+        "question": "What are the titles and directors of the movies whose star is greater than the average stars of the movies directed by James Cameron ?",
+        "db_id": "movie_1",
+        "gold_parse": "SELECT T2.title ,  T2.director FROM Rating AS T1 JOIN Movie AS T2 ON T1.mID  =  T2.mID WHERE T1.stars  >  (SELECT avg(T1.stars) FROM Rating AS T1 JOIN Movie AS T2 ON T1.mID  =  T2.mID WHERE T2.director  =  \"James Cameron\")",
+        "predicted_parse_with_values": "select T1.title , T1.director from Movie as T1 join Rating as T2 on T1.mID = T2.mID where T2.stars > ( select avg ( stars ) from Rating where value = 1 )"
+    },
+    {
+        "question": "What is the invoice number and invoice date corresponding to the invoice with the greatest number of transactions ?",
+        "db_id": "customers_and_invoices",
+        "gold_parse": "SELECT T2.invoice_number ,  T2.invoice_date FROM Financial_transactions AS T1 JOIN Invoices AS T2 ON T1.invoice_number  =  T2.invoice_number GROUP BY T1.invoice_number ORDER BY count(*) DESC LIMIT 1",
+        "predicted_parse_with_values": "select T2.invoice_number , T1.invoice_date from Invoices as T1 join Financial_Transactions as T2 on T1.invoice_number = T2.invoice_number group by T1.invoice_number order by count ( * ) desc limit 1"
+    },
+    {
+        "question": "What is the zip code of the customer Carole Bernhard ?",
+        "db_id": "driving_school",
+        "gold_parse": "SELECT T2.zip_postcode FROM Customers AS T1 JOIN Addresses AS T2 ON T1.customer_address_id = T2.address_id WHERE T1.first_name = \"Carole\" AND T1.last_name = \"Bernhard\"",
+        "predicted_parse_with_values": "select T2.zip_postcode from Customers as T1 join Addresses as T2 on T1.customer_address_id = T2.address_id where T1.first_name = \"Jordy\""
+    },
+    {
+        "question": "In which city do the most employees live and how many of them live there ?",
+        "db_id": "driving_school",
+        "gold_parse": "SELECT T1.city ,  count(*) FROM Addresses AS T1 JOIN Staff AS T2 ON T1.address_id = T2.staff_address_id GROUP BY T1.city ORDER BY count(*) DESC LIMIT 1",
+        "predicted_parse_with_values": "select city , count ( * ) from Addresses group by city order by count ( * ) desc limit 1"
+    },
+    {
+        "question": "What are the line 1 of addresses shared by some students and some teachers ?",
+        "db_id": "behavior_monitoring",
+        "gold_parse": "SELECT T1.line_1 FROM Addresses AS T1 JOIN Students AS T2 ON T1.address_id  =  T2.address_id INTERSECT SELECT T1.line_1 FROM Addresses AS T1 JOIN Teachers AS T2 ON T1.address_id  =  T2.address_id",
+        "predicted_parse_with_values": "select line_1 from Addresses intersect select line_2 from Addresses"
+    },
+    {
+        "question": "What is the name of the movie that is rated by most of times ?",
+        "db_id": "movie_1",
+        "gold_parse": "SELECT T2.title ,  T1.mID FROM Rating AS T1 JOIN Movie AS T2 ON T1.mID  =  T2.mID GROUP BY T1.mID ORDER BY count(*) DESC LIMIT 1",
+        "predicted_parse_with_values": "select title from Movie group by mID order by count ( * ) desc limit 1"
+    },
+    {
+        "question": "Find the titles of all movies not reviewed by Chris Jackson .",
+        "db_id": "movie_1",
+        "gold_parse": "SELECT DISTINCT title FROM Movie EXCEPT SELECT T2.title FROM Rating AS T1 JOIN Movie AS T2 ON T1.mID  =  T2.mID JOIN Reviewer AS T3 ON T1.rID  =  T3.rID WHERE T3.name  =  'Chris Jackson'",
+        "predicted_parse_with_values": "select title from Movie except select T3.title from Reviewer as T1 join Rating as T2 on T1.rID = T2.rID join Movie as T3 on T2.mID = T3.mID where T1.name = \"Elizabeth Thomas\""
+    },
+    {
+        "question": "How many lessons have been cancelled ?",
+        "db_id": "driving_school",
+        "gold_parse": "SELECT count(*) FROM Lessons WHERE lesson_status_code = \"Cancelled\"",
+        "predicted_parse_with_values": "select count ( lesson_status_code ) from Lessons where lesson_status_code = \"Completed\""
+    },
+    {
+        "question": "What are the invoice dates , order ids , and order details for all invoices ?",
+        "db_id": "customers_and_invoices",
+        "gold_parse": "SELECT T1.invoice_date ,  T1.order_id ,  T2.order_details FROM Invoices AS T1 JOIN Orders AS T2 ON T1.order_id  =  T2.order_id",
+        "predicted_parse_with_values": "select T1.invoice_date , T1.invoice_date , T2.order_details from Invoices as T1 join Orders as T2 on T1.order_id = T2.order_id"
+    },
+    {
+        "question": "When did customer with first name as Carole and last name as Bernhard became a customer ?",
+        "db_id": "driving_school",
+        "gold_parse": "SELECT date_became_customer FROM Customers WHERE first_name = \"Carole\" AND last_name = \"Bernhard\"",
+        "predicted_parse_with_values": "select date_of_birth from Customers where first_name = \"Ray\" and last_name = \"Tromp\""
+    },
+    {
+        "question": "How many staff live in state Georgia ?",
+        "db_id": "driving_school",
+        "gold_parse": "SELECT count(*) FROM Addresses WHERE state_province_county = \"Georgia\"",
+        "predicted_parse_with_values": "select count ( * ) from Addresses where state_province_county = \"WestVirginia\""
+    },
+    {
+        "question": "List first name and last name of customers that have more than 2 payments .",
+        "db_id": "driving_school",
+        "gold_parse": "SELECT T2.first_name ,  T2.last_name FROM Customer_Payments AS T1 JOIN Customers AS T2 ON T1.customer_id = T2.customer_id GROUP BY T1.customer_id HAVING count(*)  >  2",
+        "predicted_parse_with_values": "select first_name , last_name from Customers group by customer_id having count ( * ) > 1"
+    },
+    {
+        "question": "What is the customer last name , id and phone number with most number of orders ?",
+        "db_id": "customers_and_invoices",
+        "gold_parse": "SELECT T2.customer_last_name ,  T1.customer_id ,  T2.phone_number FROM Orders AS T1 JOIN Customers AS T2 ON T1.customer_id  =  T2.customer_id GROUP BY T1.customer_id ORDER BY count(*) DESC LIMIT 1",
+        "predicted_parse_with_values": "select T1.customer_last_name , T1.customer_last_name , T1.phone_number from Customers as T1 join Orders as T2 on T1.customer_id = T2.customer_id group by T2.customer_id order by count ( * ) desc limit 1"
+    },
+    {
+        "question": "When did the staff member with first name as Janessa and last name as Sawayn join the company ?",
+        "db_id": "driving_school",
+        "gold_parse": "SELECT date_joined_staff FROM Staff WHERE first_name = \"Janessa\" AND last_name = \"Sawayn\"",
+        "predicted_parse_with_values": "select date_joined_staff from Staff where first_name = \"Titus\" and date_of_birth = \"1994-05-17 05:32:11\""
+    },
+    {
+        "question": "Show order ids and the total quantity in each order .",
+        "db_id": "customers_and_invoices",
+        "gold_parse": "SELECT order_id ,  sum(product_quantity) FROM Order_items GROUP BY order_id",
+        "predicted_parse_with_values": "select T2.order_id , sum ( T1.product_quantity ) from Order_Items as T1 join Orders as T2 on T1.order_id = T2.order_id group by T2.order_id"
+    },
+    {
+        "question": "When did the staff member named Janessa Sawayn join the company ?",
+        "db_id": "driving_school",
+        "gold_parse": "SELECT date_joined_staff FROM Staff WHERE first_name = \"Janessa\" AND last_name = \"Sawayn\"",
+        "predicted_parse_with_values": "select date_of_birth from Staff where first_name = \"Eulalia\" and last_name = \"Herzog\""
+    },
+    {
+        "question": "What is the name of the movie produced after 2000 and directed by James Cameron ?",
+        "db_id": "movie_1",
+        "gold_parse": "SELECT title FROM Movie WHERE director = 'James Cameron' AND YEAR  >  2000",
+        "predicted_parse_with_values": "select title from Movie where year > 2009 and director = \"Robert Wise\""
+    },
+    {
+        "question": "What are the first and last names of all customers with more than 2 payments ?",
+        "db_id": "driving_school",
+        "gold_parse": "SELECT T2.first_name ,  T2.last_name FROM Customer_Payments AS T1 JOIN Customers AS T2 ON T1.customer_id = T2.customer_id GROUP BY T1.customer_id HAVING count(*)  >  2",
+        "predicted_parse_with_values": "select first_name , last_name from Customers group by customer_id having count ( * ) > 1"
+    },
+    {
+        "question": "What are the names of all movies that received 3 or 4 stars ?",
+        "db_id": "movie_1",
+        "gold_parse": "SELECT T2.title FROM Rating AS T1 JOIN Movie AS T2 ON T1.mID  =  T2.mID WHERE T1.stars  =  3 INTERSECT SELECT T2.title FROM Rating AS T1 JOIN Movie AS T2 ON T1.mID  =  T2.mID WHERE T1.stars  =  4",
+        "predicted_parse_with_values": "select T1.title from Movie as T1 join Rating as T2 on T1.mID = T2.mID where T2.stars = 2 or T2.stars = 5"
+    },
+    {
+        "question": "For any rating where the name of reviewer is the same as the director of the movie , return the reviewer name , movie title , and number of stars .",
+        "db_id": "movie_1",
+        "gold_parse": "SELECT DISTINCT T3.name ,  T2.title ,  T1.stars FROM Rating AS T1 JOIN Movie AS T2 ON T1.mID  =  T2.mID JOIN Reviewer AS T3 ON T1.rID  =  T3.rID WHERE T2.director  =  T3.name",
+        "predicted_parse_with_values": "select T1.name , T3.director , count ( * ) from Reviewer as T1 join Rating as T2 on T1.rID = T2.rID join Movie as T3 on T2.mID = T3.mID group by T1.name"
+    },
+    {
+        "question": "Show the order ids and the number of invoices for each order .",
+        "db_id": "customers_and_invoices",
+        "gold_parse": "SELECT order_id ,  count(*) FROM Invoices GROUP BY order_id",
+        "predicted_parse_with_values": "select order_id , count ( * ) from Invoices group by order_id"
+    },
+    {
+        "question": "What is the maximum stars and year for the most recent movie ?",
+        "db_id": "movie_1",
+        "gold_parse": "SELECT max(T1.stars) ,  T2.year FROM Rating AS T1 JOIN Movie AS T2 ON T1.mID  =  T2.mID WHERE T2.year  =  (SELECT max(YEAR) FROM Movie)",
+        "predicted_parse_with_values": "select max ( year ) , min ( year ) from Movie order by year desc limit 1"
+    },
+    {
+        "question": "For all directors who directed more than one movie , return the titles of all movies directed by them , along with the director name . Sort by director name , then movie title .",
+        "db_id": "movie_1",
+        "gold_parse": "SELECT T1.title ,  T1.director FROM Movie AS T1 JOIN Movie AS T2 ON T1.director  =  T2.director WHERE T1.title != T2.title ORDER BY T1.director ,  T1.title",
+        "predicted_parse_with_values": "select director , title from Movie order by title , title"
+    },
+    {
+        "question": "What is the status code , phone number , and email address of the customer whose last name is Kohler or whose first name is Marina ?",
+        "db_id": "driving_school",
+        "gold_parse": "SELECT customer_status_code ,  cell_mobile_phone_number ,  email_address FROM Customers WHERE first_name = \"Marina\" OR last_name  =  \"Kohler\"",
+        "predicted_parse_with_values": "select customer_status_code , phone_number , email_address from Customers where last_name = \"Terry\" or first_name = \"Millie\""
+    },
+    {
+        "question": "What is the name of the most recent movie ?",
+        "db_id": "movie_1",
+        "gold_parse": "SELECT title FROM Movie WHERE YEAR  =  (SELECT max(YEAR) FROM Movie)",
+        "predicted_parse_with_values": "select title from Movie order by year desc limit 1"
+    },
+    {
+        "question": "For the oldest movie listed , what is its average rating and title ?",
+        "db_id": "movie_1",
+        "gold_parse": "SELECT avg(T1.stars) ,  T2.title FROM Rating AS T1 JOIN Movie AS T2 ON T1.mID  =  T2.mID WHERE T2.year  =  (SELECT min(YEAR) FROM Movie)",
+        "predicted_parse_with_values": "select T1.title , avg ( T2.ratingDate ) from Movie as T1 join Rating as T2 on T1.mID = T2.mID group by T1.title order by avg ( T2.ratingDate ) desc limit 1"
+    },
+    {
+        "question": "Return the average , minimum , maximum , and total transaction amounts .",
+        "db_id": "customers_and_invoices",
+        "gold_parse": "SELECT avg(transaction_amount) ,  min(transaction_amount) ,  max(transaction_amount) ,   sum(transaction_amount) FROM Financial_transactions",
+        "predicted_parse_with_values": "select avg ( transaction_amount ) , sum ( transaction_amount ) , sum ( transaction_amount ) , sum ( transaction_amount ) from Financial_Transactions"
+    },
+    {
+        "question": "What are the names of all the reviewers and movie names ?",
+        "db_id": "movie_1",
+        "gold_parse": "SELECT name FROM Reviewer UNION SELECT title FROM Movie",
+        "predicted_parse_with_values": "select T1.name , T3.title from Reviewer as T1 join Rating as T2 on T1.rID = T2.rID join Movie as T3 on T2.mID = T3.mID"
+    },
+    {
+        "question": "How many staff have the first name Ludie ?",
+        "db_id": "driving_school",
+        "gold_parse": "SELECT count(*) FROM Staff WHERE first_name = \"Ludie\"",
+        "predicted_parse_with_values": "select count ( * ) from Staff where first_name = \"Eulalia\""
+    },
+    {
+        "question": "Return the id and full name of the customer with the most accounts .",
+        "db_id": "customers_and_invoices",
+        "gold_parse": "SELECT T1.customer_id ,  T2.customer_first_name ,  T2.customer_last_name FROM Accounts AS T1 JOIN Customers AS T2 ON T1.customer_id  =  T2.customer_id GROUP BY T1.customer_id ORDER BY count(*) DESC LIMIT 1",
+        "predicted_parse_with_values": "select customer_id , customer_first_name , customer_last_name from Customers group by customer_id order by count ( * ) desc limit 1"
+    },
+    {
+        "question": "What are the names of the directors who made exactly one movie excluding director NULL ?",
+        "db_id": "movie_1",
+        "gold_parse": "SELECT director FROM Movie WHERE director != \"null\" GROUP BY director HAVING count(*)  =  1",
+        "predicted_parse_with_values": "select director from Movie where director != ( select director from Movie where title = \"Snow White\" group by director having count ( * ) = 1 )"
+    },
+    {
+        "question": "Which last names are both used by customers and by staff ?",
+        "db_id": "driving_school",
+        "gold_parse": "SELECT last_name FROM Customers INTERSECT SELECT last_name FROM Staff",
+        "predicted_parse_with_values": "select last_name from Staff intersect select last_name from Customers"
+    },
+    {
+        "question": "How many lessons did the customer with the first name Ray take ?",
+        "db_id": "driving_school",
+        "gold_parse": "SELECT count(*) FROM Lessons AS T1 JOIN Customers AS T2 ON T1.customer_id  = T2.customer_id WHERE T2.first_name = \"Ray\"",
+        "predicted_parse_with_values": "select count ( T2.lesson_id ) from Customers as T1 join Lessons as T2 on T1.customer_id = T2.customer_id where T1.first_name = \"Leif\""
+    },
+    {
+        "question": "What is the order id and order details for the order more than two invoices .",
+        "db_id": "customers_and_invoices",
+        "gold_parse": "SELECT T2.order_id ,  T2.order_details FROM Invoices AS T1 JOIN Orders AS T2 ON T1.order_id  =  T2.order_id GROUP BY T2.order_id HAVING count(*)  >  2",
+        "predicted_parse_with_values": "select T1.order_id , T2.order_details from Invoices as T1 join Orders as T2 on T1.order_id = T2.order_id group by T1.order_id having count ( * ) > 1"
+    },
+    {
+        "question": "Find the names of all reviewers who have contributed three or more ratings .",
+        "db_id": "movie_1",
+        "gold_parse": "SELECT T2.name FROM Rating AS T1 JOIN Reviewer AS T2 ON T1.rID  =  T2.rID GROUP BY T1.rID HAVING COUNT(*)  >=  3",
+        "predicted_parse_with_values": "select name from Reviewer group by name having count ( * ) >= 1"
+    },
+    {
+        "question": "What are the names of the states that have 2 to 4 employees living there ?",
+        "db_id": "driving_school",
+        "gold_parse": "SELECT T1.state_province_county FROM Addresses AS T1 JOIN Staff AS T2 ON T1.address_id = T2.staff_address_id GROUP BY T1.state_province_county HAVING count(*) BETWEEN 2 AND 4",
+        "predicted_parse_with_values": "select state_province_county from Addresses group by state_province_county having count ( * ) >= 1"
+    },
+    {
+        "question": "What is the invoice number and invoice date for the invoice with most number of transactions ?",
+        "db_id": "customers_and_invoices",
+        "gold_parse": "SELECT T2.invoice_number ,  T2.invoice_date FROM Financial_transactions AS T1 JOIN Invoices AS T2 ON T1.invoice_number  =  T2.invoice_number GROUP BY T1.invoice_number ORDER BY count(*) DESC LIMIT 1",
+        "predicted_parse_with_values": "select invoice_number , invoice_date from Invoices group by invoice_number order by count ( * ) desc limit 1"
+    },
+    {
+        "question": "What is the city with the most customers ?",
+        "db_id": "driving_school",
+        "gold_parse": "SELECT T2.city FROM Customers AS T1 JOIN Addresses AS T2 ON T1.customer_address_id = T2.address_id GROUP BY T2.city ORDER BY count(*) DESC LIMIT 1",
+        "predicted_parse_with_values": "select T2.city from Customers as T1 join Addresses as T2 on T1.customer_address_id = T2.address_id group by T2.city order by count ( * ) desc limit 1"
+    },
+    {
+        "question": "What is the name of the movie that has been reviewed the most ?",
+        "db_id": "movie_1",
+        "gold_parse": "SELECT T2.title ,  T1.mID FROM Rating AS T1 JOIN Movie AS T2 ON T1.mID  =  T2.mID GROUP BY T1.mID ORDER BY count(*) DESC LIMIT 1",
+        "predicted_parse_with_values": "select T3.title from Reviewer as T1 join Rating as T2 on T1.rID = T2.rID join Movie as T3 on T2.mID = T3.mID group by T1.name order by count ( * ) desc limit 1"
+    },
+    {
+        "question": "Show the number of customers for each gender .",
+        "db_id": "customers_and_invoices",
+        "gold_parse": "SELECT gender ,  count(*) FROM Customers GROUP BY gender",
+        "predicted_parse_with_values": "select count ( * ) , gender from Customers group by gender"
+    },
+    {
+        "question": "What are the names and other details for accounts corresponding to the customer named Meaghan Keeling ?",
+        "db_id": "customers_and_invoices",
+        "gold_parse": "SELECT T1.account_name ,  T1.other_account_details FROM Accounts AS T1 JOIN Customers AS T2 ON T1.customer_id  =  T2.customer_id WHERE T2.customer_first_name  =  \"Meaghan\" AND T2.customer_last_name  =  \"Keeling\"",
+        "predicted_parse_with_values": "select T2.account_name , T2.other_account_details from Customers as T1 join Accounts as T2 on T1.customer_id = T2.customer_id where T1.customer_first_name = \"Neoma\""
+    },
+    {
+        "question": "What are the names of all movies made before 1980 or had James Cameron as the director ?",
+        "db_id": "movie_1",
+        "gold_parse": "SELECT title FROM Movie WHERE director  =  \"James Cameron\" OR YEAR   <  1980",
+        "predicted_parse_with_values": "select title from Movie where year < 1981 union select title from Movie where director = \"James Cameron\""
+    },
+    {
+        "question": "What are the titles and directors of all movies that have a rating higher than the average James Cameron film rating ?",
+        "db_id": "movie_1",
+        "gold_parse": "SELECT T2.title ,  T2.director FROM Rating AS T1 JOIN Movie AS T2 ON T1.mID  =  T2.mID WHERE T1.stars  >  (SELECT avg(T1.stars) FROM Rating AS T1 JOIN Movie AS T2 ON T1.mID  =  T2.mID WHERE T2.director  =  \"James Cameron\")",
+        "predicted_parse_with_values": "select T1.title , T1.director from Movie as T1 join Rating as T2 on T1.mID = T2.mID where T2.stars > ( select avg ( stars ) from Rating where stars >= 3 )"
+    },
+    {
+        "question": "For each movie that received more than 3 reviews , what is the average rating ?",
+        "db_id": "movie_1",
+        "gold_parse": "SELECT mID ,  avg(stars) FROM Rating GROUP BY mID HAVING count(*)  >=  2",
+        "predicted_parse_with_values": "select avg ( T1.title ) , avg ( T2.stars ) from Movie as T1 join Rating as T2 on T1.mID = T2.mID group by T2.mID having avg ( T2.stars ) > 1"
+    },
+    {
+        "question": "What are names of the movies that are either made before 1980 or directed by James Cameron ?",
+        "db_id": "movie_1",
+        "gold_parse": "SELECT title FROM Movie WHERE director  =  \"James Cameron\" OR YEAR   <  1980",
+        "predicted_parse_with_values": "select title from Movie where year < 1965 union select title from Movie where director = \"James Cameron\" and director = \"George Lucas\""
+    },
+    {
+        "question": "What is highest rating for the most recent movie and when was it released ?",
+        "db_id": "movie_1",
+        "gold_parse": "SELECT max(T1.stars) ,  T2.year FROM Rating AS T1 JOIN Movie AS T2 ON T1.mID  =  T2.mID WHERE T2.year  =  (SELECT max(YEAR) FROM Movie)",
+        "predicted_parse_with_values": "select max ( T2.ratingDate ) , min ( T1.year ) from Movie as T1 join Rating as T2 on T1.mID = T2.mID order by T1.year desc limit 1"
+    },
+    {
+        "question": "How many lessons taken by customer with first name as Rylan and last name as Goodwin were completed ?",
+        "db_id": "driving_school",
+        "gold_parse": "SELECT count(*) FROM Lessons AS T1 JOIN Customers AS T2 ON T1.customer_id  = T2.customer_id WHERE T2.first_name = \"Rylan\" AND T2.last_name = \"Goodwin\" AND T1.lesson_status_code = \"Completed\"",
+        "predicted_parse_with_values": "select count ( * ) from Customers where first_name = \"Dianna\" and last_name = \"Trantow\""
+    },
+    {
+        "question": "For each payment method , how many payments were made ?",
+        "db_id": "driving_school",
+        "gold_parse": "SELECT payment_method_code ,  count(*) FROM Customer_Payments GROUP BY payment_method_code",
+        "predicted_parse_with_values": "select count ( * ) , payment_method_code from Customer_Payments group by payment_method_code"
+    },
+    {
+        "question": "How many lessons were taught by a staff member whose first name has the letter ' a ' in it ?",
+        "db_id": "driving_school",
+        "gold_parse": "SELECT count(*) FROM Lessons AS T1 JOIN Staff AS T2 ON T1.staff_id = T2.staff_id WHERE T2.first_name LIKE \"%a%\"",
+        "predicted_parse_with_values": "select count ( * ) from Staff as T1 join Lessons as T2 on T1.staff_id = T2.staff_id where T1.first_name like \"Jedidiah\""
+    },
+    {
+        "question": "What is the reviewer name , film title , movie rating , and rating date for every movie ordered by reviewer name , movie title , then finally rating ?",
+        "db_id": "movie_1",
+        "gold_parse": "SELECT T3.name ,  T2.title ,  T1.stars ,  T1.ratingDate FROM Rating AS T1 JOIN Movie AS T2 ON T1.mID  =  T2.mID JOIN Reviewer AS T3 ON T1.rID  =  T3.rID ORDER BY T3.name ,  T2.title ,  T1.stars",
+        "predicted_parse_with_values": "select T1.name , T3.title , T2.ratingDate from Reviewer as T1 join Rating as T2 on T1.rID = T2.rID join Movie as T3 on T2.mID = T3.mID order by T3.year , T3.title"
+    },
+    {
+        "question": "What is the average rating stars and title for the oldest movie ?",
+        "db_id": "movie_1",
+        "gold_parse": "SELECT avg(T1.stars) ,  T2.title FROM Rating AS T1 JOIN Movie AS T2 ON T1.mID  =  T2.mID WHERE T2.year  =  (SELECT min(YEAR) FROM Movie)",
+        "predicted_parse_with_values": "select avg ( T2.stars ) , avg ( T1.title ) from Movie as T1 join Rating as T2 on T1.mID = T2.mID order by T1.year desc limit 1"
+    },
+    {
+        "question": "How many distinct students have been in detention ?",
+        "db_id": "behavior_monitoring",
+        "gold_parse": "SELECT count(DISTINCT student_id) FROM Students_in_Detention",
+        "predicted_parse_with_values": "select count ( student_id ) from Students"
+    },
+    {
+        "question": "Return reviewer name , movie title , stars , and ratingDate . And sort the data first by reviewer name , then by movie title , and lastly by number of stars .",
+        "db_id": "movie_1",
+        "gold_parse": "SELECT T3.name ,  T2.title ,  T1.stars ,  T1.ratingDate FROM Rating AS T1 JOIN Movie AS T2 ON T1.mID  =  T2.mID JOIN Reviewer AS T3 ON T1.rID  =  T3.rID ORDER BY T3.name ,  T2.title ,  T1.stars",
+        "predicted_parse_with_values": "select T1.name , T3.title , T2.stars from Reviewer as T1 join Rating as T2 on T1.rID = T2.rID join Movie as T3 on T2.mID = T3.mID order by T1.name , T3.title"
+    },
+    {
+        "question": "For each director who directed more than one movie , what are the titles and dates of release for all those movies ?",
+        "db_id": "movie_1",
+        "gold_parse": "SELECT T1.title ,  T1.year FROM Movie AS T1 JOIN Movie AS T2 ON T1.director  =  T2.director WHERE T1.title != T2.title",
+        "predicted_parse_with_values": "select title , year from Movie group by director having count ( * ) > 1"
+    },
+    {
+        "question": "How many lessons taught by staff whose first name has letter ' a ' in it ?",
+        "db_id": "driving_school",
+        "gold_parse": "SELECT count(*) FROM Lessons AS T1 JOIN Staff AS T2 ON T1.staff_id = T2.staff_id WHERE T2.first_name LIKE \"%a%\"",
+        "predicted_parse_with_values": "select count ( * ) from Staff as T1 join Lessons as T2 on T1.staff_id = T2.staff_id where T1.first_name like \"Kaitlin\""
+    },
+    {
+        "question": "What are the names of all the different reviewers who rates Gone with the Wind ?",
+        "db_id": "movie_1",
+        "gold_parse": "SELECT DISTINCT T3.name FROM Rating AS T1 JOIN Movie AS T2 ON T1.mID  =  T2.mID JOIN Reviewer AS T3 ON T1.rID  =  T3.rID WHERE T2.title  =  'Gone with the Wind'",
+        "predicted_parse_with_values": "select name from Reviewer"
+    },
+    {
+        "question": "What are the ids of all moviest hat have not been reviewed by Britanny Harris ?",
+        "db_id": "movie_1",
+        "gold_parse": "SELECT mID FROM Rating EXCEPT SELECT T1.mID FROM Rating AS T1 JOIN Reviewer AS T2 ON T1.rID  =  T2.rID WHERE T2.name  =  \"Brittany Harris\"",
+        "predicted_parse_with_values": "select mID from Movie except select T3.mID from Reviewer as T1 join Rating as T2 on T1.rID = T2.rID join Movie as T3 on T2.mID = T3.mID where T1.name = \"Brittany Harris\""
+    },
+    {
+        "question": "How many employees live in Georgia ?",
+        "db_id": "driving_school",
+        "gold_parse": "SELECT count(*) FROM Addresses WHERE state_province_county = \"Georgia\"",
+        "predicted_parse_with_values": "select count ( * ) from Staff as T1 join Addresses as T2 on T1.staff_address_id = T2.address_id where T2.state_province_county = \"WestVirginia\""
+    },
+    {
+        "question": "What is the average , minimum , maximum , and total transaction amount ?",
+        "db_id": "customers_and_invoices",
+        "gold_parse": "SELECT avg(transaction_amount) ,  min(transaction_amount) ,  max(transaction_amount) ,   sum(transaction_amount) FROM Financial_transactions",
+        "predicted_parse_with_values": "select avg ( transaction_amount ) , sum ( transaction_amount ) , sum ( transaction_amount ) , sum ( transaction_amount ) from Financial_Transactions"
+    },
+    {
+        "question": "Show the id , the account name , and other account details for all accounts by the customer with first name 'Meaghan ' .",
+        "db_id": "customers_and_invoices",
+        "gold_parse": "SELECT T1.account_id ,  T1.date_account_opened ,  T1.account_name ,  T1.other_account_details FROM Accounts AS T1 JOIN Customers AS T2 ON T1.customer_id  =  T2.customer_id WHERE T2.customer_first_name  =  'Meaghan'",
+        "predicted_parse_with_values": "select T2.account_id , T2.account_name , T2.other_account_details from Customers as T1 join Accounts as T2 on T1.customer_id = T2.customer_id where T1.customer_first_name = \"Kieran\""
+    },
+    {
+        "question": "Return the names and ids of each account , as well as the number of transactions .",
+        "db_id": "customers_and_invoices",
+        "gold_parse": "SELECT T2.account_name ,  T1.account_id ,  count(*) FROM Financial_transactions AS T1 JOIN Accounts AS T2 ON T1.account_id  =  T2.account_id GROUP BY T1.account_id",
+        "predicted_parse_with_values": "select account_name , count ( * ) from Accounts group by account_id"
+    },
+    {
+        "question": "Return the last name , id and phone number of the customer who has made the greatest number of orders .",
+        "db_id": "customers_and_invoices",
+        "gold_parse": "SELECT T2.customer_last_name ,  T1.customer_id ,  T2.phone_number FROM Orders AS T1 JOIN Customers AS T2 ON T1.customer_id  =  T2.customer_id GROUP BY T1.customer_id ORDER BY count(*) DESC LIMIT 1",
+        "predicted_parse_with_values": "select customer_last_name , customer_id , phone_number from Customers group by customer_id order by count ( * ) desc limit 1"
+    },
+    {
+        "question": "How many order items correspond to each order id ?",
+        "db_id": "customers_and_invoices",
+        "gold_parse": "SELECT order_id ,  count(*) FROM Order_items GROUP BY order_id",
+        "predicted_parse_with_values": "select order_item_id , count ( * ) from Order_Items group by order_item_id"
+    },
+    {
+        "question": "What is the lowest and highest rating star ?",
+        "db_id": "movie_1",
+        "gold_parse": "SELECT max(stars) ,  min(stars) FROM Rating",
+        "predicted_parse_with_values": "select max ( stars ) , min ( stars ) from Rating order by stars limit 1"
+    },
+    {
+        "question": "When did the staff member with first name as Janessa and last name as Sawayn leave the company ?",
+        "db_id": "driving_school",
+        "gold_parse": "SELECT date_left_staff FROM Staff WHERE first_name = \"Janessa\" AND last_name = \"Sawayn\"",
+        "predicted_parse_with_values": "select date_joined_staff from Staff where first_name = \"Ludie\" and date_of_birth = \"1997-03-29 10:55:45\""
+    },
+    {
+        "question": "What are the id and zip code of the address with the highest monthly rental ?",
+        "db_id": "behavior_monitoring",
+        "gold_parse": "SELECT T2.address_id ,  T1.zip_postcode FROM Addresses AS T1 JOIN Student_Addresses AS T2 ON T1.address_id  =  T2.address_id ORDER BY monthly_rental DESC LIMIT 1",
+        "predicted_parse_with_values": "select T1.address_id , T1.zip_postcode from Addresses as T1 join Student_Addresses as T2 on T1.address_id = T2.address_id order by Student_T1.monthly_rental desc limit 1"
+    },
+    {
+        "question": "How many lessons did the customer Ryan Goodwin complete ?",
+        "db_id": "driving_school",
+        "gold_parse": "SELECT count(*) FROM Lessons AS T1 JOIN Customers AS T2 ON T1.customer_id  = T2.customer_id WHERE T2.first_name = \"Rylan\" AND T2.last_name = \"Goodwin\" AND T1.lesson_status_code = \"Completed\"",
+        "predicted_parse_with_values": "select count ( T2.lesson_id ) from Customers as T1 join Lessons as T2 on T1.customer_id = T2.customer_id where T1.first_name = \"Dianna\" and T1.last_name = \"Spinka\""
+    },
+    {
+        "question": "Find the names of all reviewers who have ratings with a NULL value for the date .",
+        "db_id": "movie_1",
+        "gold_parse": "SELECT DISTINCT name FROM Reviewer AS T1 JOIN Rating AS T2 ON T1.rID  =  T2.rID WHERE ratingDate  =  \"null\"",
+        "predicted_parse_with_values": "select T1.name from Reviewer as T1 join Rating as T2 on T1.rID = T2.rID where T2.ratingDate = \"2011-01-22\""
+    },
+    {
+        "question": "Give the order ids for all orders , as well as the total product quantity in each .",
+        "db_id": "customers_and_invoices",
+        "gold_parse": "SELECT order_id ,  sum(product_quantity) FROM Order_items GROUP BY order_id",
+        "predicted_parse_with_values": "select T2.order_id , sum ( T1.product_quantity ) from Order_Items as T1 join Orders as T2 on T1.order_id = T2.order_id group by T2.order_id"
+    },
+    {
+        "question": "How many movie reviews does each director get ?",
+        "db_id": "movie_1",
+        "gold_parse": "SELECT count(*) ,  T1.director FROM Movie AS T1 JOIN Rating AS T2 ON T1.mID  =  T2.mID GROUP BY T1.director",
+        "predicted_parse_with_values": "select T3.director , count ( * ) from Reviewer as T1 join Rating as T2 on T1.rID = T2.rID join Movie as T3 on T2.mID = T3.mID group by T3.director"
+    },
+    {
+        "question": "Show first name and id for all customers with at least 2 accounts .",
+        "db_id": "customers_and_invoices",
+        "gold_parse": "SELECT T2.customer_first_name ,  T1.customer_id FROM Accounts AS T1 JOIN Customers AS T2 ON T1.customer_id  =  T2.customer_id GROUP BY T1.customer_id HAVING count(*)  >=  2",
+        "predicted_parse_with_values": "select customer_first_name , customer_id from Customers group by customer_id having count ( * ) >= 1"
+    },
+    {
+        "question": "How many transaction does each account have ? Show the number and account id .",
+        "db_id": "customers_and_invoices",
+        "gold_parse": "SELECT count(*) ,  account_id FROM Financial_transactions",
+        "predicted_parse_with_values": "select count ( * ) , account_id from Accounts group by account_id"
+    },
+    {
+        "question": "What is the birthday of the staff member with first name as Janessa and last name as Sawayn ?",
+        "db_id": "driving_school",
+        "gold_parse": "SELECT date_of_birth FROM Staff WHERE first_name = \"Janessa\" AND last_name = \"Sawayn\"",
+        "predicted_parse_with_values": "select first_name , date_of_birth from Staff where first_name = \"Kaitlin\" and date_of_birth = \"2007-06-11 20:03:28\""
+    },
+    {
+        "question": "For each director , what are the titles and ratings for all the movies they reviewed ?",
+        "db_id": "movie_1",
+        "gold_parse": "SELECT T2.title ,  T1.stars ,  T2.director ,  max(T1.stars) FROM Rating AS T1 JOIN Movie AS T2 ON T1.mID  =  T2.mID WHERE director != \"null\" GROUP BY director",
+        "predicted_parse_with_values": "select T1.title , T2.stars from Movie as T1 join Rating as T2 on T1.mID = T2.mID"
+    },
+    {
+        "question": "What are the movie titles with the highest average rating and what are those ratings ?",
+        "db_id": "movie_1",
+        "gold_parse": "SELECT T2.title ,  avg(T1.stars) FROM Rating AS T1 JOIN Movie AS T2 ON T1.mID  =  T2.mID GROUP BY T1.mID ORDER BY avg(T1.stars) DESC LIMIT 1",
+        "predicted_parse_with_values": "select T1.title , T1.title from Movie as T1 join Rating as T2 on T1.mID = T2.mID group by T2.mID order by avg ( T2.stars ) desc limit 1"
+    },
+    {
+        "question": "What are the ids of all reviewers who have not given 4 stars at least once ?",
+        "db_id": "movie_1",
+        "gold_parse": "SELECT rID FROM Rating WHERE stars != 4",
+        "predicted_parse_with_values": "select rID from Reviewer except select T2.rID from Reviewer as T1 join Rating as T2 on T1.rID = T2.rID group by T2.rID having count ( * ) >= 1"
+    },
+    {
+        "question": "List the states which have between 2 to 4 staffs living there .",
+        "db_id": "driving_school",
+        "gold_parse": "SELECT T1.state_province_county FROM Addresses AS T1 JOIN Staff AS T2 ON T1.address_id = T2.staff_address_id GROUP BY T1.state_province_county HAVING count(*) BETWEEN 2 AND 4",
+        "predicted_parse_with_values": "select state_province_county from Addresses group by state_province_county having count ( * ) >= 1 union select state_province_county from Addresses group by state_province_county having count ( * ) >= 1"
+    },
+    {
+        "question": "How many lesson does customer with first name Ray took ?",
+        "db_id": "driving_school",
+        "gold_parse": "SELECT count(*) FROM Lessons AS T1 JOIN Customers AS T2 ON T1.customer_id  = T2.customer_id WHERE T2.first_name = \"Ray\"",
+        "predicted_parse_with_values": "select count ( T2.lesson_id ) from Customers as T1 join Lessons as T2 on T1.customer_id = T2.customer_id where T1.first_name = \"Leif\""
+    },
+    {
+        "question": "What are the line 1 and average monthly rentals of all student addresses ?",
+        "db_id": "behavior_monitoring",
+        "gold_parse": "SELECT T1.line_1 ,  avg(T2.monthly_rental) FROM Addresses AS T1 JOIN Student_Addresses AS T2 ON T1.address_id  =  T2.address_id GROUP BY T2.address_id",
+        "predicted_parse_with_values": "select line_1 , line_2 from Addresses"
+    },
+    {
+        "question": "What is the status code with the least number of customers ?",
+        "db_id": "driving_school",
+        "gold_parse": "SELECT customer_status_code FROM Customers GROUP BY customer_status_code ORDER BY count(*) ASC LIMIT 1",
+        "predicted_parse_with_values": "select customer_status_code from Customers group by customer_status_code order by count ( * ) limit 1"
+    },
+    {
+        "question": "For all directors who have directed more than one movie , what movies have they directed and what are their names ?",
+        "db_id": "movie_1",
+        "gold_parse": "SELECT T1.title ,  T1.director FROM Movie AS T1 JOIN Movie AS T2 ON T1.director  =  T2.director WHERE T1.title != T2.title ORDER BY T1.director ,  T1.title",
+        "predicted_parse_with_values": "select T3.director , T1.name from Reviewer as T1 join Rating as T2 on T1.rID = T2.rID join Movie as T3 on T2.mID = T3.mID group by T3.director having count ( * ) > 1"
+    },
+    {
+        "question": "List the first name middle name and last name of all staff .",
+        "db_id": "driving_school",
+        "gold_parse": "SELECT first_name ,  middle_name ,  last_name FROM Staff",
+        "predicted_parse_with_values": "select first_name , last_name from Staff"
+    },
+    {
+        "question": "Which customer status code has least number of customers ?",
+        "db_id": "driving_school",
+        "gold_parse": "SELECT customer_status_code FROM Customers GROUP BY customer_status_code ORDER BY count(*) ASC LIMIT 1",
+        "predicted_parse_with_values": "select customer_status_code from Customers group by customer_status_code order by count ( * ) limit 1"
+    },
+    {
+        "question": "Show invoice dates and order id and details for all invoices .",
+        "db_id": "customers_and_invoices",
+        "gold_parse": "SELECT T1.invoice_date ,  T1.order_id ,  T2.order_details FROM Invoices AS T1 JOIN Orders AS T2 ON T1.order_id  =  T2.order_id",
+        "predicted_parse_with_values": "select T1.invoice_date , T2.order_details , T2.order_details from Invoices as T1 join Orders as T2 on T1.order_id = T2.order_id"
+    },
+    {
+        "question": "How many distinct order ids correspond to each product ?",
+        "db_id": "customers_and_invoices",
+        "gold_parse": "SELECT product_id ,  count(DISTINCT order_id) FROM Order_items GROUP BY product_id",
+        "predicted_parse_with_values": "select count ( product_id ) from Products"
+    },
+    {
+        "question": "What is the maximum , minimum , and average amount of money outsanding for all customers ?",
+        "db_id": "driving_school",
+        "gold_parse": "SELECT max(amount_outstanding) ,  min(amount_outstanding) ,  avg(amount_outstanding) FROM Customers",
+        "predicted_parse_with_values": "select max ( amount_payment ) , min ( amount_payment ) , avg ( amount_payment ) from Customer_Payments"
+    },
+    {
+        "question": "What are the last names that are used by customers and staff ?",
+        "db_id": "driving_school",
+        "gold_parse": "SELECT last_name FROM Customers INTERSECT SELECT last_name FROM Staff",
+        "predicted_parse_with_values": "select last_name from Staff intersect select last_name from Customers"
+    },
+    {
+        "question": "For each director , how many reviews have they received ?",
+        "db_id": "movie_1",
+        "gold_parse": "SELECT count(*) ,  T1.director FROM Movie AS T1 JOIN Rating AS T2 ON T1.mID  =  T2.mID GROUP BY T1.director",
+        "predicted_parse_with_values": "select count ( * ) , count ( T1.* ) , T3.director from Reviewer as T1 join Rating as T2 on T1.rID = T2.rID join Movie as T3 on T2.mID = T3.mID group by T3.director"
+    },
+    {
+        "question": "How many invoices correspond to each order id ?",
+        "db_id": "customers_and_invoices",
+        "gold_parse": "SELECT order_id ,  count(*) FROM Invoices GROUP BY order_id",
+        "predicted_parse_with_values": "select order_id , count ( * ) from Invoices group by order_id"
+    },
+    {
+        "question": "Which city lives most of staffs ? List the city name and number of staffs .",
+        "db_id": "driving_school",
+        "gold_parse": "SELECT T1.city ,  count(*) FROM Addresses AS T1 JOIN Staff AS T2 ON T1.address_id = T2.staff_address_id GROUP BY T1.city ORDER BY count(*) DESC LIMIT 1",
+        "predicted_parse_with_values": "select city , count ( * ) from Addresses group by city order by count ( * ) desc limit 1"
+    },
+    {
+        "question": "What is the average price for a lesson taught by Janessa Sawayn ?",
+        "db_id": "driving_school",
+        "gold_parse": "SELECT avg(price) FROM Lessons AS T1 JOIN Staff AS T2 ON T1.staff_id = T2.staff_id WHERE T2.first_name = \"Janessa\" AND T2.last_name = \"Sawayn\"",
+        "predicted_parse_with_values": "select avg ( T2.price ) from Customers as T1 join Lessons as T2 on T1.customer_id = T2.customer_id where T1.first_name = \"Ray\""
+    },
+    {
+        "question": "Find the title and score of the movie with the lowest rating among all movies directed by each director .",
+        "db_id": "movie_1",
+        "gold_parse": "SELECT T2.title ,  T1.stars ,  T2.director ,  min(T1.stars) FROM Rating AS T1 JOIN Movie AS T2 ON T1.mID  =  T2.mID GROUP BY T2.director",
+        "predicted_parse_with_values": "select T1.title , T1.director from Movie as T1 join Rating as T2 on T1.mID = T2.mID order by T2.stars limit 1"
+    },
+    {
+        "question": "What are the titles of all movies that were not reviewed by Chris Jackson ?",
+        "db_id": "movie_1",
+        "gold_parse": "SELECT DISTINCT title FROM Movie EXCEPT SELECT T2.title FROM Rating AS T1 JOIN Movie AS T2 ON T1.mID  =  T2.mID JOIN Reviewer AS T3 ON T1.rID  =  T3.rID WHERE T3.name  =  'Chris Jackson'",
+        "predicted_parse_with_values": "select title from Movie except select T3.title from Reviewer as T1 join Rating as T2 on T1.rID = T2.rID join Movie as T3 on T2.mID = T3.mID where T1.name = \"Sarah Martinez\""
+    },
+    {
+        "question": "Find all information about student addresses , and sort by monthly rental in descending order .",
+        "db_id": "behavior_monitoring",
+        "gold_parse": "SELECT * FROM Student_Addresses ORDER BY monthly_rental DESC",
+        "predicted_parse_with_values": "select T1.* from Addresses as T1 join Student_Addresses as T2 on T1.address_id = T2.address_id order by Student_T1.monthly_rental desc"
+    },
+    {
+        "question": "Which city does has most number of customers ?",
+        "db_id": "driving_school",
+        "gold_parse": "SELECT T2.city FROM Customers AS T1 JOIN Addresses AS T2 ON T1.customer_address_id = T2.address_id GROUP BY T2.city ORDER BY count(*) DESC LIMIT 1",
+        "predicted_parse_with_values": "select T2.city from Customers as T1 join Addresses as T2 on T1.customer_address_id = T2.address_id group by T2.city order by count ( * ) desc limit 1"
+    },
+    {
+        "question": "What are the names of all reviewers that have given 3 or 4 stars for reviews ?",
+        "db_id": "movie_1",
+        "gold_parse": "SELECT T2.name FROM Rating AS T1 JOIN Reviewer AS T2 ON T1.rID  =  T2.rID WHERE T1.stars  =  3 INTERSECT SELECT T2.name FROM Rating AS T1 JOIN Reviewer AS T2 ON T1.rID  =  T2.rID WHERE T1.stars  =  4",
+        "predicted_parse_with_values": "select T1.name from Reviewer as T1 join Rating as T2 on T1.rID = T2.rID where T2.stars = 3 or T2.stars = 4"
+    },
+    {
+        "question": "For each reviewer id , what is the title and rating for the movie with the smallest rating ?",
+        "db_id": "movie_1",
+        "gold_parse": "SELECT T2.title ,  T1.rID ,  T1.stars ,  min(T1.stars) FROM Rating AS T1 JOIN Movie AS T2 ON T1.mID  =  T2.mID GROUP BY T1.rID",
+        "predicted_parse_with_values": "select T1.title , T2.stars from Movie as T1 join Rating as T2 on T1.mID = T2.mID order by T2.stars limit 1"
+    },
+    {
+        "question": "When did Carole Bernhard first become a customer ?",
+        "db_id": "driving_school",
+        "gold_parse": "SELECT date_became_customer FROM Customers WHERE first_name = \"Carole\" AND last_name = \"Bernhard\"",
+        "predicted_parse_with_values": "select date_of_birth from Customers where first_name = \"Omer\" and last_name = \"Trantow\""
+    },
+    {
+        "question": "What is the average number of stars that each reviewer awards for a movie ?",
+        "db_id": "movie_1",
+        "gold_parse": "SELECT T2.name ,  avg(T1.stars) FROM Rating AS T1 JOIN Reviewer AS T2 ON T1.rID  =  T2.rID GROUP BY T2.name",
+        "predicted_parse_with_values": "select avg ( T2.stars ) , T1.name from Reviewer as T1 join Rating as T2 on T1.rID = T2.rID group by T1.rID"
+    },
+    {
+        "question": "Count the number of financial transactions that correspond to each account id .",
+        "db_id": "customers_and_invoices",
+        "gold_parse": "SELECT count(*) ,  account_id FROM Financial_transactions",
+        "predicted_parse_with_values": "select count ( * ) , T2.account_id from Financial_Transactions as T1 join Accounts as T2 on T1.account_id = T2.account_id group by T2.account_id"
+    },
+    {
+        "question": "What is the customer id , first and last name with most number of accounts .",
+        "db_id": "customers_and_invoices",
+        "gold_parse": "SELECT T1.customer_id ,  T2.customer_first_name ,  T2.customer_last_name FROM Accounts AS T1 JOIN Customers AS T2 ON T1.customer_id  =  T2.customer_id GROUP BY T1.customer_id ORDER BY count(*) DESC LIMIT 1",
+        "predicted_parse_with_values": "select customer_id , customer_first_name , customer_last_name from Customers group by customer_id order by count ( * ) desc limit 1"
+    },
+    {
+        "question": "What are the ids of all reviewers who did not give 4 stars ?",
+        "db_id": "movie_1",
+        "gold_parse": "SELECT rID FROM Rating EXCEPT SELECT rID FROM Rating WHERE stars  =  4",
+        "predicted_parse_with_values": "select rID from Reviewer except select rID from Rating where stars = 5"
+    },
+    {
+        "question": "What is the date of birth for the staff member named Janessa Sawayn ?",
+        "db_id": "driving_school",
+        "gold_parse": "SELECT date_of_birth FROM Staff WHERE first_name = \"Janessa\" AND last_name = \"Sawayn\"",
+        "predicted_parse_with_values": "select date_of_birth from Staff where date_joined_staff = \"2018-01-02 12:24:24\""
+    },
+    {
+        "question": "Show id , first name and last name for all customers and the number of accounts .",
+        "db_id": "customers_and_invoices",
+        "gold_parse": "SELECT T1.customer_id ,  T2.customer_first_name ,  T2.customer_last_name ,  count(*) FROM Accounts AS T1 JOIN Customers AS T2 ON T1.customer_id  =  T2.customer_id GROUP BY T1.customer_id",
+        "predicted_parse_with_values": "select customer_id , customer_first_name , count ( * ) from Customers group by customer_id"
+    },
+    {
+        "question": "Find the title and star rating of the movie that got the least rating star for each reviewer .",
+        "db_id": "movie_1",
+        "gold_parse": "SELECT T2.title ,  T1.rID ,  T1.stars ,  min(T1.stars) FROM Rating AS T1 JOIN Movie AS T2 ON T1.mID  =  T2.mID GROUP BY T1.rID",
+        "predicted_parse_with_values": "select T1.title , T2.stars from Movie as T1 join Rating as T2 on T1.mID = T2.mID order by T2.stars limit 1"
+    },
+    {
+        "question": "List lesson id of all lessons taught by staff with first name as Janessa , last name as Sawayn and nickname containing letter 's ' .",
+        "db_id": "driving_school",
+        "gold_parse": "SELECT T1.lesson_id FROM Lessons AS T1 JOIN Staff AS T2 ON T1.staff_id = T2.staff_id WHERE T2.first_name = \"Janessa\" AND T2.last_name = \"Sawayn\" AND nickname LIKE \"%s%\"",
+        "predicted_parse_with_values": "select T2.lesson_id , T2.lesson_id from Staff as T1 join Lessons as T2 on T1.staff_id = T2.staff_id where T1.first_name like \"Eulalia\" and T1.last_name like \"Jast\""
+    },
+    {
+        "question": "What are the code and description of the most frequent behavior incident type ?",
+        "db_id": "behavior_monitoring",
+        "gold_parse": "SELECT T1.incident_type_code ,  T2.incident_type_description FROM Behavior_Incident AS T1 JOIN Ref_Incident_Type AS T2 ON T1.incident_type_code  =  T2.incident_type_code GROUP BY T1.incident_type_code ORDER BY count(*) DESC LIMIT 1",
+        "predicted_parse_with_values": "select T1.incident_type_code , T1.incident_type_description from Ref_Incident_Type as T1 join Behavior_Incident as T2 on T1.incident_type_code = T2.incident_type_code group by T2.incident_type_code order by count ( * ) desc limit 1"
+    },
+    {
+        "question": "What are the different names of all reviewers whose ratings do not have a date field ?",
+        "db_id": "movie_1",
+        "gold_parse": "SELECT DISTINCT name FROM Reviewer AS T1 JOIN Rating AS T2 ON T1.rID  =  T2.rID WHERE ratingDate  =  \"null\"",
+        "predicted_parse_with_values": "select name from Reviewer except select name from Reviewer"
+    },
+    {
+        "question": "What are the first names and ids for customers who have two or more accounts ?",
+        "db_id": "customers_and_invoices",
+        "gold_parse": "SELECT T2.customer_first_name ,  T1.customer_id FROM Accounts AS T1 JOIN Customers AS T2 ON T1.customer_id  =  T2.customer_id GROUP BY T1.customer_id HAVING count(*)  >=  2",
+        "predicted_parse_with_values": "select customer_first_name , customer_id from Customers group by customer_id having count ( * ) >= 1"
+    },
+    {
+        "question": "What are the ids , date opened , name , and other details for all accounts ?",
+        "db_id": "customers_and_invoices",
+        "gold_parse": "SELECT account_id ,  date_account_opened ,  account_name ,  other_account_details FROM Accounts",
+        "predicted_parse_with_values": "select account_id , date_account_opened , date_account_opened from Accounts"
+    },
+    {
+        "question": "What is the zip code of the hosue of the employee named Janessa Sawayn ?",
+        "db_id": "driving_school",
+        "gold_parse": "SELECT T1.zip_postcode FROM Addresses AS T1 JOIN Staff AS T2 ON T1.address_id = T2.staff_address_id WHERE T2.first_name = \"Janessa\" AND T2.last_name = \"Sawayn\"",
+        "predicted_parse_with_values": "select T4.zip_postcode from Customers as T1 join Lessons as T2 on T1.customer_id = T2.customer_id join Staff as T3 on T2.staff_id = T3.staff_id join Addresses as T4 on T1.customer_address_id = T4.address_id where T1.first_name = \"Amya\" and T3.last_name = \"Weissnat\""
+    },
+    {
+        "question": "What are the customer ids for customers who do not have an account ?",
+        "db_id": "customers_and_invoices",
+        "gold_parse": "SELECT customer_id FROM Customers EXCEPT SELECT customer_id FROM Accounts",
+        "predicted_parse_with_values": "select customer_id from Customers except select customer_id from Customers"
+    },
+    {
+        "question": "How many different products correspond to each order id ?",
+        "db_id": "customers_and_invoices",
+        "gold_parse": "SELECT order_id ,  count(DISTINCT product_id) FROM Order_items GROUP BY order_id",
+        "predicted_parse_with_values": "select count ( product_id ) from Products"
+    },
+    {
+        "question": "How many lessons were in cancelled state ?",
+        "db_id": "driving_school",
+        "gold_parse": "SELECT count(*) FROM Lessons WHERE lesson_status_code = \"Cancelled\"",
+        "predicted_parse_with_values": "select count ( * ) from Addresses as T1 join Customers as T2 on T1.address_id = T2.customer_address_id join Lessons as T3 on T2.customer_id = T3.customer_id where T1.state_province_county = \"Georgia\""
+    },
+    {
+        "question": "Find the names of reviewers who had given higher than 3 star ratings .",
+        "db_id": "movie_1",
+        "gold_parse": "SELECT T2.name FROM Rating AS T1 JOIN Reviewer AS T2 ON T1.rID  =  T2.rID WHERE T1.stars  >  3",
+        "predicted_parse_with_values": "select name from Reviewer group by name having count ( * ) > 1"
+    },
+    {
+        "question": "What are the id and first name of the student whose addresses have the highest average monthly rental ?",
+        "db_id": "behavior_monitoring",
+        "gold_parse": "SELECT T1.student_id ,  T2.first_name FROM Student_Addresses AS T1 JOIN Students AS T2 ON T1.student_id  =  T2.student_id GROUP BY T1.student_id ORDER BY AVG(monthly_rental) DESC LIMIT 1",
+        "predicted_parse_with_values": "select T2.student_id , T2.first_name from Student_Addresses as T1 join Students as T2 on T1.student_id = T2.student_id group by T1.student_id order by avg ( T1.monthly_rental ) desc limit 1"
+    },
+    {
+        "question": "Show the product ids and the number of unique orders containing each product .",
+        "db_id": "customers_and_invoices",
+        "gold_parse": "SELECT product_id ,  count(DISTINCT order_id) FROM Order_items GROUP BY product_id",
+        "predicted_parse_with_values": "select product_id , count ( product_id ) from Products group by product_id"
+    },
+    {
+        "question": "What are the the lesson ids of all staff taught by Janessa Sawayn whose nickname has the letter s ?",
+        "db_id": "driving_school",
+        "gold_parse": "SELECT T1.lesson_id FROM Lessons AS T1 JOIN Staff AS T2 ON T1.staff_id = T2.staff_id WHERE T2.first_name = \"Janessa\" AND T2.last_name = \"Sawayn\" AND nickname LIKE \"%s%\"",
+        "predicted_parse_with_values": "select T2.lesson_id from Staff as T1 join Lessons as T2 on T1.staff_id = T2.staff_id where T1.nickname like \"gabe21\" and T1.nickname = \"ynader\""
+    },
+    {
+        "question": "What is the title of the newest movie ?",
+        "db_id": "movie_1",
+        "gold_parse": "SELECT title FROM Movie WHERE YEAR  =  (SELECT max(YEAR) FROM Movie)",
+        "predicted_parse_with_values": "select title from Movie order by year desc limit 1"
+    },
+    {
+        "question": "Who directed Avatar ?",
+        "db_id": "movie_1",
+        "gold_parse": "SELECT director FROM Movie WHERE title  = 'Avatar'",
+        "predicted_parse_with_values": "select T1.name from Reviewer as T1 join Rating as T2 on T1.rID = T2.rID join Movie as T3 on T2.mID = T3.mID where T3.director = \"George Lucas\""
+    },
+    {
+        "question": "Find the names of all reviewers who rated Gone with the Wind .",
+        "db_id": "movie_1",
+        "gold_parse": "SELECT DISTINCT T3.name FROM Rating AS T1 JOIN Movie AS T2 ON T1.mID  =  T2.mID JOIN Reviewer AS T3 ON T1.rID  =  T3.rID WHERE T2.title  =  'Gone with the Wind'",
+        "predicted_parse_with_values": "select T1.name from Reviewer as T1 join Rating as T2 on T1.rID = T2.rID where T2.stars = 4"
+    },
+    {
+        "question": "Return the order ids and details for orderes with two or more invoices .",
+        "db_id": "customers_and_invoices",
+        "gold_parse": "SELECT T2.order_id ,  T2.order_details FROM Invoices AS T1 JOIN Orders AS T2 ON T1.order_id  =  T2.order_id GROUP BY T2.order_id HAVING count(*)  >  2",
+        "predicted_parse_with_values": "select T1.order_id , T2.order_details from Invoices as T1 join Orders as T2 on T1.order_id = T2.order_id group by T1.order_id having count ( * ) >= 1"
+    },
+    {
+        "question": "What are the different reviewer names , movie titles , and stars for every rating where the reviewer had the same name as the director ?",
+        "db_id": "movie_1",
+        "gold_parse": "SELECT DISTINCT T3.name ,  T2.title ,  T1.stars FROM Rating AS T1 JOIN Movie AS T2 ON T1.mID  =  T2.mID JOIN Reviewer AS T3 ON T1.rID  =  T3.rID WHERE T2.director  =  T3.name",
+        "predicted_parse_with_values": "select T1.name , T3.title , T2.stars from Reviewer as T1 join Rating as T2 on T1.rID = T2.rID join Movie as T3 on T2.mID = T3.mID"
+    },
+    {
+        "question": "List all information about the assessment notes sorted by date in ascending order .",
+        "db_id": "behavior_monitoring",
+        "gold_parse": "SELECT * FROM Assessment_Notes ORDER BY date_of_notes ASC",
+        "predicted_parse_with_values": "select * from Assessment_Notes order by date_of_notes"
+    },
+    {
+        "question": "Show order ids and the number of products in each order .",
+        "db_id": "customers_and_invoices",
+        "gold_parse": "SELECT order_id ,  count(DISTINCT product_id) FROM Order_items GROUP BY order_id",
+        "predicted_parse_with_values": "select order_id , count ( * ) from Orders group by order_id"
+    },
+    {
+        "question": "What is the status code , mobile phone number and email address of customer with last name as Kohler or first name as Marina ?",
+        "db_id": "driving_school",
+        "gold_parse": "SELECT customer_status_code ,  cell_mobile_phone_number ,  email_address FROM Customers WHERE first_name = \"Marina\" OR last_name  =  \"Kohler\"",
+        "predicted_parse_with_values": "select customer_status_code , cell_mobile_phone_number , email_address from Customers where last_name = \"Goodwin\" or first_name = \"Genevieve\""
+    },
+    {
+        "question": "Show the id , the date of account opened , the account name , and other account detail for all accounts .",
+        "db_id": "customers_and_invoices",
+        "gold_parse": "SELECT account_id ,  date_account_opened ,  account_name ,  other_account_details FROM Accounts",
+        "predicted_parse_with_values": "select account_id , date_account_opened , date_account_opened , other_account_details from Accounts"
+    },
+    {
+        "question": "How many accounts does each customer have ? List the number and customer id .",
+        "db_id": "customers_and_invoices",
+        "gold_parse": "SELECT count(*) ,  customer_id FROM Accounts GROUP BY customer_id",
+        "predicted_parse_with_values": "select count ( * ) , T2.customer_id from Customers as T1 join Accounts as T2 on T1.customer_id = T2.customer_id group by T1.customer_id"
+    },
+    {
+        "question": "What are the names of all directors whose movies have been reviewed by Sarah Martinez ?",
+        "db_id": "movie_1",
+        "gold_parse": "SELECT DISTINCT T2.director FROM Rating AS T1 JOIN Movie AS T2 ON T1.mID  =  T2.mID JOIN Reviewer AS T3 ON T1.rID  =  T3.rID WHERE T3.name  =  'Sarah Martinez'",
+        "predicted_parse_with_values": "select T3.director from Reviewer as T1 join Rating as T2 on T1.rID = T2.rID join Movie as T3 on T2.mID = T3.mID where T1.name = \"Brittany Harris\""
+    },
+    {
+        "question": "How many transactions correspond to each invoice number ?",
+        "db_id": "customers_and_invoices",
+        "gold_parse": "SELECT invoice_number ,  count(*) FROM Financial_transactions GROUP BY invoice_number",
+        "predicted_parse_with_values": "select count ( * ) , T2.invoice_number from Invoices as T1 join Financial_Transactions as T2 on T1.invoice_number = T2.invoice_number group by T2.invoice_number"
+    },
+    {
+        "question": "find the ids of reviewers who did not give 4 star .",
+        "db_id": "movie_1",
+        "gold_parse": "SELECT rID FROM Rating EXCEPT SELECT rID FROM Rating WHERE stars  =  4",
+        "predicted_parse_with_values": "select rID from Reviewer except select rID from Rating where stars = 2"
+    },
+    {
+        "question": "For each director , return the director 's name together with the title of the movie they directed that received the highest rating among all of their movies , and the value of that rating . Ignore movies whose director is NULL .",
+        "db_id": "movie_1",
+        "gold_parse": "SELECT T2.title ,  T1.stars ,  T2.director ,  max(T1.stars) FROM Rating AS T1 JOIN Movie AS T2 ON T1.mID  =  T2.mID WHERE director != \"null\" GROUP BY director",
+        "predicted_parse_with_values": "select T1.director , T1.title , sum ( T2.stars ) from Movie as T1 join Rating as T2 on T1.mID = T2.mID where T2.stars = 5 group by T1.director order by count ( * ) desc limit 1"
+    },
+    {
+        "question": "What are the names of all reviewers that have rated 3 or more movies ?",
+        "db_id": "movie_1",
+        "gold_parse": "SELECT T2.name FROM Rating AS T1 JOIN Reviewer AS T2 ON T1.rID  =  T2.rID GROUP BY T1.rID HAVING COUNT(*)  >=  3",
+        "predicted_parse_with_values": "select name from Reviewer group by name having count ( * ) >= 1"
+    },
+    {
+        "question": "What is the average rating star for each reviewer ?",
+        "db_id": "movie_1",
+        "gold_parse": "SELECT T2.name ,  avg(T1.stars) FROM Rating AS T1 JOIN Reviewer AS T2 ON T1.rID  =  T2.rID GROUP BY T2.name",
+        "predicted_parse_with_values": "select avg ( stars ) , avg ( stars ) from Rating"
+    },
+    {
+        "question": "What are the the full names and ids for all customers , and how many accounts does each have ?",
+        "db_id": "customers_and_invoices",
+        "gold_parse": "SELECT T1.customer_id ,  T2.customer_first_name ,  T2.customer_last_name ,  count(*) FROM Accounts AS T1 JOIN Customers AS T2 ON T1.customer_id  =  T2.customer_id GROUP BY T1.customer_id",
+        "predicted_parse_with_values": "select customer_first_name , customer_last_name , count ( * ) from Customers group by customer_id"
+    },
+    {
+        "question": "What are the names of products that have never been ordered ?",
+        "db_id": "customers_and_invoices",
+        "gold_parse": "SELECT product_name FROM Products EXCEPT SELECT T1.product_name FROM Products AS T1 JOIN Order_items AS T2 ON T1.product_id  =  T2.product_id",
+        "predicted_parse_with_values": "select product_name from Products where product_id not in ( select product_id from Order_Items )"
+    },
+    {
+        "question": "What is the total time for all lessons taught by Janessa Sawayn ?",
+        "db_id": "driving_school",
+        "gold_parse": "SELECT sum(lesson_time) FROM Lessons AS T1 JOIN Staff AS T2 ON T1.staff_id = T2.staff_id WHERE T2.first_name = \"Janessa\" AND T2.last_name = \"Sawayn\"",
+        "predicted_parse_with_values": "select sum ( T2.lesson_time ) from Staff as T1 join Lessons as T2 on T1.staff_id = T2.staff_id where T1.first_name = \"Kaitlin\""
+    },
+    {
+        "question": "What are the names of all movies that were created after the most recent Steven Spielberg film ?",
+        "db_id": "movie_1",
+        "gold_parse": "SELECT title FROM Movie WHERE YEAR  >  (SELECT max(YEAR) FROM Movie WHERE director  =  \"Steven Spielberg\")",
+        "predicted_parse_with_values": "select title from Movie where year > 1982 order by year desc limit 1"
+    },
+    {
+        "question": "What are the ids , names , dates of opening , and other details for accounts corresponding to the customer with the first name \" Meaghan \" ?",
+        "db_id": "customers_and_invoices",
+        "gold_parse": "SELECT T1.account_id ,  T1.date_account_opened ,  T1.account_name ,  T1.other_account_details FROM Accounts AS T1 JOIN Customers AS T2 ON T1.customer_id  =  T2.customer_id WHERE T2.customer_first_name  =  'Meaghan'",
+        "predicted_parse_with_values": "select T2.customer_id , T2.account_name , T2.date_account_opened from Customers as T1 join Accounts as T2 on T1.customer_id = T2.customer_id where T1.customer_first_name = \"Dee\""
+    }
+]

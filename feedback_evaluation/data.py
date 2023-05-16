@@ -1,5 +1,5 @@
 # coding: utf-8
-from curses.ascii import isdigit
+# from curses.ascii import isdigit
 import os
 import re
 import json
@@ -14,9 +14,9 @@ import fuzzymatch as fm
 from tqdm import tqdm
 from nltk.tokenize import word_tokenize
 from unidecode import unidecode
-from transformers import AutoTokenizer #BertTokenizerFast, RobertaTokenizerFast
+from transformers import AutoTokenizer
 from torch.utils.data import Dataset, DataLoader
-import pdb
+# import pdb
 
 
 logger = logging.getLogger(__name__)
@@ -99,10 +99,7 @@ class AlignDataset(Dataset):
         self.db_id_key = 'db_id'
         self.bert_util = BertUtil(tokenizer_shortcut)
         self.negative_mode = negative_sampling_mode
-        # self.agg_mapping = {'min': ['minimum'], 'minimun': ['min'], 'max': ['maximum', 'highest'], 'maximum': ['max', 'highest'], 'highest': ['max', 'maximum'], \
-        #                'average': ['avg', 'mean'], 'avg': ['average', 'mean'], 'mean': ['avg', 'average'], 'sumation': ['sum'], 'sum': ['sumation'], \
-        #                'greater than':['more than'], 'more than': ['greater than'], 'less than': ['smaller than'], 'smaller than': ['less than'], \
-        #                'equals': ['equal'], 'equal': ['equals']}
+       
         self.db_infos, self.examples = self.load_data_file(table_file, data_file)
         self.training_pairs, self.neg_len, self.neg_tags = self.build_training_data()
 
@@ -135,8 +132,7 @@ class AlignDataset(Dataset):
         print(f'Triples: {len(train_triples)}')
         print(f'Neg Len: {len(neg_len)}')
         print(f'Neg Tag Len: {len(neg_tag)}')
-        # print('First negative example: ', train_triples[0])
-        # print('First 10 neg len value: ', masked_all[:])
+        
         return train_triples, neg_len, neg_tag
 
     def __len__(self):
@@ -332,7 +328,6 @@ class AlignDataset(Dataset):
         
         replace_zeros = []
         
-        character_set = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z']
         logger.info('Generating negative examples...')
         # count = 0
         # smaller_set = []
@@ -341,9 +336,9 @@ class AlignDataset(Dataset):
         count = 0
         fuzzy_count = 0
         # Randomly Sampled Data
-        sampled = [random.randint(0, 7639) for i in range(50)]
-        sampled_matching = []
-        print(sampled)
+        # sampled = [random.randint(0, 7639) for i in range(50)]
+        # sampled_matching = []
+        # print(sampled)
 
         for i in tqdm(range(0, len(examples), step)):
             # if i not in sampled:

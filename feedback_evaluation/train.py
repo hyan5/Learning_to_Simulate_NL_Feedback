@@ -5,63 +5,57 @@ import sys
 import random
 import os
 import json
-# import pdb
 
 from tqdm import tqdm
 import numpy as np
 import torch
-import wandb
+# import wandb
+from argparse import ArgumentParser
 import copy
 
 from data import SpiderAlignDataset
 from aligner_model import BertAlignerModel
-from utils.utils import AverageMeter
+from utils import AverageMeter
+
+import pdb
 
 os.environ["TOKENIZERS_PARALLELISM"] = "false"
 # os.environ['WANDB_MODE'] = 'offline'
 
 
-lr = 'roberta'
-blr = 1e-8
+parser = ArgumentParser(description="Arguments to train the feedback evaluator")
+parser.add_argument("--model", type=str, help='Embedding model for fine-tuning', choices=['roberta-large'], default='roberta-large')
+parser.add_argument("--lr", type=float, help='Learning rate', default=1e-8)
+parser.add_argument("--margin", type=float, help='Expected margin between positive and negative socre', default=0.1)
+parser.add_argument("--prior_loss", type=float, help='The strength of prior loss in loss calculation', default=1e-3)
+parser.add_argument("--epoch", type=int, help='The number of total training epochs', default=200)
+parser.add_argument("--batch_size", type=int, help='The number of data in one batch', default=64)
+parser.add_argument("--negative_mode", type=str, help='The mode how to generate negative examples', choices=['replacement'], default='replace')
+parser.add_argument("--negative_num", type=int, help='The maximum number of negative examples can be generated for each input', default=50)
+
+parser.add_argument("--tables", type=str, help='the table file path', required=True)
+parser.add_argument("--train", type=str, help='the training dataset path', required=True)
+parser.add_argument("--dev", type=str, help='the development dataset path', required=True)
+# parser.add_argument("--test", type=str, help='the testing dataset path', required=True)
+
+
 l1 = 0.1
-prior_pos = 1e-3
-prior_neg = 1e-3
-cls_weight = 0
-mar = 0.1
-epochs = 200
-model_shortcut = 'roberta-large'
-
-# model_shortcut = 'bert-base-uncased'
-
-
-batch_size = 64
-
-replace_mode = 'replace'
-n_random = 0
-n_changing = 50
-n_swapping = 0
-n_dropping = 0
-
-pre = f'{n_random}-{n_changing}-{n_swapping}-{n_dropping}'
-
 similarity_mode = 'average'
 
-date = '12/21'
-
-wandb_config = {
-  "aligner_lr": lr,
-  "bert_lr": blr,
-  "epochs": epochs,
-  "batch_size": batch_size,
-  "margin": mar,
-  "l1-norm_weight": l1,
-  "cls": cls_weight,
-  "pos_prior": prior_pos,
-  "neg_prior": prior_neg,
-  "negative-mode": f'{replace_mode}-{n_random}-{n_changing}-{n_swapping}-{n_dropping}',
-  "similarity_mode": similarity_mode
-}
-wandb.init(project="feedback-evaluation", entity='hyan5', config=wandb_config)
+# wandb_config = {
+#   "aligner_lr": lr,
+#   "bert_lr": blr,
+#   "epochs": epochs,
+#   "batch_size": batch_size,
+#   "margin": mar,
+#   "l1-norm_weight": l1,
+#   "cls": cls_weight,
+#   "pos_prior": prior_pos,
+#   "neg_prior": prior_neg,
+#   "negative-mode": f'{replace_mode}-{n_random}-{n_changing}-{n_swapping}-{n_dropping}',
+#   "similarity_mode": similarity_mode
+# }
+# wandb.init(project="feedback-evaluation", entity='hyan5', config=wandb_config)
 
 logging.basicConfig(level=logging.INFO,
                     format="%(asctime)s [%(levelname)s] [%(name)s] %(message)s",
@@ -240,12 +234,12 @@ def validate(model, dataloader, criterion, neg_len, neg_tag, epoch, data_type, o
 
     lengths = [np.array(all_temp_lens), np.array(all_pos_lens), np.array(all_neg_lens)]
 
-    val_acc_all, val_acc_changing, val_acc_swapping, val_acc_dropping, val_acc_random= validate_acc(alignments, lengths, neg_len, neg_tag, epoch, data_type, out_format, similarity_mode)
+    val_acc_all, val_acc_changing, val_acc_swapping, val_acc_dropping, val_acc_random= validate_acc(alignments, lengths, neg_len, neg_tag, epoch, data_type, out_format, similarity_mode, batch_size)
     # print(f'Validate acc = {val_acc}')
     return average_meter.hinge_loss_avg, average_meter.pure_loss_avg, average_meter.l1_term_avg, average_meter.pos_prior_avg, average_meter.neg_prior_avg, val_acc_all, val_acc_changing, val_acc_swapping, val_acc_dropping, val_acc_random
 
 
-def validate_acc(alignments, lengths, masked, neg_tag, epoch, data_type, out_format, similarity_mode):
+def validate_acc(alignments, lengths, masked, neg_tag, epoch, data_type, out_format, similarity_mode, batch_size):
     """ Validate accuracy: whether model can choose the positive
     sentence over other negative samples """
     pos_scores, neg_scores = [], []
@@ -449,44 +443,45 @@ def validate_acc(alignments, lengths, masked, neg_tag, epoch, data_type, out_for
            (random_acc, random_new_acc, random_mrr, num_random_examples)
 
 
-def main():
+def main(args):
     logger.info('********************  Spider Alignment  ********************')
     use_autoencoder = False
 
+    args, _ = parser.parse_known_args(args)
+
     # Directory of train/dev/test data files
-    table_file = '../data/spider/tables.json'
-    train_data_file = '../data/splash/train_10.json'
-    dev_data_file = '../data/splash/dev_w_template_feedback.json'
+    table_file = args.tables
+    train_data_file = args.train
+    dev_data_file = args.dev
     # test_data_file = '../data/splash/test_w_template_feedback.json'
 
+    negative_mode = args.negative_mode
+    negative_num = args.negative_num
+    lr = args.lr
+    model = args.model
+    prior_loss = args.prior_loss
+    margin = args.margin
+    epoch = args.epoch
+    batch_size = args.batch_size
+
+
     #Load training data
-    train_align_dataset = SpiderAlignDataset(table_file=table_file, data_file=train_data_file, n_random=n_random, n_changing=n_changing, n_swapping=n_swapping, n_dropping=n_dropping, data_type='train',
-                                             negative_sampling_mode=replace_mode, tokenizer_shortcut=model_shortcut)
+    train_align_dataset = SpiderAlignDataset(table_file=table_file, data_file=train_data_file, n_random=0, n_changing=negative_num, n_swapping=0, n_dropping=0, data_type='train',
+                                             negative_sampling_mode=negative_mode, tokenizer_shortcut=model)
     train_dataloader, _neg_len, _neg_tag = train_align_dataset.get_dataloader(batch_size=batch_size, shuffle=True, num_workers=4)
     dev_train_dataloader, train_neg_len, train_neg_tag = train_align_dataset.get_dataloader(batch_size=batch_size, shuffle=False, num_workers=4)
 
-
-    # logger.info('****************** train_data *********************')
-    # print("Train Dataloader Len: ", len(train_dataloader))
-    # train_iter = iter(train_dataloader)  
-    # (positive_tensors, negative_tensors), (positive_weight_matrix, negative_weight_matrix), (positive_lengths, negative_lengths), (positive_texts, negative_texts) = next(iter(train_iter))
-
-    # print('***** Train positive *****\n')
-    # print(positive_texts)
-    # print('***** Train negative *****\n')
-    # print(negative_texts)
-
     # Load dev all negative examples
-    dev_all_dataset = SpiderAlignDataset(table_file=table_file, data_file=dev_data_file, n_random=n_random, n_changing=n_changing, n_swapping=n_swapping, n_dropping=n_dropping, data_type='dev',
-                                           negative_sampling_mode=replace_mode, tokenizer_shortcut=model_shortcut)
+    dev_all_dataset = SpiderAlignDataset(table_file=table_file, data_file=dev_data_file, n_random=0, n_changing=negative_num, n_swapping=0, n_dropping=0, data_type='dev',
+                                           negative_sampling_mode=negative_mode, tokenizer_shortcut=model)
     dev_all_dataloader, dev_neg_len, dev_neg_tag = dev_all_dataset.get_dataloader(batch_size=batch_size, shuffle=False, num_workers=4)
     # print("Dev Dataloader Len: ", len(dev_all_dataloader))
 
     
     # Training the aligner model
-    out_format = f'{date}/{replace_mode}-{similarity_mode}-{pre}-lr-{lr}-bert-{blr}-m-{mar}-l1-{l1}-cls-{cls_weight}-pos-prior-{prior_pos}-neg-prior-{prior_neg}'
+    out_format = f'{model}-{negative_mode}-lr-{lr}-bert-{lr}-m-{margin}-l1-{l1}-prior-{prior_loss}'
 
-    aligner_model = BertAlignerModel(use_autoencoder=use_autoencoder, similarity_mode=similarity_mode, model_type=model_shortcut, bert_lr=blr, margin=mar, l1=l1, prior_pos=prior_pos, prior_neg=prior_neg)
+    aligner_model = BertAlignerModel(use_autoencoder=use_autoencoder, similarity_mode=similarity_mode, model_type=model, bert_lr=lr, margin=margin, l1=l1, prior_pos=prior_loss, prior_neg=prior_loss)
     if os.path.exists(f'saved/{out_format}/model.pt'):
         aligner_model.load_state_dict(torch.load(f'saved/{out_format}/model.pt'))
     if torch.cuda.is_available():
@@ -501,16 +496,7 @@ def main():
     early_stop_count = 0
     last_val_dev_loss = sys.float_info.max
 
-    for epoch in range(epochs):
-    #     """
-    #     aligner_model = BertAlignerModel(use_autoencoder=use_autoencoder, similarity_mode=similarity_mode)
-    #     aligner_model.load_state_dict(torch.load(f'saved/mix-50-100-lr-1e5-bert-1e7-l1-1e1-m-0.6/model-{epoch+1}.pt'))
-    #     if torch.cuda.is_available():
-    #         aligner_model = aligner_model.cuda()
-    #     else:
-    #         logger.warning("Model is running on CPU. The progress will be very slow.")
-    #     criterion = aligner_model.criterion
-    #     """
+    for epoch in range(epoch):
         if early_stop_count >= 5:
             print("Early Stopping!")
             break       
@@ -554,17 +540,17 @@ def main():
         last_val_dev_loss = val_dev_loss
 
 
-        wandb.log({"train_loss": train_loss, "val_train_loss": val_train_loss, "val_dev_loss": val_dev_loss, \
-            "val_train_pure_loss": val_train_pure_loss, "val_train_l1_term": val_train_l1_term, "val_train_pos_prior": val_train_pos_prior, "val_train_neg_prior": val_train_neg_prior, \
-            "val_dev_pure_loss": val_dev_pure_loss, "val_dev_l1_term": val_dev_l1_term, "val_dev_pos_prior": val_dev_pos_prior, "val_dev_neg_prior": val_dev_neg_prior, \
-            "train_acc": val_train_acc, "train_acc_new": val_train_acc_new, "train_acc_mrr": val_train_acc_mrr, \
-            "train_changing_acc": val_train_changing_acc, "train_swapping_acc": val_train_swapping_acc, "train_dropping_acc": val_train_dropping_acc, "train_random_acc": val_train_random_acc, \
-            "train_changing_acc_new": val_train_changing_acc_new, "train_swapping_acc_new": val_train_swapping_acc_new, "train_dropping_acc_new": val_train_dropping_acc_new, "train_random_acc_new": val_train_random_acc_new, \
-            "train_changing_acc_mrr": val_train_changing_acc_mrr, "train_swapping_acc_mrr": val_train_swapping_acc_mrr, "train_dropping_acc_mrr": val_train_dropping_acc_mrr, "train_random_acc_mrr": val_train_random_acc_mrr, \
-            "dev_acc": val_dev_acc, "dev_acc_new": val_dev_acc_new, "dev_acc_mrr": val_dev_acc_mrr, \
-            "dev_changing_acc": val_dev_changing_acc, "dev_swapping_acc": val_dev_swapping_acc, "dev_dropping_acc": val_dev_dropping_acc, "dev_random_acc": val_dev_random_acc, \
-            "dev_changing_acc_new": val_dev_changing_acc_new, "dev_swapping_acc_new": val_dev_swapping_acc_new, "dev_dropping_acc_new": val_dev_dropping_acc_new, "dev_random_acc_new": val_dev_random_acc_new, \
-            "dev_changing_acc_mrr": val_dev_changing_acc_mrr, "dev_swapping_acc_mrr": val_dev_swapping_acc_mrr, "dev_dropping_acc_mrr": val_dev_dropping_acc_mrr, "dev_random_acc_mrr": val_dev_random_acc_mrr})
+        # wandb.log({"train_loss": train_loss, "val_train_loss": val_train_loss, "val_dev_loss": val_dev_loss, \
+        #     "val_train_pure_loss": val_train_pure_loss, "val_train_l1_term": val_train_l1_term, "val_train_pos_prior": val_train_pos_prior, "val_train_neg_prior": val_train_neg_prior, \
+        #     "val_dev_pure_loss": val_dev_pure_loss, "val_dev_l1_term": val_dev_l1_term, "val_dev_pos_prior": val_dev_pos_prior, "val_dev_neg_prior": val_dev_neg_prior, \
+        #     "train_acc": val_train_acc, "train_acc_new": val_train_acc_new, "train_acc_mrr": val_train_acc_mrr, \
+        #     "train_changing_acc": val_train_changing_acc, "train_swapping_acc": val_train_swapping_acc, "train_dropping_acc": val_train_dropping_acc, "train_random_acc": val_train_random_acc, \
+        #     "train_changing_acc_new": val_train_changing_acc_new, "train_swapping_acc_new": val_train_swapping_acc_new, "train_dropping_acc_new": val_train_dropping_acc_new, "train_random_acc_new": val_train_random_acc_new, \
+        #     "train_changing_acc_mrr": val_train_changing_acc_mrr, "train_swapping_acc_mrr": val_train_swapping_acc_mrr, "train_dropping_acc_mrr": val_train_dropping_acc_mrr, "train_random_acc_mrr": val_train_random_acc_mrr, \
+        #     "dev_acc": val_dev_acc, "dev_acc_new": val_dev_acc_new, "dev_acc_mrr": val_dev_acc_mrr, \
+        #     "dev_changing_acc": val_dev_changing_acc, "dev_swapping_acc": val_dev_swapping_acc, "dev_dropping_acc": val_dev_dropping_acc, "dev_random_acc": val_dev_random_acc, \
+        #     "dev_changing_acc_new": val_dev_changing_acc_new, "dev_swapping_acc_new": val_dev_swapping_acc_new, "dev_dropping_acc_new": val_dev_dropping_acc_new, "dev_random_acc_new": val_dev_random_acc_new, \
+        #     "dev_changing_acc_mrr": val_dev_changing_acc_mrr, "dev_swapping_acc_mrr": val_dev_swapping_acc_mrr, "dev_dropping_acc_mrr": val_dev_dropping_acc_mrr, "dev_random_acc_mrr": val_dev_random_acc_mrr})
 
 
         if not os.path.exists(f'./saved/{out_format}'):
@@ -572,4 +558,5 @@ def main():
         torch.save(aligner_model.state_dict(), f'saved/{out_format}/model-{epoch}.pt')
 
 if __name__ == '__main__':
-    main()
+    args = sys.argv
+    main(args)
