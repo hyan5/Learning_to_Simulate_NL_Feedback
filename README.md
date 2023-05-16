@@ -57,5 +57,4 @@ Now, you should have three files -- `train_w_template_feedback.json`, `dev_w_tem
 ## 2.2 Training a User Feedback Evaluator
 Please refer to [Feedback Evaluation README](feedback_evaluation/)
 ## 2.3 Training a User Feedback Simulator
-
-## 2.4 Training an Error Correction Model
+Please refer to [Feedback Evaluation README](feedback_simulation/)
