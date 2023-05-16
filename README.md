@@ -55,7 +55,7 @@ For details about options of `generate_template_feedback.py`, please refer to [t
 Now, you should have three files -- `train_w_template_feedback.json`, `dev_w_template_feedback.json`, and `test_w_template_feedback.json` -- under the `data/splash/` folder, all with template-based feedback. We will use these datasets to train a user feedback simulator.
 
 ## 2.2 Training a User Feedback Evaluator
-
+Please refer to [Feedback Evaluation README](feedback_evaluation/)
 ## 2.3 Training a User Feedback Simulator
 
 ## 2.4 Training an Error Correction Model
