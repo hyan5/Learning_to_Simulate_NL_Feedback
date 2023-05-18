@@ -21,46 +21,29 @@ class BatchCosineSimilarity(nn.Module):
         self.cos = nn.CosineSimilarity(eps=1e-8)
 
 
-    def forward(self, input1, input2, inp_type='matrix', similarity_mode='recall'):
+    def forward(self, input1, input2):
         """
         input1 & input2 are both embedding sequences from rnn encoder
         """
-
-        if inp_type == 'cls':
-            return self.cos(input1, input2)
-
         batch_dot_product = torch.bmm(input1, input2.transpose(1, 2))
         norm_1, norm_2 = torch.norm(input1, p=2, dim=-1), torch.norm(input2, p=2, dim=-1)
         norm_matrix = torch.bmm(torch.unsqueeze(norm_1, -1), torch.unsqueeze(norm_2, 1)) + 1e-8
         assert norm_matrix.size() == batch_dot_product.size()
         cosine_similarity = torch.div(batch_dot_product, norm_matrix)
-        return cosine_similarity
-        # else:
-        #     batch_dot_product = torch.matmul(input1, input2.transpose(0,1))
-        #     batch_dot_product = torch.sum(batch_dot_product, dim=-1)
-        #     norm_1, norm_2 = torch.norm(input1, p=2, dim=-1), torch.norm(input2, p=2, dim=-1)
-        #     norm_matrix = torch.sum(norm_1 * norm_2) + 1e-8
-        #     cosine_similarity = torch.div(batch_dot_product, norm_matrix)
-        #     return cosine_similarity
-        # print('norm_matrix', norm_matrix)
-        
-
+        return cosine_similarity     
 
 class BertAlignerModel(torch.nn.Module):
-    def __init__(self, hidden_dim=100, use_autoencoder=False, similarity_mode='average', model_type='bert-base-uncased', bert_lr=1e-8, margin=0.6, l1=0.1, prior_pos=1e-3, prior_neg=1e-3):
+    def __init__(self, hidden_dim=100, use_autoencoder=False, similarity_mode='average', model_type='roberta-large', bert_lr=1e-8, margin=0.6, l1=0.1, prior_pos=1e-3, prior_neg=1e-3):
         self.use_autoencoder = use_autoencoder
         self.similarity_mode = similarity_mode
         self.model_type = model_type
         super().__init__()
-        bert_pretrained_weights_shortcut = 'bert-base-uncased'
+        bert_pretrained_weights_shortcut = 'roberta-large'
         # bert_output_dim = 768
-        self.hidden_dim = 768 if model_type == 'bert_base_uncased' else 1024
+        self.hidden_dim = 1024
 
         self.bert_chosen_layer = -1
-        # if model_type == 'bert-base-uncased':
-        #     self.bert_model = BertModel.from_pretrained(bert_pretrained_weights_shortcut, output_hidden_states=True)
-        # else:
-        #     self.bert_model = RobertaModel.from_pretrained('roberta-large', output_hidden_states=True)
+        
         self.bert_model = AutoModel.from_pretrained(model_type, output_hidden_states=True)
             
         self.dropout = nn.Dropout(p=0.5)
@@ -151,46 +134,28 @@ class BertAlignerModel(torch.nn.Module):
         for batch_idx in range(batch_size):
             template_matrix[batch_idx, :template_lengths[batch_idx]] = template_bert_output[batch_idx, :template_lengths[batch_idx]]
             positive_matrix[batch_idx, :positive_lengths[batch_idx]] = positive_bert_output[batch_idx, :positive_lengths[batch_idx]]
-        #     positive_bert_question_matrix[batch_idx, :positive_lengths[0][batch_idx]] = positive_bert_output[batch_idx, :positive_lengths[0][batch_idx]]
-        #     positive_bert_matrix[batch_idx, :positive_lengths[1][batch_idx]] = \
-        #         positive_bert_output[batch_idx, positive_lengths[0][batch_idx] + 1: positive_lengths[0][batch_idx] + positive_lengths[1][batch_idx] + 1]
-            
+
             if negative_tensor is not None:
                 negative_matrix[batch_idx, :negative_lengths[batch_idx]] = negative_bert_output[batch_idx, :negative_lengths[batch_idx]]
-                # negative_bert_matrix[batch_idx, :negative_lengths[1][batch_idx]] = \
-                #     negative_bert_output[batch_idx,  negative_lengths[0][batch_idx] + 1: negative_lengths[0][batch_idx] + negative_lengths[1][batch_idx] + 1]
-        # pdb.set_trace()
+                
         if mode == 'train':
-            positive_similarity_matrix = self.similarity_layer(template_matrix, positive_matrix, 'matrix', self.similarity_mode)
-            positive_cls_similarity = self.similarity_layer(template_cls, positive_cls, 'cls', self.similarity_mode)
+            positive_similarity_matrix = self.similarity_layer(template_matrix, positive_matrix)
 
         else:
-            positive_similarity_matrix = self.similarity_layer(template_matrix, positive_matrix, 'matrix', self.similarity_mode)
-            positive_cls_similarity = self.similarity_layer(template_cls, positive_cls, 'cls', self.similarity_mode)
-
-
-        # if mode == 'eval' and positive_weight_matrix is not None:
-        #     positive_similarity_matrix *= positive_weight_matrix
-
+            positive_similarity_matrix = self.similarity_layer(template_matrix, positive_matrix)
 
         if negative_tensor is not None:
             if mode == 'train':
-                negative_similarity_matrix = self.similarity_layer(template_matrix, negative_matrix, 'matrix', self.similarity_mode)
-                negative_cls_similarity = self.similarity_layer(template_cls, negative_cls, 'cls', self.similarity_mode)
+                negative_similarity_matrix = self.similarity_layer(template_matrix, negative_matrix)
 
             else:
-                negative_similarity_matrix = self.similarity_layer(template_matrix, negative_matrix, 'matrix', self.similarity_mode)
-                negative_cls_similarity = self.similarity_layer(template_cls, negative_cls, 'cls', self.similarity_mode)
+                negative_similarity_matrix = self.similarity_layer(template_matrix, negative_matrix)
 
-
-        # pdb.set_trace()
         if negative_tensor is not None:
-            # pdb.set_trace()
-            return positive_similarity_matrix, positive_cls_similarity, negative_similarity_matrix, negative_cls_similarity
+            return positive_similarity_matrix, negative_similarity_matrix
 
         else:
-            # pdb.set_trace()
-            return positive_similarity_matrix, positive_cls_similarity
+            return positive_similarity_matrix
 
 
 class BertAligner:

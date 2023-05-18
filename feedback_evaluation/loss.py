@@ -9,7 +9,7 @@ import torch.nn.functional as F
 device = 'cuda' if torch.cuda.is_available() else 'cpu'
 
 class HingeLoss(nn.Module):
-    def __init__(self, margin=0.6, aggregation='max', l1_norm_weight=0.1, pos_prior_weight=0, neg_prior_weight=0, similarity_mode='recall'):
+    def __init__(self, margin=0.6, aggregation='max', l1_norm_weight=0.1, pos_prior_weight=0, neg_prior_weight=0, similarity_mode='average'):
         super(HingeLoss, self).__init__()
         self.margin = margin
         self.aggregation = aggregation
@@ -18,9 +18,7 @@ class HingeLoss(nn.Module):
         self.pos_prior_weight = pos_prior_weight
         self.neg_prior_weight = neg_prior_weight
 
-    def forward(self, pos_align, neg_align, cls_similarity, cls_weight, lengths, pos_prior, neg_prior):
-        # src_lengths, pos_tgt_lengths, neg_tgt_lengths = lengths
-        pos_cls, neg_cls = cls_similarity
+    def forward(self, pos_align, neg_align, lengths, pos_prior, neg_prior):
         template_lengths, positive_lengths, negative_lengths = lengths
         prior_temp_pos_mat, prior_temp_pos_mask_mat = pos_prior
         prior_temp_neg_mat, prior_temp_neg_mask_mat = neg_prior
@@ -75,9 +73,6 @@ class HingeLoss(nn.Module):
             else:
                 pos_align_score = torch.div(pos_recall_score + pos_precision_score, 2)
                 neg_align_score = torch.div(neg_recall_score + neg_precision_score, 2)
-
-        pos_align_score = (1 - cls_weight) * pos_align_score + cls_weight * pos_cls
-        neg_align_score = (1 - cls_weight) * neg_align_score + cls_weight * neg_cls
 
         pure_ranking_loss = torch.mean(torch.clamp(self.margin - (pos_align_score - neg_align_score), min=0.0)) 
         l1_term = self.l1_norm_weight * (pos_l1_norm + neg_l1_norm)

@@ -160,11 +160,7 @@ def validate(model, dataloader, criterion, neg_len, neg_tag, epoch, data_type, o
         all_temp_lens, all_pos_lens, all_neg_lens = [], [], []
         all_pos_alignments, all_neg_alignments = [], []
 
-        # indicator = 0
         for batch_data in tqdm_dataloader:
-            # if indicator > 2:
-            #     break
-            # indicator += 1
             tensors, weights, lengths, texts, att_weights, schemas, schema_idx, pos_prior, neg_prior = batch_data
             template_tensors, positive_tensors, negative_tensors = tensors
             template_weights, positive_weights, negative_weights = weights
@@ -188,19 +184,16 @@ def validate(model, dataloader, criterion, neg_len, neg_tag, epoch, data_type, o
             temp_max_len = torch.LongTensor([template_lengths.max()]).expand(batch_size, 1)
             pos_max_len = torch.LongTensor([positive_lengths.max()]).expand(batch_size, 1)
             neg_max_len = torch.LongTensor([negative_lengths.max()]).expand(batch_size, 1)
-            # positive_similar_matrix, negative_similar_matrix = \
-            #     model(positive_tensors, positive_lengths, negative_tensors, negative_lengths)
-            # pdb.set_trace()
 
             if (not isinstance(model, torch.nn.DataParallel) and model.use_autoencoder) or \
                     (isinstance(model, torch.nn.DataParallel) and model.module.use_autoencoder):
-                positive_similar_matrix, positive_cls_similarity, negative_similar_matrix, negative_cls_similarity, autoencoder_diff = \
+                positive_similar_matrix, negative_similar_matrix = \
                     model(template_tensors, template_lengths, template_weights, template_att_weights,
                           positive_tensors, positive_lengths, positive_weights, positive_att_weights,
                           negative_tensors, negative_lengths, negative_weights, negative_att_weights,
                           temp_max_len, pos_max_len, neg_max_len, mode='train')
             else:
-                positive_similar_matrix, positive_cls_similarity, negative_similar_matrix, negative_cls_similarity = \
+                positive_similar_matrix, negative_similar_matrix = \
                     model(template_tensors, template_lengths, template_weights, template_att_weights,
                           positive_tensors, positive_lengths, positive_weights, positive_att_weights,
                           negative_tensors, negative_lengths, negative_weights, negative_att_weights,
@@ -210,7 +203,7 @@ def validate(model, dataloader, criterion, neg_len, neg_tag, epoch, data_type, o
                 positive_lengths = positive_lengths.cuda()
                 negative_lengths = negative_lengths.cuda()
 
-            loss, pure_loss, l1_term, pos_prior_loss, neg_prior_loss = criterion(positive_similar_matrix, negative_similar_matrix, (positive_cls_similarity, negative_cls_similarity), cls_weight, (template_lengths, positive_lengths, negative_lengths), (prior_temp_pos_mat, prior_temp_pos_mask_mat), (prior_temp_neg_mat, prior_temp_neg_mask_mat))
+            loss, pure_loss, l1_term, pos_prior_loss, neg_prior_loss = criterion(positive_similar_matrix, negative_similar_matrix, (template_lengths, positive_lengths, negative_lengths), (prior_temp_pos_mat, prior_temp_pos_mask_mat), (prior_temp_neg_mat, prior_temp_neg_mask_mat))
             
             bat_loss.append(loss.item())
             bat_pure_loss.append(pure_loss.item())
@@ -235,7 +228,6 @@ def validate(model, dataloader, criterion, neg_len, neg_tag, epoch, data_type, o
     lengths = [np.array(all_temp_lens), np.array(all_pos_lens), np.array(all_neg_lens)]
 
     val_acc_all, val_acc_changing, val_acc_swapping, val_acc_dropping, val_acc_random= validate_acc(alignments, lengths, neg_len, neg_tag, epoch, data_type, out_format, similarity_mode, batch_size)
-    # print(f'Validate acc = {val_acc}')
     return average_meter.hinge_loss_avg, average_meter.pure_loss_avg, average_meter.l1_term_avg, average_meter.pos_prior_avg, average_meter.neg_prior_avg, val_acc_all, val_acc_changing, val_acc_swapping, val_acc_dropping, val_acc_random
 
 
@@ -411,11 +403,6 @@ def validate_acc(alignments, lengths, masked, neg_tag, epoch, data_type, out_for
             rank = random_rankings.index(one_pos_scores[0])
             ranking_random.append(1. / (rank+1))
 
-        # scores.append({"Index": itr_ind, "pos_score": one_pos_scores[0], "neg_socre": one_neg_scores, "margin": np.subtract(one_pos_scores, one_neg_scores).tolist()})
-    # if not os.path.exists(f'analysis/{out_format}'):
-    #     os.makedirs(f'analysis/{out_format}')
-    # with open(f'analysis/{out_format}/{data_type}_validation_acc_epoch_{epoch}.json', 'w') as f:
-    #     json.dump(scores, f, indent=4)
     total_acc = 1. * num_corrects / num_examples
     total_new_acc = 1. * new_num_corrects / new_num_examples
     total_mrr = ranking_sum / num_examples
@@ -449,11 +436,9 @@ def main(args):
 
     args, _ = parser.parse_known_args(args)
 
-    # Directory of train/dev/test data files
     table_file = args.tables
     train_data_file = args.train
     dev_data_file = args.dev
-    # test_data_file = '../data/splash/test_w_template_feedback.json'
 
     negative_mode = args.negative_mode
     negative_num = args.negative_num
@@ -489,7 +474,6 @@ def main(args):
     else:
         logger.warning("Model is running on CPU. The progress will be very slow.")
 
-    # aligner_model.load_state_dict(torch.load('saved/splash/model-82-mix-recall.pt', map_location='cpu'))
     criterion = aligner_model.criterion
     optimizer = aligner_model.optimizer
 
@@ -551,7 +535,6 @@ def main(args):
         #     "dev_changing_acc": val_dev_changing_acc, "dev_swapping_acc": val_dev_swapping_acc, "dev_dropping_acc": val_dev_dropping_acc, "dev_random_acc": val_dev_random_acc, \
         #     "dev_changing_acc_new": val_dev_changing_acc_new, "dev_swapping_acc_new": val_dev_swapping_acc_new, "dev_dropping_acc_new": val_dev_dropping_acc_new, "dev_random_acc_new": val_dev_random_acc_new, \
         #     "dev_changing_acc_mrr": val_dev_changing_acc_mrr, "dev_swapping_acc_mrr": val_dev_swapping_acc_mrr, "dev_dropping_acc_mrr": val_dev_dropping_acc_mrr, "dev_random_acc_mrr": val_dev_random_acc_mrr})
-
 
         if not os.path.exists(f'./saved/{out_format}'):
             os.makedirs(f'./saved/{out_format}')

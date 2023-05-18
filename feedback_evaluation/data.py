@@ -335,10 +335,6 @@ class AlignDataset(Dataset):
         # largaer_than_one = 0
         count = 0
         fuzzy_count = 0
-        # Randomly Sampled Data
-        # sampled = [random.randint(0, 7639) for i in range(50)]
-        # sampled_matching = []
-        # print(sampled)
 
         for i in tqdm(range(0, len(examples), step)):
             # if i not in sampled:
