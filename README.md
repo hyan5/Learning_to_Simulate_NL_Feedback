@@ -58,3 +58,33 @@ Now, you should have three files -- `train_w_template_feedback.json`, `dev_w_tem
 Please refer to [Feedback Evaluation README](feedback_evaluation/)
 ## 2.3 Training a User Feedback Simulator
 Please refer to [Feedback Evaluation README](feedback_simulation/)
+
+## 2.4 Training an Error Correction model
+
+Please refer to [Error Correction README](error_correction\)
+
+## 2.5 Experiments Reproduction
+
+We uploaded all our data and checkpoints used in the experiments:
+1. Collected error parses on EditSQL.
+
+2. Our SPLASH data split in low-data settings:
+
+   - 20-80 split
+
+   - 10-90 split
+
+   - 5-95 split
+
+3. All checkpoints ([download]()):
+   - Feedback Evaluation Models:
+     - Trained with Full SPLASH data
+     - Trained with 5/10/20 % SPLASH data
+   - Feedback Simulation Models:
+     - Trained with Full SPLASH data
+     - Trained with 5/10/20 % SPLASH data
+   - Error Correction Models:
+     - Trained with SPLASH + EditSQL
+     - Trained with *k%* SPLASH + *(100-k) %* SPLASH w/ simulated feedback
+   
+   

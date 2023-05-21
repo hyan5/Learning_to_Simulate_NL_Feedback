@@ -142,7 +142,8 @@ def prepare_data(args):
                 db_table_names = schema_dict[db_id]['table_names']
                 db_column_names = schema_dict[db_id]['column_names']
                 question = ' '.join(word_tokenize(t['question'])).replace("``", "\"").replace("''", "\"")
-                feedback = ' '.join(word_tokenize(t['feedback'])).replace("``", "\"").replace("''", "\"")
+
+
                 temp = t['template_feedback']
                 gold_parse = normalize(t['gold_parse']).replace(" \"", " ``").replace("\"", " \"").replace("``", "\" ")
                 predicted_parse = normalize(t['predicted_parse_with_values']).replace(" \"", " ``").replace("\"", " \"").replace("``", "\" ")
@@ -150,23 +151,15 @@ def prepare_data(args):
                 schema_info = serialize_schema(question, db_path, db_id, db_column_names, db_table_names)
 
                 q = process_sentence(question, low, sep, '[question] ', ' ', strip)
-
-                _q = q
-
-                fed = process_sentence(feedback, low, sep, '[feedback] ', ' ', strip)
-
-                _fed = fed
                 s = process_sentence(schema_info, False, sep, '[schema] ', '', strip)
-
-                _s = s
                 c = process_sentence(gold_parse, low, sep, '[true] ', ' ', strip)
-                _c = c
                 w = process_sentence(predicted_parse, low, sep, '[predict] ', ' ', strip)
-                _w = w
                 exp = explanation(t['predicted_parse_with_values'], db_id)
 
+                if target == 'edits':
+                    feedback = ' '.join(word_tokenize(t['feedback'])).replace("``", "\"").replace("''", "\"")
+                    fed = process_sentence(feedback, low, sep, '[feedback] ', ' ', strip)
 
-                # e = t['predicted_parse_explanation']
                 w_t = ''
                 for wt in exp:
                     w_t += wt
@@ -176,12 +169,7 @@ def prepare_data(args):
 
 
                 d, edit_size, _edits_no_tag, _edits = cal_edits(t['predicted_parse_with_values'], t['gold_parse'], db_id)
-                # _d = d
                 _d = ' '.join(word_tokenize(d)).replace("``", "\"").replace("''", "\"").replace("< /", "</")
-
-                # if 'train' in dest_file:
-                #     pdb.set_trace()
-
                 d = process_sentence(_d, low, sep, '', ' ', strip)
                 temp = process_sentence(temp, low, sep, '', ' ', strip)
                 edits.append(_d)
@@ -231,11 +219,6 @@ def prepare_data(args):
                     with open(test_target_dir, 'w') as f:
                         for edit in edits:
                             f.write('%s\n' %edit)
-            # if 'train' in dest_file:
-            #     store_json(src_data, 'data/train_w_edits.json')
-                    
-            # if 'dev' in dest_file:
-            #     store_json(src_data, 'data/dev_w_edits.json')
 
 def serialize_schema(
     question: str,
@@ -262,8 +245,6 @@ def serialize_schema(
         db_id_str = " | {db_id}"
         table_sep = ""
         table_str = " [T] {table} [C] {columns}"
-        # table_str = " | {table} : {columns}"
-        # column_sep = " , "
         column_sep = " [C] "
 
         column_str_with_values = "{column} ( {values} )"
@@ -273,12 +254,6 @@ def serialize_schema(
         raise NotImplementedError
 
     def get_column_str(table_name: str, column_name: str) -> str:
-        # column_name_str = column_name
-
-        # if use_modified_schema:
-        #     table_name = tab_modified2original[db_id][table_name]
-        #     column_name = col_modified2original[db_id][column_name]
-        #     pdb.set_trace()
         if use_modified_schema:
             column_name_str = col_original2modified[db_id][column_name].lower() if normalize_query else col_original2modified[db_id][column_name]
         else:

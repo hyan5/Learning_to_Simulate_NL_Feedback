@@ -1,0 +1,284 @@
+select avg(capacity), max(capacity) from stadium
+select t2.name, t2.capacity from concert as t1 join stadium as t2 on t1.stadium_id = t2.stadium_id where t1.year >= 2014 group by t2.stadium_id order by count(*) desc limit 1
+select t2.name, count(*) from singer_in_concert as t1 join singer as t2 on t1.singer_id = t2.singer_id group by t2.singer_id
+select count(*) from student as t1 join has_pet as t2 on t1.stuid = t2.stuid where t1.age > 20
+select count(*) from student as t1 join has_pet as t2 on t1.stuid = t2.stuid join pets as t3 on t2.petid = t3.petid where t1.sex = 'F' and t3.pettype = 'dog'
+select t1.fname from student as t1 join has_pet as t2 on t1.stuid = t2.stuid join pets as t3 on t3.petid = t2.petid where t3.pettype = 'cat' intersect select t1.fname from student as t1 join has_pet as t2 on t1.stuid = t2.stuid join pets as t3 on t3.petid = t2.petid where t3.pettype = 'dog'
+select pettype, weight from pets order by pet_age limit 1
+select distinct t1.fname, t1.age from student as t1 join has_pet as t2 on t1.stuid = t2.stuid
+select count(*), t1.stuid from student as t1 join has_pet as t2 on t1.stuid = t2.stuid group by t1.stuid
+select t1.lname from student as t1 join has_pet as t2 on t1.stuid = t2.stuid join pets as t3 on t3.petid = t2.petid where t3.pet_age = 3 and t3.pettype = 'cat'
+select t2.make, t1.year from cars_data as t1 join car_names as t2 on t1.id = t2.makeid where t1.year = (select min(year) from cars_data)
+select t1.continent, count(*) from continents as t1 join countries as t2 on t1.contid = t2.continent join car_makers as t3 on t2.countryid = t3.country group by t1.continent
+select t1.accelerate from cars_data as t1 join car_names as t2 on t1.id = t2.makeid where t2.make = 'amc hornet sportabout (sw)'
+select t1.accelerate from cars_data as t1 join car_names as t2 on t1.id = t2.makeid where t2.make = 'amc hornet sportabout (sw)'
+select count(*) from model_list as t1 join car_makers as t2 on t1.maker = t2.id join countries as t3 on t2.country = t3.countryid where t3.countryname = 'usa'
+select count(*) from model_list as t1 join car_makers as t2 on t1.maker = t2.id join countries as t3 on t2.country = t3.countryid where t3.countryname = 'usa'
+select t1.countryname, t1.countryid from countries as t1 join car_makers as t2 on t1.countryid = t2.country group by t1.countryid having count(*) >= 1
+select t1.countryname, t1.countryid from countries as t1 join car_makers as t2 on t1.countryid = t2.country group by t1.countryid having count(*) >= 1
+select t1.countryname from countries as t1 join continents as t2 on t1.continent = t2.contid join car_makers as t3 on t1.countryid = t3.country where t2.continent = 'europe' group by t1.countryname having count(*) >= 3
+select t1.model from car_names as t1 join cars_data as t2 on t1.makeid = t2.id order by t2.mpg desc limit 1
+select t1.model from car_names as t1 join cars_data as t2 on t1.makeid = t2.id order by t2.mpg desc limit 1
+select max(accelerate), cylinders from cars_data group by cylinders
+select model from car_names group by model order by count(*) desc limit 1
+select t1.fullname, t1.id from car_makers as t1 join model_list as t2 on t1.id = t2.maker group by t1.id having count(*) > 3
+select mpg from cars_data where cylinders = 8 or year < 1980 order by mpg desc limit 1
+select mpg from cars_data where cylinders = 8 or year < 1980 order by mpg desc limit 1
+select distinct t1.model from model_list as t1 join car_names as t2 on t1.model = t2.model join cars_data as t3 on t2.makeid = t3.id join car_makers as t4 on t1.maker = t4.id where t3.weight < 3500 and t4.fullname != 'Ford motor Company'
+select t1.countryid, t1.countryname from countries as t1 join car_makers as t2 on t1.countryid = t2.country group by t1.countryid having count(*) > 3 union select t1.countryid, t1.countryname from countries as t1 join car_makers as t2 on t1.countryid = t2.country join model_list as t3 on t2.id = t3.maker where t3.model = 'fiat'
+select airportname from airports where airportcode = "AKO"
+select count(*) from flights as t1 join airlines as t2 on t1.airline = t2.uid where t2.airline = "JetBlue Airways"
+select count(*) from flights as t1 join airlines as t2 on t1.airline = t2.uid where t2.airline = "JetBlue Airways"
+select count(*) from airlines as t1 join flights as t2 on t2.airline = t1.uid where t1.airline = "United Airlines" and t2.destairport = "ASY"
+select count(*) from airlines as t1 join flights as t2 on t2.airline = t1.uid where t1.airline = "United Airlines" and t2.destairport = "ASY"
+select count(*) from flights as t1 join airports as t2 on t1.destairport = t2.airportcode join airlines as t3 on t3.uid = t1.airline where t2.city = "Aberdeen" and t3.airline = "United Airlines"
+select count(*) from flights as t1 join airports as t2 on t1.destairport = t2.airportcode join airlines as t3 on t3.uid = t1.airline where t2.city = "Aberdeen" and t3.airline = "United Airlines"
+select t1.city from airports as t1 join flights as t2 on t1.airportcode = t2.sourceairport group by t1.city order by count(*) desc limit 1
+select t1.airportcode from airports as t1 join flights as t2 on t1.airportcode = t2.destairport or t1.airportcode = t2.sourceairport group by t1.airportcode order by count(*) desc limit 1
+select t1.abbreviation, t1.country from airlines as t1 join flights as t2 on t1.uid = t2.airline group by t1.airline order by count(*) limit 1
+select t1.airline from airlines as t1 join flights as t2 on t1.uid = t2.airline where t2.sourceairport = "AHD"
+select t1.airline from airlines as t1 join flights as t2 on t1.uid = t2.airline where t2.destairport = "AHD"
+select t1.airline from airlines as t1 join flights as t2 on t1.uid = t2.airline where t2.sourceairport = "CVO" except select t1.airline from airlines as t1 join flights as t2 on t1.uid = t2.airline where t2.sourceairport = "APG"
+select t1.airline from airlines as t1 join flights as t2 on t1.uid = t2.airline group by t1.airline having count(*) > 10
+select flightno from flights where destairport = "APG"
+select count(*) from flights as t1 join airports as t2 on t1.destairport = t2.airportcode where t2.city = "Aberdeen" or t2.city = "Abilene"
+select count(*), t2.name from hiring as t1 join shop as t2 on t1.shop_id = t2.shop_id group by t2.name
+select count(*), t2.name from hiring as t1 join shop as t2 on t1.shop_id = t2.shop_id group by t2.name
+select min(version_number), template_type_code from templates
+select template_type_code from templates except select template_type_code from templates as t1 join documents as t2 on t1.template_id = t2.template_id
+select template_type_code from templates except select template_type_code from templates as t1 join documents as t2 on t1.template_id = t2.template_id
+select distinct t1.template_type_description from ref_template_types as t1 join templates as t2 on t1.template_type_code = t2.template_type_code join documents as t3 on t2.template_id = t3.template_id
+select document_id, count(*) from paragraphs group by document_id order by document_id
+select t1.document_id, t2.document_name from paragraphs as t1 join documents as t2 on t1.document_id = t2.document_id group by t1.document_id order by count(*) desc limit 1
+select document_id from paragraphs group by document_id order by count(*) asc limit 1
+select hometown from teacher group by hometown order by count(*) desc limit 1
+select t2.name from course_arrange as t1 join teacher as t2 on t1.teacher_id = t2.teacher_id group by t2.name having count(*) >= 2
+select name from visitor where level_of_membership > 4 order by level_of_membership desc
+select avg(age) from visitor where level_of_membership <= 4
+select name, level_of_membership from visitor where level_of_membership > 4 order by age desc
+select winner_name from matches where year = 2013 intersect select winner_name from matches where year = 2016
+select first_name, country_code from players order by birth_date limit 1
+select first_name, country_code from players order by birth_date limit 1
+select first_name, last_name from players where hand = 'L' order by birth_date
+select t1.country_code, t1.first_name from players as t1 join rankings as t2 on t1.player_id = t2.player_id order by t2.tours desc limit 1
+select winner_name, winner_rank_points from matches group by winner_name order by count(*) desc limit 1
+select winner_name from matches where tourney_name = 'Australian Open' order by winner_rank_points desc limit 1
+select winner_name, loser_name from matches order by minutes desc limit 1
+select winner_name, loser_name from matches order by minutes desc limit 1
+select sum(tours), ranking_date from rankings group by ranking_date
+select count(distinct winner_name) from matches where tourney_name = 'WTA Championships' and winner_hand = 'L'
+select t1.first_name, t1.country_code, t1.birth_date from players as t1 join matches as t2 on t1.player_id = t2.winner_id order by t2.winner_rank_points desc limit 1
+select count(*) from ship where disposition_of_ship = 'Captured'
+select t1.killed, t1.injured from death as t1 join ship as t2 on t1.caused_by_ship_id = t2.id where t2.tonnage = 't'
+select t1.name, t1.date from battle as t1 join ship as t2 on t1.id = t2.lost_in_battle where t2.name = 'Lettice' intersect select t1.name, t1.date from battle as t1 join ship as t2 on t1.id = t2.lost_in_battle where t2.name = 'HMS Atalanta'
+select note from death where note like '%east%'
+select line_1, line_2 from addresses
+select t2.department_name, t1.department_id from degree_programs as t1 join departments as t2 on t1.department_id = t2.department_id group by t1.department_id order by count(*) desc limit 1
+select count(*) from departments as t1 join degree_programs as t2 on t1.department_id = t2.department_id where t1.department_name = 'engineer'
+select distinct t1.first_name, t1.middle_name, t1.last_name from students as t1 join student_enrolment as t2 on t1.student_id = t2.student_id join degree_programs as t3 on t2.degree_program_id = t3.degree_program_id where t3.degree_summary_name = 'Bachelor'
+select t1.degree_summary_name from degree_programs as t1 join student_enrolment as t2 on t1.degree_program_id = t2.degree_program_id group by t1.degree_summary_name order by count(*) desc limit 1
+select distinct t1.course_name from courses as t1 join student_enrolment_courses as t2 on t1.course_id = t2.course_id
+select t1.course_name from courses as t1 join student_enrolment_courses as t2 on t1.course_id = t2.course_id group by t1.course_name order by count(*) desc limit 1
+select t2.transcript_date, t1.transcript_id from transcript_contents as t1 join transcripts as t2 on t1.transcript_id = t2.transcript_id group by t1.transcript_id having count(*) >= 2
+select t1.address_id, t1.line_1, t1.line_2 from addresses as t1 join students as t2 on t1.address_id = t2.current_address_id group by t1.address_id order by count(*) desc limit 1
+select t2.transcript_date, t1.transcript_id from transcript_contents as t1 join transcripts as t2 on t1.transcript_id = t2.transcript_id group by t1.transcript_id order by count(*) asc limit 1
+select t2.transcript_date, t1.transcript_id from transcript_contents as t1 join transcripts as t2 on t1.transcript_id = t2.transcript_id group by t1.transcript_id order by count(*) asc limit 1
+select distinct t2.semester_id from degree_programs as t1 join student_enrolment as t2 on t1.degree_program_id = t2.degree_program_id where degree_summary_name = 'Master' intersect select distinct t2.semester_id from degree_programs as t1 join student_enrolment as t2 on t1.degree_program_id = t2.degree_program_id where degree_summary_name = 'Bachelor'
+select distinct t2.semester_id from degree_programs as t1 join student_enrolment as t2 on t1.degree_program_id = t2.degree_program_id where degree_summary_name = 'Master' intersect select distinct t2.semester_id from degree_programs as t1 join student_enrolment as t2 on t1.degree_program_id = t2.degree_program_id where degree_summary_name = 'Bachelor'
+select count(distinct current_address_id) from students
+select count(distinct current_address_id) from students
+select t1.series_name from tv_channel as t1 join cartoon as t2 on t1.id = t2.channel where t2.title = "The rise of the blue beetle!"
+select air_date from tv_series where episode = "A love of a Lifetime"
+select production_code, channel from cartoon order by original_air_date limit 1
+select id from tv_channel group by country having count(*) > 2
+select t1.name from people as t1 join poker_player as t2 on t1.people_id = t2.people_id
+select t1.contestant_number, t1.contestant_name from contestants as t1 join votes as t2 on t1.contestant_number = t2.contestant_number group by t1.contestant_number having count(*) >= 2
+select continent from country where name = "Anguilla"
+select t2.language from country as t1 join countrylanguage as t2 on t1.code = t2.countrycode where t1.name = "Aruba" order by percentage desc limit 1
+select population, lifeexpectancy from country where name = "Brazil"
+select sum(population), max(gnp) from country where continent = "Asia"
+select avg(lifeexpectancy) from country where continent = "Africa" and governmentform = "Republic"
+select sum(population) from city where district = "Gelderland"
+select avg(gnp), sum(population) from country where governmentform = "US Territory"
+select count(t2.language) from country as t1 join countrylanguage as t2 on t1.code = t2.countrycode where t1.name = "Aruba"
+select t1.name from country as t1 join countrylanguage as t2 on t1.code = t2.countrycode group by t1.name order by count(*) desc limit 1
+select t1.continent from country as t1 join countrylanguage as t2 on t1.code = t2.countrycode group by t1.continent order by count(*) desc limit 1
+select t1.continent from country as t1 join countrylanguage as t2 on t1.code = t2.countrycode group by t1.continent order by count(*) desc limit 1
+select t1.name from country as t1 join countrylanguage as t2 on t1.code = t2.countrycode where t2.language = "English" and t2.isofficial = "T" intersect select t1.name from country as t1 join countrylanguage as t2 on t1.code = t2.countrycode where t2.language = "French" and t2.isofficial = "T"
+select name, population, lifeexpectancy from country where continent = "Asia" order by surfacearea desc limit 1
+select t2.language from country as t1 join countrylanguage as t2 on t1.code = t2.countrycode where t1.headofstate = "Beatrix" and t2.isofficial = "T"
+select t2.language from country as t1 join countrylanguage as t2 on t1.code = t2.countrycode where t1.headofstate = "Beatrix" and t2.isofficial = "T"
+select count(distinct t2.language) from country as t1 join countrylanguage as t2 on t1.code = t2.countrycode where indepyear < 1930 and t2.isofficial = "T"
+select count(distinct t2.language) from country as t1 join countrylanguage as t2 on t1.code = t2.countrycode where indepyear < 1930 and t2.isofficial = "T"
+select name from country where surfacearea > (select min(surfacearea) from country where continent = "Europe")
+select name from country where continent = "Africa" and population < (select min(population) from country where continent = "Asia")
+select distinct countrycode from countrylanguage where language != "English"
+select code from country where governmentform != "Republic" except select countrycode from countrylanguage where language = "English"
+select distinct t3.name from country as t1 join countrylanguage as t2 on t1.code = t2.countrycode join city as t3 on t1.code = t3.countrycode where t2.isofficial = 'T' and t2.language = 'Chinese' and t1.continent = "Asia"
+select name, population, headofstate from country order by surfacearea desc limit 1
+select sum(population), avg(lifeexpectancy), continent from country group by continent having avg(lifeexpectancy) < 72
+select name, surfacearea from country order by surfacearea desc limit 5
+select sum(population), avg(surfacearea) from country where continent = "North America" and surfacearea > 3000
+select sum(population), avg(surfacearea) from country where continent = "North America" and surfacearea > 3000
+select language, countrycode, max(percentage) from countrylanguage group by countrycode
+select count(*), max(percentage) from countrylanguage where language = "Spanish" group by countrycode
+select countrycode, max(percentage) from countrylanguage where language = "Spanish" group by countrycode
+select countrycode, max(percentage) from countrylanguage where language = "Spanish" group by countrycode
+select t1.name from conductor as t1 join orchestra as t2 on t1.conductor_id = t2.conductor_id group by t2.conductor_id having count(*) > 1
+select t2.name, count(*) from friend as t1 join highschooler as t2 on t1.student_id = t2.id group by t1.student_id
+select t2.name, count(*) from friend as t1 join highschooler as t2 on t1.student_id = t2.id group by t1.student_id
+select t2.name from friend as t1 join highschooler as t2 on t1.student_id = t2.id group by t1.student_id having count(*) >= 3
+select t3.name from friend as t1 join highschooler as t2 on t1.student_id = t2.id join highschooler as t3 on t1.friend_id = t3.id where t2.name = "Kyle"
+select t2.name from friend as t1 join highschooler as t2 on t1.student_id = t2.id intersect select t2.name from likes as t1 join highschooler as t2 on t1.liked_id = t2.id
+select t2.name, count(*) from likes as t1 join highschooler as t2 on t1.student_id = t2.id group by t1.student_id
+select t2.name from likes as t1 join highschooler as t2 on t1.student_id = t2.id group by t1.student_id order by count(*) desc limit 1
+select state from owners intersect select state from professionals
+select avg(age) from dogs where dog_id in ( select dog_id from treatments )
+select professional_id, role_code, email_address from professionals except select t1.professional_id, t1.role_code, t1.email_address from professionals as t1 join treatments as t2 on t1.professional_id = t2.professional_id
+select t1.professional_id, t1.role_code, t1.first_name from professionals as t1 join treatments as t2 on t1.professional_id = t2.professional_id group by t1.professional_id having count(*) >= 2
+select t1.owner_id, t1.last_name from owners as t1 join dogs as t2 on t1.owner_id = t2.owner_id join treatments as t3 on t2.dog_id = t3.dog_id group by t1.owner_id order by count(*) desc limit 1
+select t1.treatment_type_description from treatment_types as t1 join treatments as t2 on t1.treatment_type_code = t2.treatment_type_code group by t1.treatment_type_code order by sum(cost_of_treatment) asc limit 1
+select t1.treatment_type_description from treatment_types as t1 join treatments as t2 on t1.treatment_type_code = t2.treatment_type_code group by t1.treatment_type_code order by sum(cost_of_treatment) asc limit 1
+select t1.owner_id, t1.zip_code from owners as t1 join dogs as t2 on t1.owner_id = t2.owner_id join treatments as t3 on t2.dog_id = t3.dog_id group by t1.owner_id order by sum(t3.cost_of_treatment) desc limit 1
+select distinct t1.date_arrived, t1.date_departed from dogs as t1 join treatments as t2 on t1.dog_id = t2.dog_id
+select distinct t1.date_arrived, t1.date_departed from dogs as t1 join treatments as t2 on t1.dog_id = t2.dog_id
+select role_code, street, city, state from professionals where city like '%west%'
+select role_code, street, city, state from professionals where city like '%west%'
+select count(*) from dogs where dog_id not in ( select dog_id from treatments )
+select max(age) from dogs
+select max(charge_amount) from charges
+select distinct t1.first_name, t3.treatment_type_description from professionals as t1 join treatments as t2 on t1.professional_id = t2.professional_id join treatment_types as t3 on t2.treatment_type_code = t3.treatment_type_code
+select t1.name from singer as t1 join song as t2 on t1.singer_id = t2.singer_id group by t1.name having count(*) > 1
+select t1.name from singer as t1 join song as t2 on t1.singer_id = t2.singer_id group by t1.name having count(*) > 1
+select t2.name, count(*) from likes as t1 join highschooler as t2 on t1.student_id = t2.id group by t1.student_id
+select avg(loser_age), avg(winner_age) from matches
+select t1.owner_id, t1.zip_code from owners as t1 join dogs as t2 on t1.owner_id = t2.owner_id join treatments as t3 on t2.dog_id = t3.dog_id group by t1.owner_id order by sum(t3.cost_of_treatment) desc limit 1
+select count(*) from country where governmentform = "Republic"
+select avg(t2.edispl) from car_names as t1 join cars_data as t2 on t1.makeid = t2.id where t1.model = 'volvo'
+select t2.makeid, t2.make from cars_data as t1 join car_names as t2 on t1.id = t2.makeid where t1.horsepower > (select min(horsepower) from cars_data) and t1.cylinders <= 3
+select t1.first_name, t1.middle_name, t1.last_name, t1.student_id from students as t1 join student_enrolment as t2 on t1.student_id = t2.student_id group by t1.student_id having count(*) = 2
+select t1.contestant_number, t1.contestant_name from contestants as t1 join votes as t2 on t1.contestant_number = t2.contestant_number group by t1.contestant_number order by count(*) asc limit 1
+select t2.name from friend as t1 join highschooler as t2 on t1.student_id = t2.id group by t1.student_id order by count(*) desc limit 1
+select t1.id, t1.maker from car_makers as t1 join model_list as t2 on t1.id = t2.maker group by t1.id having count(*) >= 2 intersect select t1.id, t1.maker from car_makers as t1 join model_list as t2 on t1.id = t2.maker join car_names as t3 on t2.model = t3.model group by t1.id having count(*) > 3
+select count(*), t2.fullname, t2.id from model_list as t1 join car_makers as t2 on t1.maker = t2.id group by t2.id
+select flightno from flights where sourceairport = "APG"
+select winner_name from matches where tourney_name = 'Australian Open' order by winner_rank_points desc limit 1
+select t1.name from people as t1 join poker_player as t2 on t1.people_id = t2.people_id
+select count(*) from likes as t1 join highschooler as t2 on t1.student_id = t2.id where t2.name = "Kyle"
+select countryname from countries except select t1.countryname from countries as t1 join car_makers as t2 on t1.countryid = t2.country
+select t1.model from car_names as t1 join cars_data as t2 on t1.makeid = t2.id where t2.cylinders = 4 order by t2.horsepower desc limit 1
+select t1.continent, count(*) from continents as t1 join countries as t2 on t1.contid = t2.continent join car_makers as t3 on t2.countryid = t3.country group by t1.continent
+select t1.last_name from students as t1 join addresses as t2 on t1.current_address_id = t2.address_id where t2.state_province_county = 'NorthCarolina' except select distinct t3.last_name from students as t3 join student_enrolment as t4 on t3.student_id = t4.student_id
+select sum(surfacearea) from country where region = "Caribbean"
+select weight from cars_data where cylinders = 4 and year = 1974 order by weight asc limit 1
+select citizenship from singer group by citizenship order by count(*) desc limit 1
+select t1.name from country as t1 join countrylanguage as t2 on t1.code = t2.countrycode group by t1.name order by count(*) desc limit 1
+select student_id from friend intersect select liked_id from likes
+select count(*) from cars_data where year = 1980
+select count(*) from paragraphs as t1 join documents as t2 on t1.document_id = t2.document_id where t2.document_name = 'Summer Show'
+select avg(ranking), t1.first_name from players as t1 join rankings as t2 on t1.player_id = t2.player_id group by t1.first_name
+select other_details from paragraphs where paragraph_text = 'Korea'
+select count(*) from student as t1 join has_pet as t2 on t1.stuid = t2.stuid join pets as t3 on t2.petid = t3.petid where t1.sex = 'F' and t3.pettype = 'dog'
+select name, tonnage from ship order by name desc
+select t2.name from course_arrange as t1 join teacher as t2 on t1.teacher_id = t2.teacher_id group by t2.name having count(*) >= 2
+select count(*) from country as t1 join countrylanguage as t2 on t1.code = t2.countrycode where t1.name = "Afghanistan" and isofficial = "T"
+select t1.address_id, t1.line_1, t1.line_2 from addresses as t1 join students as t2 on t1.address_id = t2.current_address_id group by t1.address_id order by count(*) desc limit 1
+select t1.contid, t1.continent, count(*) from continents as t1 join countries as t2 on t1.contid = t2.continent group by t1.contid
+select sum(t2.total_spent) from visitor as t1 join visit as t2 on t1.id = t2.visitor_id where t1.level_of_membership = 1
+select t1.airline from airlines as t1 join flights as t2 on t1.uid = t2.airline where t2.sourceairport = "AHD"
+select name, population, lifeexpectancy from country where continent = "Asia" order by surfacearea desc limit 1
+select count(*) from battle where id not in ( select lost_in_battle from ship where tonnage = '225' )
+select version_number, template_type_code from templates where version_number > 5
+select count(*) from flights where sourceairport = "APG"
+select record_company from orchestra where year_of_founded < 2003 intersect select record_company from orchestra where year_of_founded > 2003
+select count(*) from airlines as t1 join flights as t2 on t2.airline = t1.uid where t1.airline = "United Airlines" and t2.sourceairport = "AHD"
+select cost_of_treatment from treatments order by date_of_treatment desc limit 1
+select t2.transcript_date, t1.transcript_id from transcript_contents as t1 join transcripts as t2 on t1.transcript_id = t2.transcript_id group by t1.transcript_id having count(*) >= 2
+select student_id from friend intersect select liked_id from likes
+select distinct t1.template_type_description from ref_template_types as t1 join templates as t2 on t1.template_type_code = t2.template_type_code join documents as t3 on t2.template_id = t3.template_id
+select count(*) from paragraphs as t1 join documents as t2 on t1.document_id = t2.document_id where t2.document_name = 'Summer Show'
+select count(*) from flights where sourceairport = "APG"
+select t1.cost_of_treatment, t2.treatment_type_description from treatments as t1 join treatment_types as t2 on t1.treatment_type_code = t2.treatment_type_code
+select t1.airportcode from airports as t1 join flights as t2 on t1.airportcode = t2.destairport or t1.airportcode = t2.sourceairport group by t1.airportcode order by count(*) desc limit 1
+select t1.fullname, t1.id from car_makers as t1 join model_list as t2 on t1.id = t2.maker group by t1.id having count(*) > 3
+select name from country where surfacearea > (select min(surfacearea) from country where continent = "Europe")
+select count(*) from cars_data where cylinders > 4
+select model from car_names group by model order by count(*) desc limit 1
+select distinct countrycode from countrylanguage where language != "English"
+select name from country where continent = "Europe" and population = "80000"
+select distinct t1.course_name from courses as t1 join student_enrolment_courses as t2 on t1.course_id = t2.course_id
+select t1.airline from airlines as t1 join flights as t2 on t1.uid = t2.airline where t2.destairport = "AHD"
+select winner_name, winner_rank_points from matches group by winner_name order by count(*) desc limit 1
+select t1.airline from airlines as t1 join flights as t2 on t1.uid = t2.airline where t2.sourceairport = "APG" intersect select t1.airline from airlines as t1 join flights as t2 on t1.uid = t2.airline where t2.sourceairport = "CVO"
+select count(*), student_course_id from transcript_contents group by student_course_id order by count(*) desc limit 1
+select t1.model from car_names as t1 join cars_data as t2 on t1.makeid = t2.id where t2.cylinders = 4 order by t2.horsepower desc limit 1
+select t2.name, count(*) from course_arrange as t1 join teacher as t2 on t1.teacher_id = t2.teacher_id group by t2.name
+select t1.first_name, t1.middle_name, t1.last_name, t1.student_id from students as t1 join student_enrolment as t2 on t1.student_id = t2.student_id group by t1.student_id having count(*) = 2
+select count(*) from friend as t1 join highschooler as t2 on t1.student_id = t2.id where t2.name = "Kyle"
+select t1.flightno from flights as t1 join airports as t2 on t1.sourceairport = t2.airportcode where t2.city = "Aberdeen"
+select id from tv_channel group by country having count(*) > 2
+select distinct t1.first_name, t1.middle_name, t1.last_name from students as t1 join student_enrolment as t2 on t1.student_id = t2.student_id join degree_programs as t3 on t2.degree_program_id = t3.degree_program_id where t3.degree_summary_name = 'Bachelor'
+select count(*) from friend as t1 join highschooler as t2 on t1.student_id = t2.id where t2.name = "Kyle"
+select t1.airline from airlines as t1 join flights as t2 on t1.uid = t2.airline where t2.sourceairport = "APG" intersect select t1.airline from airlines as t1 join flights as t2 on t1.uid = t2.airline where t2.sourceairport = "CVO"
+select t1.series_name from tv_channel as t1 join tv_series as t2 on t1.id = t2.channel where t2.episode = "A love of a Lifetime"
+select language, countrycode, max(percentage) from countrylanguage group by countrycode
+select count(*) from cars_data where horsepower > 150
+select count(*) from country as t1 join countrylanguage as t2 on t1.code = t2.countrycode where t1.name = "Afghanistan" and isofficial = "T"
+select count(*) from car_makers as t1 join model_list as t2 on t1.id = t2.maker where t1.fullname = 'American motor Company'
+select t1.owner_id, t2.first_name, t2.last_name from dogs as t1 join owners as t2 on t1.owner_id = t2.owner_id group by t1.owner_id order by count(*) desc limit 1
+select t2.name, count(*) from course_arrange as t1 join teacher as t2 on t1.teacher_id = t2.teacher_id group by t2.name
+select avg(lifeexpectancy) from country where continent = "Africa" and governmentform = "Republic"
+select t1.city from airports as t1 join flights as t2 on t1.airportcode = t2.destairport group by t1.city order by count(*) desc limit 1
+select sum(tours), ranking_date from rankings group by ranking_date
+select year_of_founded from orchestra as t1 join performance as t2 on t1.orchestra_id = t2.orchestra_id group by t2.orchestra_id having count(*) > 1
+select t1.lname from student as t1 join has_pet as t2 on t1.stuid = t2.stuid join pets as t3 on t3.petid = t2.petid where t3.pet_age = 3 and t3.pettype = 'cat'
+select t2.countryname from car_makers as t1 join countries as t2 on t1.country = t2.countryid group by t1.country order by count(*) desc limit 1
+select t1.owner_id, t1.last_name from owners as t1 join dogs as t2 on t1.owner_id = t2.owner_id join treatments as t3 on t2.dog_id = t3.dog_id group by t1.owner_id order by count(*) desc limit 1
+select distinct t1.fname, t1.age from student as t1 join has_pet as t2 on t1.stuid = t2.stuid
+select min(loser_rank) from matches
+select max(age) from dogs
+select first_name, last_name, email_address from owners where state like '%north%'
+select t2.property_type_description from properties as t1 join ref_property_types as t2 on t1.property_type_code = t2.property_type_code group by t1.property_type_code
+select avg(capacity), max(capacity) from stadium
+select sum(ranking_points), t1.first_name from players as t1 join rankings as t2 on t1.player_id = t2.player_id group by t1.first_name
+select max(killed), min(killed) from death
+select hometown from teacher order by age asc limit 1
+select weight from cars_data where cylinders = 8 and year = 1974 order by weight asc limit 1
+select t1.name from country as t1 join countrylanguage as t2 on t1.code = t2.countrycode where t2.language = "English" and t2.isofficial = "T" intersect select t1.name from country as t1 join countrylanguage as t2 on t1.code = t2.countrycode where t2.language = "French" and t2.isofficial = "T"
+select count(distinct degree_summary_name) from degree_programs
+select t1.country_code, t1.first_name from players as t1 join matches as t2 on t1.player_id = t2.winner_id where t2.tourney_name = 'WTA Championships' intersect select t1.country_code, t1.first_name from players as t1 join matches as t2 on t1.player_id = t2.winner_id where t2.tourney_name = 'Australian Open'
+select first_name, middle_name, last_name from students order by date_left asc limit 1
+select sum(population) from city where district = "Gelderland"
+select distinct t2.model from car_names as t1 join model_list as t2 on t1.model = t2.model join car_makers as t3 on t2.maker = t3.id join cars_data as t4 on t1.makeid = t4.id where t3.fullname = 'General Motors' or t4.weight > 3500
+select t1.country_code, t1.first_name from players as t1 join rankings as t2 on t1.player_id = t2.player_id order by t2.tours desc limit 1
+select id from highschooler except select student_id from friend
+select t2.language from country as t1 join countrylanguage as t2 on t1.code = t2.countrycode where t1.continent = "Asia" group by t2.language order by count (*) desc limit 1
+select t1.abbreviation, t1.country from airlines as t1 join flights as t2 on t1.uid = t2.airline group by t1.airline order by count(*) limit 1
+select t3.name from friend as t1 join highschooler as t2 on t1.student_id = t2.id join highschooler as t3 on t1.friend_id = t3.id where t2.name = "Kyle"
+select city, country from airports where airportname = "Alton"
+select flightno from flights where sourceairport = "APG"
+select min(version_number), template_type_code from templates
+select count(*) from country where governmentform = "Republic"
+select transcript_date, other_details from transcripts order by transcript_date asc limit 1
+select count(distinct degree_summary_name) from degree_programs
+select count(*) from flights where destairport = "ATO"
+select t1.contid, t1.continent, count(*) from continents as t1 join countries as t2 on t1.contid = t2.continent group by t1.contid
+select avg(grade) from highschooler where id in (select t1.student_id from friend as t1 join highschooler as t2 on t1.student_id = t2.id)
+select t1.last_name from students as t1 join addresses as t2 on t1.current_address_id = t2.address_id where t2.state_province_county = 'NorthCarolina' except select distinct t3.last_name from students as t3 join student_enrolment as t4 on t3.student_id = t4.student_id
+select t2.name from friend as t1 join highschooler as t2 on t1.student_id = t2.id group by t1.student_id having count(*) >= 3
+select t2.visitor_id, t1.name, t1.level_of_membership from visitor as t1 join visit as t2 on t1.id = t2.visitor_id group by t2.visitor_id order by sum(t2.total_spent) desc limit 1
+select name, surfacearea, indepyear from country order by population limit 1
+select t2.name, count(*) from singer_in_concert as t1 join singer as t2 on t1.singer_id = t2.singer_id group by t2.singer_id
+select population, lifeexpectancy from country where name = "Brazil"
+select major_record_format from orchestra group by major_record_format order by count(*) asc
+select t1.name from conductor as t1 join orchestra as t2 on t1.conductor_id = t2.conductor_id group by t2.conductor_id having count(*) > 1
+select count(*) from car_makers as t1 join countries as t2 on t1.country = t2.countryid where t2.countryname = 'france'
+select t2.language from country as t1 join countrylanguage as t2 on t1.code = t2.countrycode where t1.governmentform = "Republic" group by t2.language having count(*) = 1
+select avg(age) from dogs where dog_id in ( select dog_id from treatments )
+select t2.name from likes as t1 join highschooler as t2 on t1.student_id = t2.id group by t1.student_id order by count(*) desc limit 1
+select code from country where governmentform != "Republic" except select countrycode from countrylanguage where language = "English"
+select count(*) from airlines as t1 join flights as t2 on t2.airline = t1.uid where t1.airline = "United Airlines" and t2.sourceairport = "AHD"
+select count(*) from cars_data where year = 1980
+select count(*) from flights as t1 join airports as t2 on t1.destairport = t2.airportcode join airports as t3 on t1.sourceairport = t3.airportcode where t2.city = "Ashley" and t3.city = "Aberdeen"
+select min(grade) from highschooler where id not in (select t1.student_id from friend as t1 join highschooler as t2 on t1.student_id = t2.id)
+select count(*) from car_makers as t1 join model_list as t2 on t1.id = t2.maker where t1.fullname = 'American motor Company'
