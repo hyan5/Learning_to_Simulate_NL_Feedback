@@ -61,7 +61,7 @@ Please refer to [Feedback Evaluation README](feedback_simulation/)
 
 ## 2.4 Training an Error Correction model
 
-Please refer to [Error Correction README](error_correction\)
+Please refer to [Error Correction README](error_correction/)
 
 ## 2.5 Experiments Reproduction
 
