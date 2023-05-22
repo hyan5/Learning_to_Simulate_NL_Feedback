@@ -1,5 +1,15 @@
 # Learning to Simulate Natural Language Feedback for Interactive Semantic Parsing
-This repository provides code implementation for our paper [Learning to Simulate Natural Language Feedback for Interactive Semantic Parsing](https://github.com/hyan5/Learning_to_Simulate_NL_Feedback.git) accepted by *ACL 2023*.
+This repository provides code implementation for our paper [Learning to Simulate Natural Language Feedback for Interactive Semantic Parsing](https://arxiv.org/pdf/2305.08195.pdf) accepted by *ACL 2023*.
+
+Please cite our paper if you find our work/code helpful!
+```
+@inproceedings{yan2023learning,
+  title={Learning to Simulate Natural Language Feedback for Interactive Semantic Parsing},
+  author={Yan, Hao and Srivastava, Saurabh and Tai, Yintao and Wang, Sida I and Yih, Wen-tau and Yao, Ziyu},
+  booktitle={ACL},
+  year={2023}
+}
+```
 
 ## 1. Overview
 <p align="center">
