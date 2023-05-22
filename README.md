@@ -66,25 +66,25 @@ Please refer to [Error Correction README](error_correction/)
 ## 2.5 Experiments Reproduction
 
 We uploaded all our data and checkpoints used in the experiments:
-1. Collected error parses on EditSQL.
+1. Collected error parses on EditSQL. :white_check_mark:
 
 2. Our SPLASH data split in low-data settings:
 
-   - 20-80 split
+   - 20-80 split :white_check_mark:
 
-   - 10-90 split
+   - 10-90 split :white_check_mark:
 
-   - 5-95 split
+   - 5-95 split :white_check_mark:
 
 3. All checkpoints ([download]()):
    - Feedback Evaluation Models:
-     - Trained with Full SPLASH data
-     - Trained with 5/10/20 % SPLASH data
+     - Trained with Full SPLASH data :white_check_mark:
+     - Trained with 5/10/20 % SPLASH data :x: / :x:/ :white_check_mark:
    - Feedback Simulation Models:
-     - Trained with Full SPLASH data
-     - Trained with 5/10/20 % SPLASH data
+     - Trained with Full SPLASH data :white_check_mark:
+     - Trained with 5/10/20 % SPLASH data :x: / :x:/ :white_check_mark:
    - Error Correction Models:
-     - Trained with SPLASH + EditSQL
-     - Trained with *k%* SPLASH + *(100-k) %* SPLASH w/ simulated feedback
+     - Trained with SPLASH + EditSQL :white_check_mark:
+     - Trained with *k%* SPLASH + *(100-k) %* SPLASH w/ simulated feedback :x: / :x:/ :white_check_mark:
    
    
