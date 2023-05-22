@@ -17,9 +17,6 @@ os.environ["TOKENIZERS_PARALLELISM"] = "false"
 # os.environ["LOCAL_RANK"] = "0"
 # os.environ["WORLD_SIZE"] = "1"
 
-# wandb.init(project="feedback-simulator", entity="hyan5")
-
-
 parser = ArgumentParser()
 parser.add_argument("--data_dir",type=str,required=True,
     help="Path of the dataset")
@@ -58,7 +55,7 @@ def compute_metrics(eval_preds):
     predictions, labels = eval_preds
     predictions = tokenizer.batch_decode(predictions, skip_special_tokens=True)
     
-    dev_data = json.load(open('../../data/splash/dev_w_template_feedback.json', 'r'))
+    dev_data = json.load(open('../data/splash/dev_w_template_feedback.json', 'r'))
     pri_spans = []
     sec_spans = []
     eval_temps = []
