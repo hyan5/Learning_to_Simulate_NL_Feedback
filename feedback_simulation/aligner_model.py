@@ -184,11 +184,11 @@ class BertAligner:
         temp_len_tensor = torch.tensor(temp_len).unsqueeze(0).to('cuda')
         pos_len_tensor = torch.tensor(pos_len).unsqueeze(0).to('cuda')
 
-        alignment_matrix, cls_sim = self.aligner_model(temp_ids, temp_len_tensor, \
+        alignment_matrix = self.aligner_model(temp_ids, temp_len_tensor, \
             positive_tensor=pos_ids, positive_lengths=pos_len_tensor, mode='eval')
         
 
-        return alignment_matrix,cls_sim, temp, pos, primary_span, secondary_span
+        return alignment_matrix, temp, pos, primary_span, secondary_span
 
     def split_tokens(self, tokens, lengths):
         assert len(tokens) == sum(lengths) + 3
