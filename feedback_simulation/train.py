@@ -30,7 +30,7 @@ parser.add_argument("--data_revision",type=str,required=True,
 parser.add_argument("--model", type=str, required=True, 
     help="Model name, T5-base, T5-large, T5-3b")
 
-parser.add_argument("--evaltion_ckp", type=str, required=True, 
+parser.add_argument("--evaluation_ckp", type=str, required=True, 
     help="Path of feedback evaluation checkpoint used to select the best feedback simulator")
 
 parser.add_argument("--local_rank", type=int, required=False, 
