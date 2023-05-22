@@ -16,14 +16,16 @@ python generate_template_feedback.py -i ../data/editsql/dev.json -o ../data/edit
 python generate_template_feedback.py -i ../data/editsql/test.json -o ../data/editsql/test_w_template_feedback.json --no_underscore --no_quote --connect_foreign_key_group --use_modified_schema
 ```
 ### Data Preprocessing
+1. Put the evaluation checkpoint under folder "eval_ckp"
 ```
 cd $ISP_HOME/feedback_simulation
-python preprocess.py --sep --strip --use_modified_schema --train [train data path] --dev [dev data path] --test [test data path] --target feedback --format tqes --out_dir [out dir]
+python preprocess.py --sep --strip --use_modified_schema --train [train data path] --evaluation_ckp [evaluator path] --dev [dev data path] --test [test data path] --target feedback --format tqes --out_dir [out dir]
 
 arguments:
 --sep			whether use the special tokens to separate the different parts
 --strip		remove all white space at the end
 --use_modified_schema		use the canonical name of database schema
+--evaluation_ckp feedback evaluation model path
 --train  	the path of train file, e.g. "../data/splash/train_20_80.json"
 --dev			the path of dev file, e.g. "../data/splash/dev_w_template_feedback.json"
 --test		the path of test file, e.g. "../data/splash/test_w_template_feedback.json"

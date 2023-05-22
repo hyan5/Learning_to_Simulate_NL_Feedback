@@ -10,7 +10,7 @@ import numpy as np
 from nltk.tokenize import word_tokenize
 from transformers import Seq2SeqTrainer, Seq2SeqTrainingArguments
 from transformers import AutoTokenizer, AutoModelForSeq2SeqLM, Seq2SeqTrainingArguments, Seq2SeqTrainer
-from evaluation import EvalMetric
+from feedback_evaluation import EvalMetric
 
 os.environ["TOKENIZERS_PARALLELISM"] = "false"
 # os.environ["WANDB_DISABLED"] = "true"
@@ -30,6 +30,9 @@ parser.add_argument("--data_revision",type=str,required=True,
 
 parser.add_argument("--model", type=str, required=True, 
     help="Model name, T5-base, T5-large, T5-3b")
+
+parser.add_argument("--evaltion_ckp", type=str, required=True, 
+    help="Path of feedback evaluation checkpoint used to select the best feedback simulator")
 
 parser.add_argument("--ckp", type=str, required=True, 
     help="checkpoint path")
@@ -61,7 +64,7 @@ def read_data(data_path):
 #     return metric.compute(predictions=predictions, references=labels, tokenizer=word_tokenize, smooth=True)
 
 def compute_metrics(eval_preds):
-    metric = EvalMetric()
+    metric = EvalMetric(checkpoints=eval_ckp)
     predictions, labels = eval_preds
     predictions = tokenizer.batch_decode(predictions, skip_special_tokens=True)
     
@@ -101,8 +104,9 @@ if __name__ == "__main__":
 
     model_type = args.model
     data_dir = args.data_dir
-    global revision
+    global revision, eval_ckp
     revision = args.data_revision
+    eval_ckp = args.evaluation_ckp
     cache_dir = model_type.replace('-', '_')
 
     batch_size = 5
@@ -174,21 +178,17 @@ if __name__ == "__main__":
         compute_metrics=compute_metrics
     )
 
-    # trainer.train()
-    # wandb.finish()
-    # trainer.save_model()
+    # preds, label_ids, metrics = trainer.predict(test_dataset=train_dataset, max_length=max_target_length)
+    # predictions = tokenizer.batch_decode(preds, skip_special_tokens=True)
+    # with open(f'./results-{model_type}-{revision}/train.sim', 'w') as f:
+    #     for pred in predictions:
+    #         f.write("%s\n" % pred.strip())
 
-    preds, label_ids, metrics = trainer.predict(test_dataset=train_dataset, max_length=max_target_length)
-    predictions = tokenizer.batch_decode(preds, skip_special_tokens=True)
-    with open(f'./results-{model_type}-{revision}/train.sim', 'w') as f:
-        for pred in predictions:
-            f.write("%s\n" % pred.strip())
-
-    preds, label_ids, metrics = trainer.predict(test_dataset=dev_dataset, max_length=max_target_length)
-    predictions = tokenizer.batch_decode(preds, skip_special_tokens=True)
-    with open(f'./results-{model_type}-{revision}/dev.sim', 'w') as f:
-        for pred in predictions:
-            f.write("%s\n" % pred.strip())
+    # preds, label_ids, metrics = trainer.predict(test_dataset=dev_dataset, max_length=max_target_length)
+    # predictions = tokenizer.batch_decode(preds, skip_special_tokens=True)
+    # with open(f'./results-{model_type}-{revision}/dev.sim', 'w') as f:
+    #     for pred in predictions:
+    #         f.write("%s\n" % pred.strip())
 
     preds, label_ids, metrics = trainer.predict(test_dataset=test_dataset, max_length=max_target_length)
     predictions = tokenizer.batch_decode(preds, skip_special_tokens=True)
