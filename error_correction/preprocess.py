@@ -199,12 +199,12 @@ def prepare_data(args):
                 t['edits'] = _edits_no_tag
                 t['edits_original'] = _d
 
-            if 'train' in dest_file:
-                store_json(src_data, 'train.json')
-            if 'dev' in dest_file:
-                store_json(src_data, 'dev.json')
-            if 'test' in dest_file:
-                store_json(src_data, 'test.json')
+            # if 'train' in dest_file:
+            #     store_json(src_data, 'train.json')
+            # if 'dev' in dest_file:
+            #     store_json(src_data, 'dev.json')
+            # if 'test' in dest_file:
+            #     store_json(src_data, 'test.json')
 
             if target == 'edits':
                 if 'train' in dest_file:
