@@ -58,21 +58,25 @@ arguments:
 	--evaluation_ckp #feedback evaluation model path
 ```
 ### Running train.py w/ full SPLASH, then simulate feedback on EditSQL
+Put feedback evaluation model trained w/ full SPLASH under folder "eval_ckp"
 ```
 python preprocess.py --sep --strip --use_modified_schema --train ../data/splash/train_w_template_feedback.json --dev dev_w_template_feedback.json --test ../data/editsql/test_w_template_feedback.json --target feedback --format tqes --out_dir data/editsql_tqes_feedback
 python train.py --data_dir data --data_revision editsql_tqes_feedback --model t5-large --evaluation_ckp eval_ckp/evaluation_full_splash.pt
 ```
 ### Running train.py w/ 20% SPLASH, then simulate feedback on remaining 80% SPLASH
+Put feedback evaluation model trained w/ 20% SPLASH under folder "eval_ckp"
 ```
 python preprocess.py --sep --strip --use_modified_schema --train ../data/splash/split/train_20.json --dev dev_w_template_feedback.json --test ../data/splash/split/train_80.json --target feedback --format tqes --out_dir data/splash_20_80_tqes_feedback
 python train.py --data_dir data --data_revision splash_20_80_tqes_feedback --model t5-large --evaluation_ckp eval_ckp/evaluation_20_splash.pt
 ```
 ### Running train.py w/ 10% SPLASH, then simulate feedback on remaining 90% SPLASH
+Put feedback evaluation model trained w/ 10% SPLASH under folder "eval_ckp"
 ```
 python preprocess.py --sep --strip --use_modified_schema --train ../data/splash/split/train_10.json --dev dev_w_template_feedback.json --test ../data/splash/split/train_90.json --target feedback --format tqes --out_dir data/splash_10_90_tqes_feedback
 python train.py --data_dir data --data_revision splash_10_90_tqes_feedback --model t5-large --evaluation_ckp eval_ckp/evaluation_10_splash.pt
 ```
 ### Running train.py w/ 5% SPLASH, then simulate feedback on remaining 95% SPLASH
+Put feedback evaluation model trained w/ 5% SPLASH under folder "eval_ckp"
 ```
 python preprocess.py --sep --strip --use_modified_schema --train ../data/splash/split/train_5.json --dev dev_w_template_feedback.json --test ../data/splash/split/train_95.json --target feedback --format tqes --out_dir data/splash_5_95_tqes_feedback
 python train.py --data_dir data --data_revision splash_5_95_tqes_feedback --model t5-large --evaluation_ckp eval_ckp/evaluation_5_splash.pt
