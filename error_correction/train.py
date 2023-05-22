@@ -19,7 +19,6 @@ os.environ["TOKENIZERS_PARALLELISM"] = "false"
 # os.environ["WANDB_MODE"]="offline"
 # os.environ["LOCAL_RANK"] = "0"
 # os.environ["WORLD_SIZE"] = "1"
-# wandb.init(project="feedback-correction", entity="hyan5")
 
 parser = ArgumentParser()
 parser.add_argument("--data_dir",type=str,required=True,
@@ -92,7 +91,7 @@ if __name__ == "__main__":
 
     additional_special_tokens = ['[question]', '[schema]', '[T]', '[C]', '[true]', '[predict]', '[feedback]', '[system description]', '<', '</']
 
-    pdb.set_trace()
+    # pdb.set_trace()
     model = AutoModelForSeq2SeqLM.from_pretrained(model_type, cache_dir=cache_dir)
     # tokenizer.add_tokens([AddedToken("<"), AddedToken("[question]"), AddedToken("[schema]"), AddedToken("[T]"), AddedToken("[C]"), AddedToken("[feedback]"), AddedToken("[system description]")])
     tokenizer.add_tokens(additional_special_tokens)
@@ -150,11 +149,11 @@ if __name__ == "__main__":
     # wandb.finish()
     trainer.save_model()
 
-    preds, label_ids, metrics = trainer.predict(test_dataset=dev_dataset, max_length=max_target_length)
-    predictions = tokenizer.batch_decode(preds, skip_special_tokens=True)
-    with open(f'./results-{model_type}-{revision}/dev.sim', 'w') as f:
-        for pred in predictions:
-            f.write("%s\n" % pred)
+    # preds, label_ids, metrics = trainer.predict(test_dataset=dev_dataset, max_length=max_target_length)
+    # predictions = tokenizer.batch_decode(preds, skip_special_tokens=True)
+    # with open(f'./results-{model_type}-{revision}/dev.sim', 'w') as f:
+    #     for pred in predictions:
+    #         f.write("%s\n" % pred)
 
     preds, label_ids, metrics = trainer.predict(test_dataset=test_dataset, max_length=max_target_length)
     predictions = tokenizer.batch_decode(preds, skip_special_tokens=True)
