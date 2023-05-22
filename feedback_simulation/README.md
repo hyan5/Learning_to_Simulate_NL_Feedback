@@ -19,13 +19,12 @@ python generate_template_feedback.py -i ../data/editsql/test.json -o ../data/edi
 1. Put the evaluation checkpoint under folder "eval_ckp"
 ```
 cd $ISP_HOME/feedback_simulation
-python preprocess.py --sep --strip --use_modified_schema --train [train data path] --evaluation_ckp [evaluator path] --dev [dev data path] --test [test data path] --target feedback --format tqes --out_dir [out dir]
+python preprocess.py --sep --strip --use_modified_schema --train [train data path] --dev [dev data path] --test [test data path] --target feedback --format tqes --out_dir [out dir]
 
 arguments:
 --sep			whether use the special tokens to separate the different parts
 --strip		remove all white space at the end
 --use_modified_schema		use the canonical name of database schema
---evaluation_ckp feedback evaluation model path
 --train  	the path of train file, e.g. "../data/splash/train_20_80.json"
 --dev			the path of dev file, e.g. "../data/splash/dev_w_template_feedback.json"
 --test		the path of test file, e.g. "../data/splash/test_w_template_feedback.json"
@@ -36,23 +35,25 @@ arguments:
 
 ### Running train.py
 ```
-python train.py --data_dir [root folder of all processed data] --data_revision [name of processed data folder] --model t5-large
+python train.py --data_dir [root folder of all processed data] --data_revision [name of processed data folder] --model t5-large --evaluation_ckp [evaluator path]
 
 arguments:
 	--data_dir	# the root folder of all processed data
 	--data_revision	# the name of processed data folder
 	--model 	# the model type [t5-base, t5-large]
+	--evaluation_ckp #feedback evaluation model path
 ```
 ### Running prediction.py
 If you have checkpoints and want to only load the checkpint and run prediction:
 ```
-python prediction.py --data_dir [root folder of all processed data] --data_revision [name of processed data folder] --model t5-large --ckp [path of checkpoint]
+python prediction.py --data_dir [root folder of all processed data] --data_revision [name of processed data folder] --model t5-large --ckp [path of checkpoint] --evaluation_ckp [evaluator path]
 
 arguments:
 	--data_dir	# the root folder of all processed data
 	--data_revision	# the name of processed data folder
 	--model 	# the model type [t5-base, t5-large]
 	--ckp #the path of saved checkpoint
+	--evaluation_ckp #feedback evaluation model path
 ```
 
 5. Combine the simulated feedback into the EditSQL dataset
