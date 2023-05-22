@@ -7,7 +7,7 @@
 
 3. Generate the template feedback for SPLASH data and remove structural errors
 
-### Running the train.py
+### Running train.py
 ```
 cd $ISP_HOME/feedback_evaluation
 python train.py --tables [spider table file] --train [train file] --dev [dev file]
@@ -21,4 +21,24 @@ optional arguments:
 	--batch_size	the number of examples in one batch
 	--negative_mode	how to generate negative examples, currently support "replace"
 	--negative_num	the maximum number of negative examples can be generated for each input
+```
+### Running train.py w/ full SPLASH
+```
+cd $ISP_HOME/feedback_evaluation
+python train.py --tables ../data/spider/tables.json --train ../data/splash/train_w_template_feedback.json --dev ../data/splash/dev_w_template_feedback.json
+```
+### Running train.py w/ 20% SPLASH
+```
+cd $ISP_HOME/feedback_evaluation
+python train.py --tables ../data/spider/tables.json --train ../data/splash/split/train_20.json --dev ../data/splash/dev_w_template_feedback.json
+```
+### Running train.py w/ 10% SPLASH
+```
+cd $ISP_HOME/feedback_evaluation
+python train.py --tables ../data/spider/tables.json --train ../data/splash/split/train_10.json --dev ../data/splash/dev_w_template_feedback.json
+```
+### Running train.py w/ 5% SPLASH
+```
+cd $ISP_HOME/feedback_evaluation
+python train.py --tables ../data/spider/tables.json --train ../data/splash/split/train_5.json --dev ../data/splash/dev_w_template_feedback.json
 ```
