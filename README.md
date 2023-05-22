@@ -10,8 +10,17 @@ Interactive semantic parsing based on natural language (NL) feedback, where user
 ### 1.1 Simulating feedback to a specific semantic parse
 We investigate whether our feedback simulator trained on the [SPLASH](https://aclanthology.org/2020.acl-main.187.pdf) dataset can simulate feedback for an unseen semantic parser. We first follow a similar procedure of SPLASH to create mistakes made by [EditSQL](https://arxiv.org/abs/1909.00786) on the Spider training set, and then apply our feedback simulator to simulate NL feedback. This results in around 2,400 simulated training examples. This data is then used to augment the original SPLASH training set for training an error correction model. We evaluate the error correction model on both the SPLASH test set and the EditSQL test set (which similarly contains human-annotated feedback to EditSQL’s mistakes on the Spider dev set and was additionally provided by [NL-Edit](https://arxiv.org/pdf/2103.14540.pdf).
 
+<p align="center">
+<img src="experiment_results.png" alt="Arch Overview" title="Low-data Experiment results" width="800"/>
+</p>
+
+
 ### 1.2 Simulating feedback in low-data settings
 One important motivation of our research is to reduce the need for human annotations. Therefore, we also experiment with a “low data” setting, where only *K%* of the SPLASH training set will be used to construct our feedback simulator and evaluator. For the remaining *(100−K)%* of training examples, we will instead apply our feedback simulator to simulate NL feedback. In experiments, we consider *K=20, 10, and 5*,, consuming 1639, 836, and 268 training examples, respectively.
+<p align="center">
+<img src="low-data-results.png" alt="Arch Overview" title="Low-data Experiment results" width="800"/>
+</p>
+
 ## 2. Setup
 This project is tested in python 3.8.6.
 
