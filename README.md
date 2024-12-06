@@ -6,7 +6,8 @@ Please cite our paper if you find our work/code helpful!
 @inproceedings{yan2023learning,
   title={Learning to Simulate Natural Language Feedback for Interactive Semantic Parsing},
   author={Yan, Hao and Srivastava, Saurabh and Tai, Yintao and Wang, Sida I and Yih, Wen-tau and Yao, Ziyu},
-  booktitle={ACL},
+  booktitle={Proceedings of the 61st Annual Meeting of the Association for Computational Linguistics (Volume 1: Long Papers)},
+  pages={3149--3170},
   year={2023}
 }
 ```
